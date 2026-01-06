@@ -1,0 +1,92 @@
+import{_ as a,c as n,o as i,a2 as p}from"./chunks/framework.M6mT8HR4.js";const o=JSON.parse('{"title":"从零开始编写一个简单的 OS Kernel","description":"","frontmatter":{"title":"从零开始编写一个简单的 OS Kernel","date":"2024-04-28T00:00:00.000Z","category":"OS","tags":["Kernel","C","Assembly","Low-level"]},"headers":[],"relativePath":"posts/os-kernel-from-scratch.md","filePath":"posts/os-kernel-from-scratch.md"}'),l={name:"posts/os-kernel-from-scratch.md"};function e(t,s,h,k,r,d){return i(),n("div",null,[...s[0]||(s[0]=[p(`<h1 id="从零开始编写一个简单的-os-kernel" tabindex="-1">从零开始编写一个简单的 OS Kernel <a class="header-anchor" href="#从零开始编写一个简单的-os-kernel" aria-label="Permalink to &quot;从零开始编写一个简单的 OS Kernel&quot;">​</a></h1><p>让我们动手写一个 Hello World 级别的内核，探索计算机启动的奥秘。</p><h2 id="引导过程" tabindex="-1">引导过程 <a class="header-anchor" href="#引导过程" aria-label="Permalink to &quot;引导过程&quot;">​</a></h2><p>计算机启动时，BIOS 会加载引导扇区（Boot Sector）到内存地址 <code>0x7c00</code>。</p><h3 id="编写引导代码" tabindex="-1">编写引导代码 <a class="header-anchor" href="#编写引导代码" aria-label="Permalink to &quot;编写引导代码&quot;">​</a></h3><div class="language-assembly vp-adaptive-theme"><button title="Copy Code" class="copy"></button><span class="lang">assembly</span><pre class="shiki shiki-themes github-light github-dark vp-code" tabindex="0"><code><span class="line"><span>[org 0x7c00]</span></span>
+<span class="line"><span>[bits 16]</span></span>
+<span class="line"><span></span></span>
+<span class="line"><span>start:</span></span>
+<span class="line"><span>    mov si, hello</span></span>
+<span class="line"><span>    call print_string</span></span>
+<span class="line"><span>    jmp $</span></span>
+<span class="line"><span></span></span>
+<span class="line"><span>print_string:</span></span>
+<span class="line"><span>    lodsb</span></span>
+<span class="line"><span>    or al, al</span></span>
+<span class="line"><span>    jz .done</span></span>
+<span class="line"><span>    mov ah, 0x0e</span></span>
+<span class="line"><span>    int 0x10</span></span>
+<span class="line"><span>    jmp print_string</span></span>
+<span class="line"><span>.done:</span></span>
+<span class="line"><span>    ret</span></span>
+<span class="line"><span></span></span>
+<span class="line"><span>hello: db &#39;Hello, OS World!&#39;, 0</span></span>
+<span class="line"><span></span></span>
+<span class="line"><span>times 510-($-$$) db 0</span></span>
+<span class="line"><span>dw 0xaa55</span></span></code></pre></div><h3 id="关键概念" tabindex="-1">关键概念 <a class="header-anchor" href="#关键概念" aria-label="Permalink to &quot;关键概念&quot;">​</a></h3><ul><li><code>[org 0x7c00]</code>: 告诉汇编器代码将被加载到内存地址 0x7c00</li><li><code>[bits 16]</code>: 指定生成 16 位实模式代码</li><li><code>0xaa55</code>: 引导扇区签名，BIOS 通过它识别引导设备</li></ul><h2 id="从实模式到保护模式" tabindex="-1">从实模式到保护模式 <a class="header-anchor" href="#从实模式到保护模式" aria-label="Permalink to &quot;从实模式到保护模式&quot;">​</a></h2><p>实模式下只能访问 1MB 内存，我们需要切换到保护模式。</p><h3 id="全局描述符表-gdt" tabindex="-1">全局描述符表（GDT） <a class="header-anchor" href="#全局描述符表-gdt" aria-label="Permalink to &quot;全局描述符表（GDT）&quot;">​</a></h3><div class="language-assembly vp-adaptive-theme"><button title="Copy Code" class="copy"></button><span class="lang">assembly</span><pre class="shiki shiki-themes github-light github-dark vp-code" tabindex="0"><code><span class="line"><span>gdt_start:</span></span>
+<span class="line"><span>    dq 0x0                  ; null descriptor</span></span>
+<span class="line"><span></span></span>
+<span class="line"><span>gdt_code:</span></span>
+<span class="line"><span>    dw 0xffff               ; limit</span></span>
+<span class="line"><span>    dw 0x0                  ; base (low)</span></span>
+<span class="line"><span>    db 0x0                  ; base (middle)</span></span>
+<span class="line"><span>    db 10011010b            ; access</span></span>
+<span class="line"><span>    db 11001111b            ; granularity</span></span>
+<span class="line"><span>    db 0x0                  ; base (high)</span></span>
+<span class="line"><span></span></span>
+<span class="line"><span>gdt_data:</span></span>
+<span class="line"><span>    dw 0xffff</span></span>
+<span class="line"><span>    dw 0x0</span></span>
+<span class="line"><span>    db 0x0</span></span>
+<span class="line"><span>    db 10010010b</span></span>
+<span class="line"><span>    db 11001111b</span></span>
+<span class="line"><span>    db 0x0</span></span>
+<span class="line"><span></span></span>
+<span class="line"><span>gdt_end:</span></span>
+<span class="line"><span></span></span>
+<span class="line"><span>gdt_descriptor:</span></span>
+<span class="line"><span>    dw gdt_end - gdt_start - 1</span></span>
+<span class="line"><span>    dd gdt_start</span></span></code></pre></div><h3 id="切换到保护模式" tabindex="-1">切换到保护模式 <a class="header-anchor" href="#切换到保护模式" aria-label="Permalink to &quot;切换到保护模式&quot;">​</a></h3><div class="language-assembly vp-adaptive-theme"><button title="Copy Code" class="copy"></button><span class="lang">assembly</span><pre class="shiki shiki-themes github-light github-dark vp-code" tabindex="0"><code><span class="line"><span>cli                         ; 关闭中断</span></span>
+<span class="line"><span>lgdt [gdt_descriptor]       ; 加载 GDT</span></span>
+<span class="line"><span>mov eax, cr0</span></span>
+<span class="line"><span>or eax, 0x1                 ; 设置保护模式位</span></span>
+<span class="line"><span>mov cr0, eax</span></span>
+<span class="line"><span>jmp CODE_SEG:init_pm        ; 远跳转到 32 位代码</span></span>
+<span class="line"><span></span></span>
+<span class="line"><span>[bits 32]</span></span>
+<span class="line"><span>init_pm:</span></span>
+<span class="line"><span>    mov ax, DATA_SEG</span></span>
+<span class="line"><span>    mov ds, ax</span></span>
+<span class="line"><span>    mov ss, ax</span></span>
+<span class="line"><span>    mov es, ax</span></span>
+<span class="line"><span>    mov fs, ax</span></span>
+<span class="line"><span>    mov gs, ax</span></span>
+<span class="line"><span>    </span></span>
+<span class="line"><span>    mov ebp, 0x90000</span></span>
+<span class="line"><span>    mov esp, ebp</span></span>
+<span class="line"><span>    </span></span>
+<span class="line"><span>    call kernel_main</span></span></code></pre></div><h2 id="编写简单的内核" tabindex="-1">编写简单的内核 <a class="header-anchor" href="#编写简单的内核" aria-label="Permalink to &quot;编写简单的内核&quot;">​</a></h2><div class="language-c vp-adaptive-theme"><button title="Copy Code" class="copy"></button><span class="lang">c</span><pre class="shiki shiki-themes github-light github-dark vp-code" tabindex="0"><code><span class="line"><span style="--shiki-light:#6A737D;--shiki-dark:#6A737D;">// kernel.c</span></span>
+<span class="line"><span style="--shiki-light:#D73A49;--shiki-dark:#F97583;">void</span><span style="--shiki-light:#6F42C1;--shiki-dark:#B392F0;"> kernel_main</span><span style="--shiki-light:#24292E;--shiki-dark:#E1E4E8;">() {</span></span>
+<span class="line"><span style="--shiki-light:#D73A49;--shiki-dark:#F97583;">    char</span><span style="--shiki-light:#D73A49;--shiki-dark:#F97583;"> *</span><span style="--shiki-light:#24292E;--shiki-dark:#E1E4E8;">video_memory </span><span style="--shiki-light:#D73A49;--shiki-dark:#F97583;">=</span><span style="--shiki-light:#24292E;--shiki-dark:#E1E4E8;"> (</span><span style="--shiki-light:#D73A49;--shiki-dark:#F97583;">char</span><span style="--shiki-light:#D73A49;--shiki-dark:#F97583;"> *</span><span style="--shiki-light:#24292E;--shiki-dark:#E1E4E8;">)</span><span style="--shiki-light:#D73A49;--shiki-dark:#F97583;">0x</span><span style="--shiki-light:#005CC5;--shiki-dark:#79B8FF;">b8000</span><span style="--shiki-light:#24292E;--shiki-dark:#E1E4E8;">;</span></span>
+<span class="line"><span style="--shiki-light:#D73A49;--shiki-dark:#F97583;">    const</span><span style="--shiki-light:#D73A49;--shiki-dark:#F97583;"> char</span><span style="--shiki-light:#D73A49;--shiki-dark:#F97583;"> *</span><span style="--shiki-light:#24292E;--shiki-dark:#E1E4E8;">message </span><span style="--shiki-light:#D73A49;--shiki-dark:#F97583;">=</span><span style="--shiki-light:#032F62;--shiki-dark:#9ECBFF;"> &quot;Hello from Kernel!&quot;</span><span style="--shiki-light:#24292E;--shiki-dark:#E1E4E8;">;</span></span>
+<span class="line"><span style="--shiki-light:#24292E;--shiki-dark:#E1E4E8;">    </span></span>
+<span class="line"><span style="--shiki-light:#D73A49;--shiki-dark:#F97583;">    for</span><span style="--shiki-light:#24292E;--shiki-dark:#E1E4E8;"> (</span><span style="--shiki-light:#D73A49;--shiki-dark:#F97583;">int</span><span style="--shiki-light:#24292E;--shiki-dark:#E1E4E8;"> i </span><span style="--shiki-light:#D73A49;--shiki-dark:#F97583;">=</span><span style="--shiki-light:#005CC5;--shiki-dark:#79B8FF;"> 0</span><span style="--shiki-light:#24292E;--shiki-dark:#E1E4E8;">; </span><span style="--shiki-light:#E36209;--shiki-dark:#FFAB70;">message</span><span style="--shiki-light:#24292E;--shiki-dark:#E1E4E8;">[i] </span><span style="--shiki-light:#D73A49;--shiki-dark:#F97583;">!=</span><span style="--shiki-light:#032F62;--shiki-dark:#9ECBFF;"> &#39;</span><span style="--shiki-light:#005CC5;--shiki-dark:#79B8FF;">\\0</span><span style="--shiki-light:#032F62;--shiki-dark:#9ECBFF;">&#39;</span><span style="--shiki-light:#24292E;--shiki-dark:#E1E4E8;">; i</span><span style="--shiki-light:#D73A49;--shiki-dark:#F97583;">++</span><span style="--shiki-light:#24292E;--shiki-dark:#E1E4E8;">) {</span></span>
+<span class="line"><span style="--shiki-light:#E36209;--shiki-dark:#FFAB70;">        video_memory</span><span style="--shiki-light:#24292E;--shiki-dark:#E1E4E8;">[i </span><span style="--shiki-light:#D73A49;--shiki-dark:#F97583;">*</span><span style="--shiki-light:#005CC5;--shiki-dark:#79B8FF;"> 2</span><span style="--shiki-light:#24292E;--shiki-dark:#E1E4E8;">] </span><span style="--shiki-light:#D73A49;--shiki-dark:#F97583;">=</span><span style="--shiki-light:#E36209;--shiki-dark:#FFAB70;"> message</span><span style="--shiki-light:#24292E;--shiki-dark:#E1E4E8;">[i];</span></span>
+<span class="line"><span style="--shiki-light:#E36209;--shiki-dark:#FFAB70;">        video_memory</span><span style="--shiki-light:#24292E;--shiki-dark:#E1E4E8;">[i </span><span style="--shiki-light:#D73A49;--shiki-dark:#F97583;">*</span><span style="--shiki-light:#005CC5;--shiki-dark:#79B8FF;"> 2</span><span style="--shiki-light:#D73A49;--shiki-dark:#F97583;"> +</span><span style="--shiki-light:#005CC5;--shiki-dark:#79B8FF;"> 1</span><span style="--shiki-light:#24292E;--shiki-dark:#E1E4E8;">] </span><span style="--shiki-light:#D73A49;--shiki-dark:#F97583;">=</span><span style="--shiki-light:#D73A49;--shiki-dark:#F97583;"> 0x</span><span style="--shiki-light:#005CC5;--shiki-dark:#79B8FF;">0f</span><span style="--shiki-light:#24292E;--shiki-dark:#E1E4E8;">;</span><span style="--shiki-light:#6A737D;--shiki-dark:#6A737D;"> // 白字黑底</span></span>
+<span class="line"><span style="--shiki-light:#24292E;--shiki-dark:#E1E4E8;">    }</span></span>
+<span class="line"><span style="--shiki-light:#24292E;--shiki-dark:#E1E4E8;">    </span></span>
+<span class="line"><span style="--shiki-light:#D73A49;--shiki-dark:#F97583;">    while</span><span style="--shiki-light:#24292E;--shiki-dark:#E1E4E8;"> (</span><span style="--shiki-light:#005CC5;--shiki-dark:#79B8FF;">1</span><span style="--shiki-light:#24292E;--shiki-dark:#E1E4E8;">);</span><span style="--shiki-light:#6A737D;--shiki-dark:#6A737D;">  // 挂起</span></span>
+<span class="line"><span style="--shiki-light:#24292E;--shiki-dark:#E1E4E8;">}</span></span></code></pre></div><h2 id="构建与运行" tabindex="-1">构建与运行 <a class="header-anchor" href="#构建与运行" aria-label="Permalink to &quot;构建与运行&quot;">​</a></h2><h3 id="makefile" tabindex="-1">Makefile <a class="header-anchor" href="#makefile" aria-label="Permalink to &quot;Makefile&quot;">​</a></h3><div class="language-makefile vp-adaptive-theme"><button title="Copy Code" class="copy"></button><span class="lang">makefile</span><pre class="shiki shiki-themes github-light github-dark vp-code" tabindex="0"><code><span class="line"><span style="--shiki-light:#6F42C1;--shiki-dark:#B392F0;">boot.bin</span><span style="--shiki-light:#24292E;--shiki-dark:#E1E4E8;">: boot.asm</span></span>
+<span class="line"><span style="--shiki-light:#24292E;--shiki-dark:#E1E4E8;">	nasm -f bin boot.asm -o boot.bin</span></span>
+<span class="line"></span>
+<span class="line"><span style="--shiki-light:#6F42C1;--shiki-dark:#B392F0;">kernel.o</span><span style="--shiki-light:#24292E;--shiki-dark:#E1E4E8;">: kernel.c</span></span>
+<span class="line"><span style="--shiki-light:#24292E;--shiki-dark:#E1E4E8;">	gcc -m32 -c kernel.c -o kernel.o -ffreestanding</span></span>
+<span class="line"></span>
+<span class="line"><span style="--shiki-light:#6F42C1;--shiki-dark:#B392F0;">kernel.bin</span><span style="--shiki-light:#24292E;--shiki-dark:#E1E4E8;">: kernel.o</span></span>
+<span class="line"><span style="--shiki-light:#24292E;--shiki-dark:#E1E4E8;">	ld -m elf_i386 -Ttext 0x1000 kernel.o -o kernel.bin --oformat binary</span></span>
+<span class="line"></span>
+<span class="line"><span style="--shiki-light:#6F42C1;--shiki-dark:#B392F0;">os.bin</span><span style="--shiki-light:#24292E;--shiki-dark:#E1E4E8;">: boot.bin kernel.bin</span></span>
+<span class="line"><span style="--shiki-light:#24292E;--shiki-dark:#E1E4E8;">	cat boot.bin kernel.bin &gt; os.bin</span></span>
+<span class="line"></span>
+<span class="line"><span style="--shiki-light:#6F42C1;--shiki-dark:#B392F0;">run</span><span style="--shiki-light:#24292E;--shiki-dark:#E1E4E8;">: os.bin</span></span>
+<span class="line"><span style="--shiki-light:#24292E;--shiki-dark:#E1E4E8;">	qemu-system-x86_64 -drive format=raw,file=os.bin</span></span>
+<span class="line"></span>
+<span class="line"><span style="--shiki-light:#6F42C1;--shiki-dark:#B392F0;">clean</span><span style="--shiki-light:#24292E;--shiki-dark:#E1E4E8;">:</span></span>
+<span class="line"><span style="--shiki-light:#24292E;--shiki-dark:#E1E4E8;">	rm -f *.bin *.o</span></span></code></pre></div><h3 id="运行" tabindex="-1">运行 <a class="header-anchor" href="#运行" aria-label="Permalink to &quot;运行&quot;">​</a></h3><div class="language-bash vp-adaptive-theme"><button title="Copy Code" class="copy"></button><span class="lang">bash</span><pre class="shiki shiki-themes github-light github-dark vp-code" tabindex="0"><code><span class="line"><span style="--shiki-light:#6F42C1;--shiki-dark:#B392F0;">make</span></span>
+<span class="line"><span style="--shiki-light:#6F42C1;--shiki-dark:#B392F0;">make</span><span style="--shiki-light:#032F62;--shiki-dark:#9ECBFF;"> run</span></span></code></pre></div><h2 id="下一步" tabindex="-1">下一步 <a class="header-anchor" href="#下一步" aria-label="Permalink to &quot;下一步&quot;">​</a></h2><p>现在你有了一个最简单的操作系统内核！接下来可以：</p><ul><li>🔧 实现中断处理（IDT）</li><li>💾 添加内存管理</li><li>⌨️ 实现键盘驱动</li><li>📟 实现简单的 Shell</li></ul><h2 id="参考资源" tabindex="-1">参考资源 <a class="header-anchor" href="#参考资源" aria-label="Permalink to &quot;参考资源&quot;">​</a></h2><ul><li><a href="https://wiki.osdev.org/" target="_blank" rel="noreferrer">OSDev Wiki</a></li><li><a href="https://www.cs.bham.ac.uk/~exr/lectures/opsys/10_11/lectures/os-dev.pdf" target="_blank" rel="noreferrer">Writing a Simple Operating System from Scratch</a></li><li><a href="https://littleosbook.github.io/" target="_blank" rel="noreferrer">The little book about OS development</a></li></ul><hr><p>这就是操作系统开发的第一步！🚀</p>`,28)])])}const E=a(l,[["render",e]]);export{o as __pageData,E as default};
