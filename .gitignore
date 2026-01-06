@@ -5,13 +5,17 @@ yarn-debug.log*
 yarn-error.log*
 pnpm-debug.log*
 
-# VitePress 构建输出
-.vitepress/dist
-.vitepress/cache
+# Next.js
+/.next/
+/out/
+
+# 生产构建
+/build
 
 # 操作系统文件
 .DS_Store
 Thumbs.db
+*.pem
 
 # IDE 配置
 .vscode/
@@ -22,10 +26,13 @@ Thumbs.db
 
 # 环境变量
 .env
-.env.local
-.env.*.local
+.env*.local
 
 # 临时文件
 *.log
 .temp
 .tmp
+
+# TypeScript
+*.tsbuildinfo
+next-env.d.ts
