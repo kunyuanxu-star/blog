@@ -17,11 +17,29 @@ export default defineConfig({
 
     search: {
       provider: 'local'
+    },
+
+    // 自定义配置：个人信息
+    userBio: {
+      name: 'Kunyuan Xu',
+      title: 'KX',
+      description: 'System Software Developer. Enthusiast of Rust & OS Kernels.',
+      avatar: '/avatar.png',
+      github: 'https://github.com/kunyuanxu-star',
+      techStack: ['Rust', 'C++', 'OS Kernel', 'React', 'Linux', 'Git']
     }
   },
 
   head: [
-    ['link', { rel: 'stylesheet', href: 'https://cdn.jsdelivr.net/npm/@tailwindcss/typography@0.5.10/dist/typography.min.css' }],
-    ['script', { src: 'https://cdn.tailwindcss.com' }]
-  ]
+    ['link', { rel: 'icon', href: '/blog/favicon.ico' }],
+    ['meta', { name: 'theme-color', content: '#6366f1' }],
+    ['meta', { property: 'og:type', content: 'website' }],
+    ['meta', { property: 'og:site_name', content: 'Kunyuan Xu Blog' }],
+  ],
+
+  sitemap: {
+    hostname: 'https://kunyuanxu-star.github.io/blog/'
+  },
+
+  lastUpdated: true,
 })

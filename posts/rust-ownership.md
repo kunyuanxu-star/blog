@@ -3,6 +3,9 @@ title: 深入理解 Rust 所有权机制
 date: 2024-05-12
 category: Rust
 tags: [Rust, Memory Safety, Programming]
+readTime: 8 min
+excerpt: Rust 的所有权系统是其最独特的功能。它让 Rust 无需垃圾回收即可保障内存安全。本文将通过实际代码示例，深入剖析 Move、Clone 和 Copy 的区别...
+image: https://images.unsplash.com/photo-1555066931-4365d14bab8c?auto=format&fit=crop&q=80&w=1000
 ---
 
 # 深入理解 Rust 所有权机制

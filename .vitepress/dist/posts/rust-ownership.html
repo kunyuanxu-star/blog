@@ -6,16 +6,18 @@
     <title>深入理解 Rust 所有权机制 | Kunyuan Xu</title>
     <meta name="description" content="System Software Developer. Enthusiast of Rust & OS Kernels.">
     <meta name="generator" content="VitePress v1.6.4">
-    <link rel="preload stylesheet" href="/blog/assets/style.34qB_DD_.css" as="style">
+    <link rel="preload stylesheet" href="/blog/assets/style.Co0v4LGf.css" as="style">
     <link rel="preload stylesheet" href="/blog/vp-icons.css" as="style">
     
-    <script type="module" src="/blog/assets/app.D-cj8EaW.js"></script>
+    <script type="module" src="/blog/assets/app.L8UX2Vx4.js"></script>
     <link rel="preload" href="/blog/assets/inter-roman-latin.Di8DUHzh.woff2" as="font" type="font/woff2" crossorigin="">
-    <link rel="modulepreload" href="/blog/assets/chunks/theme.CbDUstet.js">
-    <link rel="modulepreload" href="/blog/assets/chunks/framework.M6mT8HR4.js">
-    <link rel="modulepreload" href="/blog/assets/posts_rust-ownership.md.DYcMsfIA.lean.js">
-    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@tailwindcss/typography@0.5.10/dist/typography.min.css">
-    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="modulepreload" href="/blog/assets/chunks/theme.DVwYa1Bx.js">
+    <link rel="modulepreload" href="/blog/assets/chunks/framework.CzX2Xjny.js">
+    <link rel="modulepreload" href="/blog/assets/posts_rust-ownership.md.dsDKNiDN.lean.js">
+    <link rel="icon" href="/blog/favicon.ico">
+    <meta name="theme-color" content="#6366f1">
+    <meta property="og:type" content="website">
+    <meta property="og:site_name" content="Kunyuan Xu Blog">
     <script id="check-dark-mode">(()=>{const e=localStorage.getItem("vitepress-theme-appearance")||"auto",a=window.matchMedia("(prefers-color-scheme: dark)").matches;(!e||e==="auto"?a:e==="dark")&&document.documentElement.classList.add("dark")})();</script>
     <script id="check-mac-os">document.documentElement.classList.toggle("mac",/Mac|iPhone|iPod|iPad/i.test(navigator.platform));</script>
   </head>
@@ -66,8 +68,8 @@
 <span class="line"><span style="--shiki-light:#24292E;--shiki-dark:#E1E4E8;">    </span></span>
 <span class="line"><span style="--shiki-light:#6A737D;--shiki-dark:#6A737D;">    // s.clear();</span><span style="--shiki-light:#6A737D;--shiki-dark:#6A737D;"> // ❌ 错误！s 已被不可变借用</span></span>
 <span class="line"><span style="--shiki-light:#6F42C1;--shiki-dark:#B392F0;">    println!</span><span style="--shiki-light:#24292E;--shiki-dark:#E1E4E8;">(</span><span style="--shiki-light:#032F62;--shiki-dark:#9ECBFF;">&quot;the first word is: {}&quot;</span><span style="--shiki-light:#24292E;--shiki-dark:#E1E4E8;">, word);</span></span>
-<span class="line"><span style="--shiki-light:#24292E;--shiki-dark:#E1E4E8;">}</span></span></code></pre></div><h2 id="总结" tabindex="-1">总结 <a class="header-anchor" href="#总结" aria-label="Permalink to &quot;总结&quot;">​</a></h2><p>所有权系统是 Rust 的核心概念，理解它对于编写高效、安全的 Rust 代码至关重要。主要要点：</p><ul><li>✅ 每个值都有唯一的所有者</li><li>✅ 通过借用可以临时访问数据</li><li>✅ 编译器在编译时检查所有权规则</li><li>✅ 零运行时开销的内存安全</li></ul><p>掌握所有权后，你会发现 Rust 的编译器是你最好的朋友！🦀</p></div></div></main><footer class="VPDocFooter" data-v-e6f2a212 data-v-1bcd8184><!--[--><!--]--><!----><!----></footer><!--[--><!--]--></div></div></div><!--[--><!--]--></div></div><!----><!--[--><!--]--></div></div>
-    <script>window.__VP_HASH_MAP__=JSON.parse("{\"about.md\":\"C6jf9CCt\",\"content_rust-ownership.md\":\"CddgrRAH\",\"index.md\":\"4zAk75nj\",\"posts_github-actions-deployment.md\":\"BQDVQfqD\",\"posts_os-kernel-from-scratch.md\":\"fIbJ7Vq6\",\"posts_risc-v-intro.md\":\"DnwEISGS\",\"posts_rust-ownership.md\":\"DYcMsfIA\",\"readme.md\":\"eIwM5I-A\"}");window.__VP_SITE_DATA__=JSON.parse("{\"lang\":\"en-US\",\"dir\":\"ltr\",\"title\":\"Kunyuan Xu\",\"description\":\"System Software Developer. Enthusiast of Rust & OS Kernels.\",\"base\":\"/blog/\",\"head\":[],\"router\":{\"prefetchLinks\":true},\"appearance\":true,\"themeConfig\":{\"nav\":[{\"text\":\"Blog\",\"link\":\"/\"},{\"text\":\"About\",\"link\":\"/about\"}],\"socialLinks\":[{\"icon\":\"github\",\"link\":\"https://github.com/kunyuanxu-star/blog\"}],\"search\":{\"provider\":\"local\"}},\"locales\":{},\"scrollOffset\":134,\"cleanUrls\":false}");</script>
+<span class="line"><span style="--shiki-light:#24292E;--shiki-dark:#E1E4E8;">}</span></span></code></pre></div><h2 id="总结" tabindex="-1">总结 <a class="header-anchor" href="#总结" aria-label="Permalink to &quot;总结&quot;">​</a></h2><p>所有权系统是 Rust 的核心概念，理解它对于编写高效、安全的 Rust 代码至关重要。主要要点：</p><ul><li>✅ 每个值都有唯一的所有者</li><li>✅ 通过借用可以临时访问数据</li><li>✅ 编译器在编译时检查所有权规则</li><li>✅ 零运行时开销的内存安全</li></ul><p>掌握所有权后，你会发现 Rust 的编译器是你最好的朋友！🦀</p></div></div></main><footer class="VPDocFooter" data-v-e6f2a212 data-v-1bcd8184><!--[--><!--]--><div class="edit-info" data-v-1bcd8184><!----><div class="last-updated" data-v-1bcd8184><p class="VPLastUpdated" data-v-1bcd8184 data-v-1bb0c8a8>Last updated: <time datetime="2026-01-06T05:34:47.000Z" data-v-1bb0c8a8></time></p></div></div><!----></footer><!--[--><!--]--></div></div></div><!--[--><!--]--></div></div><!----><!--[--><!--]--></div></div>
+    <script>window.__VP_HASH_MAP__=JSON.parse("{\"about.md\":\"1wDRqVIX\",\"content_rust-ownership.md\":\"DSddgzVD\",\"index.md\":\"CguPcBbH\",\"posts_github-actions-deployment.md\":\"CacU-99U\",\"posts_os-kernel-from-scratch.md\":\"D_nkXJIE\",\"posts_risc-v-intro.md\":\"BTcnBG0l\",\"posts_rust-ownership.md\":\"dsDKNiDN\",\"readme.md\":\"3l6fZN0i\"}");window.__VP_SITE_DATA__=JSON.parse("{\"lang\":\"en-US\",\"dir\":\"ltr\",\"title\":\"Kunyuan Xu\",\"description\":\"System Software Developer. Enthusiast of Rust & OS Kernels.\",\"base\":\"/blog/\",\"head\":[],\"router\":{\"prefetchLinks\":true},\"appearance\":true,\"themeConfig\":{\"nav\":[{\"text\":\"Blog\",\"link\":\"/\"},{\"text\":\"About\",\"link\":\"/about\"}],\"socialLinks\":[{\"icon\":\"github\",\"link\":\"https://github.com/kunyuanxu-star/blog\"}],\"search\":{\"provider\":\"local\"},\"userBio\":{\"name\":\"Kunyuan Xu\",\"title\":\"KX\",\"description\":\"System Software Developer. Enthusiast of Rust & OS Kernels.\",\"avatar\":\"/avatar.png\",\"github\":\"https://github.com/kunyuanxu-star\",\"techStack\":[\"Rust\",\"C++\",\"OS Kernel\",\"React\",\"Linux\",\"Git\"]}},\"locales\":{},\"scrollOffset\":134,\"cleanUrls\":false}");</script>
     
   </body>
 </html>

@@ -3,6 +3,9 @@ title: GitHub Actions 自动化部署实践
 date: 2024-04-15
 category: DevOps
 tags: [GitHub, CI/CD, Automation]
+readTime: 5 min
+excerpt: CI/CD 是现代软件开发不可或缺的一部分。本文介绍如何配置 GitHub Actions，实现代码提交后自动运行测试并部署到 GitHub Pages...
+image: https://images.unsplash.com/photo-1618401471353-b98afee0b2eb?auto=format&fit=crop&q=80&w=1000
 ---
 
 # GitHub Actions 自动化部署实践

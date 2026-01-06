@@ -3,6 +3,9 @@ title: RISC-V 架构初探：指令集与寄存器
 date: 2024-03-30
 category: Arch
 tags: [RISC-V, Assembly, Hardware]
+readTime: 12 min
+excerpt: RISC-V 正在改变芯片设计的格局。作为一种开源指令集架构，它简洁而强大。本文将带你了解 RISC-V 的基本寄存器约定和常用指令...
+image: https://images.unsplash.com/photo-1555099962-4199c345e5dd?auto=format&fit=crop&q=80&w=1000
 ---
 
 # RISC-V 架构初探：指令集与寄存器

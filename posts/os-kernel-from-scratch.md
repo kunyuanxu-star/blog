@@ -3,6 +3,9 @@ title: 从零开始编写一个简单的 OS Kernel
 date: 2024-04-28
 category: OS
 tags: [Kernel, C, Assembly, Low-level]
+readTime: 15 min
+excerpt: 操作系统的引导过程发生了什么？如何从实模式切换到保护模式？让我们动手写一个 Hello World 级别的内核，探索计算机启动的奥秘...
+image: https://images.unsplash.com/photo-1518432031352-d6fc5c10da5a?auto=format&fit=crop&q=80&w=1000
 ---
 
 # 从零开始编写一个简单的 OS Kernel
