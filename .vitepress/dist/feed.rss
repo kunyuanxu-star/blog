@@ -4,7 +4,7 @@
         <title>Kunyuan Xu's Blog</title>
         <link>https://kunyuanxu-star.github.io/blog</link>
         <description>System Software Developer. Enthusiast of Rust &amp; OS Kernels.</description>
-        <lastBuildDate>Tue, 06 Jan 2026 09:27:15 GMT</lastBuildDate>
+        <lastBuildDate>Tue, 06 Jan 2026 09:38:45 GMT</lastBuildDate>
         <docs>https://validator.w3.org/feed/docs/rss2.html</docs>
         <generator>https://github.com/jpmonette/feed</generator>
         <language>zh-CN</language>
@@ -25,16 +25,16 @@
 <li>当所有者（变量）离开作用域，这个值将被丢弃。</li>
 </ol>
 <h2 id="示例代码" tabindex="-1">示例代码 <a class="header-anchor" href="#示例代码" aria-label="Permalink to &quot;示例代码&quot;">&ZeroWidthSpace;</a></h2>
-<div class="language-rust vp-adaptive-theme"><button title="Copy Code" class="copy"></button><span class="lang">rust</span><pre class="shiki shiki-themes github-light github-dark vp-code" tabindex="0" v-pre=""><code><span class="line"><span style="--shiki-light:#D73A49;--shiki-dark:#F97583">fn</span><span style="--shiki-light:#6F42C1;--shiki-dark:#B392F0"> main</span><span style="--shiki-light:#24292E;--shiki-dark:#E1E4E8">() {</span></span>
+<div class="language-rust vp-adaptive-theme line-numbers-mode"><button title="Copy Code" class="copy"></button><span class="lang">rust</span><pre class="shiki shiki-themes github-light github-dark vp-code" tabindex="0" v-pre=""><code><span class="line"><span style="--shiki-light:#D73A49;--shiki-dark:#F97583">fn</span><span style="--shiki-light:#6F42C1;--shiki-dark:#B392F0"> main</span><span style="--shiki-light:#24292E;--shiki-dark:#E1E4E8">() {</span></span>
 <span class="line"><span style="--shiki-light:#D73A49;--shiki-dark:#F97583">    let</span><span style="--shiki-light:#24292E;--shiki-dark:#E1E4E8"> s1 </span><span style="--shiki-light:#D73A49;--shiki-dark:#F97583">=</span><span style="--shiki-light:#6F42C1;--shiki-dark:#B392F0"> String</span><span style="--shiki-light:#D73A49;--shiki-dark:#F97583">::</span><span style="--shiki-light:#6F42C1;--shiki-dark:#B392F0">from</span><span style="--shiki-light:#24292E;--shiki-dark:#E1E4E8">(</span><span style="--shiki-light:#032F62;--shiki-dark:#9ECBFF">"hello"</span><span style="--shiki-light:#24292E;--shiki-dark:#E1E4E8">);</span></span>
 <span class="line"><span style="--shiki-light:#D73A49;--shiki-dark:#F97583">    let</span><span style="--shiki-light:#24292E;--shiki-dark:#E1E4E8"> s2 </span><span style="--shiki-light:#D73A49;--shiki-dark:#F97583">=</span><span style="--shiki-light:#24292E;--shiki-dark:#E1E4E8"> s1; </span><span style="--shiki-light:#6A737D;--shiki-dark:#6A737D">// s1 的值被移动到 s2</span></span>
 <span class="line"><span style="--shiki-light:#24292E;--shiki-dark:#E1E4E8">    </span></span>
 <span class="line"><span style="--shiki-light:#6A737D;--shiki-dark:#6A737D">    // println!("{}", s1);</span><span style="--shiki-light:#6A737D;--shiki-dark:#6A737D"> // 这会报错！</span></span>
 <span class="line"><span style="--shiki-light:#6F42C1;--shiki-dark:#B392F0">    println!</span><span style="--shiki-light:#24292E;--shiki-dark:#E1E4E8">(</span><span style="--shiki-light:#032F62;--shiki-dark:#9ECBFF">"{}"</span><span style="--shiki-light:#24292E;--shiki-dark:#E1E4E8">, s2); </span><span style="--shiki-light:#6A737D;--shiki-dark:#6A737D">// 这是正确的</span></span>
 <span class="line"><span style="--shiki-light:#24292E;--shiki-dark:#E1E4E8">}</span></span></code></pre>
-</div><h2 id="借用与引用" tabindex="-1">借用与引用 <a class="header-anchor" href="#借用与引用" aria-label="Permalink to &quot;借用与引用&quot;">&ZeroWidthSpace;</a></h2>
+<div class="line-numbers-wrapper" aria-hidden="true"><span class="line-number">1</span><br><span class="line-number">2</span><br><span class="line-number">3</span><br><span class="line-number">4</span><br><span class="line-number">5</span><br><span class="line-number">6</span><br><span class="line-number">7</span><br></div></div><h2 id="借用与引用" tabindex="-1">借用与引用 <a class="header-anchor" href="#借用与引用" aria-label="Permalink to &quot;借用与引用&quot;">&ZeroWidthSpace;</a></h2>
 <p>Rust 使用借用（borrowing）机制来在不获取所有权的情况下访问数据。</p>
-<div class="language-rust vp-adaptive-theme"><button title="Copy Code" class="copy"></button><span class="lang">rust</span><pre class="shiki shiki-themes github-light github-dark vp-code" tabindex="0" v-pre=""><code><span class="line"><span style="--shiki-light:#D73A49;--shiki-dark:#F97583">fn</span><span style="--shiki-light:#6F42C1;--shiki-dark:#B392F0"> main</span><span style="--shiki-light:#24292E;--shiki-dark:#E1E4E8">() {</span></span>
+<div class="language-rust vp-adaptive-theme line-numbers-mode"><button title="Copy Code" class="copy"></button><span class="lang">rust</span><pre class="shiki shiki-themes github-light github-dark vp-code" tabindex="0" v-pre=""><code><span class="line"><span style="--shiki-light:#D73A49;--shiki-dark:#F97583">fn</span><span style="--shiki-light:#6F42C1;--shiki-dark:#B392F0"> main</span><span style="--shiki-light:#24292E;--shiki-dark:#E1E4E8">() {</span></span>
 <span class="line"><span style="--shiki-light:#D73A49;--shiki-dark:#F97583">    let</span><span style="--shiki-light:#24292E;--shiki-dark:#E1E4E8"> s1 </span><span style="--shiki-light:#D73A49;--shiki-dark:#F97583">=</span><span style="--shiki-light:#6F42C1;--shiki-dark:#B392F0"> String</span><span style="--shiki-light:#D73A49;--shiki-dark:#F97583">::</span><span style="--shiki-light:#6F42C1;--shiki-dark:#B392F0">from</span><span style="--shiki-light:#24292E;--shiki-dark:#E1E4E8">(</span><span style="--shiki-light:#032F62;--shiki-dark:#9ECBFF">"hello"</span><span style="--shiki-light:#24292E;--shiki-dark:#E1E4E8">);</span></span>
 <span class="line"><span style="--shiki-light:#D73A49;--shiki-dark:#F97583">    let</span><span style="--shiki-light:#24292E;--shiki-dark:#E1E4E8"> len </span><span style="--shiki-light:#D73A49;--shiki-dark:#F97583">=</span><span style="--shiki-light:#6F42C1;--shiki-dark:#B392F0"> calculate_length</span><span style="--shiki-light:#24292E;--shiki-dark:#E1E4E8">(</span><span style="--shiki-light:#D73A49;--shiki-dark:#F97583">&#x26;</span><span style="--shiki-light:#24292E;--shiki-dark:#E1E4E8">s1);</span></span>
 <span class="line"><span style="--shiki-light:#24292E;--shiki-dark:#E1E4E8">    </span></span>
@@ -44,9 +44,9 @@
 <span class="line"><span style="--shiki-light:#D73A49;--shiki-dark:#F97583">fn</span><span style="--shiki-light:#6F42C1;--shiki-dark:#B392F0"> calculate_length</span><span style="--shiki-light:#24292E;--shiki-dark:#E1E4E8">(s</span><span style="--shiki-light:#D73A49;--shiki-dark:#F97583">:</span><span style="--shiki-light:#D73A49;--shiki-dark:#F97583"> &#x26;</span><span style="--shiki-light:#6F42C1;--shiki-dark:#B392F0">String</span><span style="--shiki-light:#24292E;--shiki-dark:#E1E4E8">) </span><span style="--shiki-light:#D73A49;--shiki-dark:#F97583">-></span><span style="--shiki-light:#6F42C1;--shiki-dark:#B392F0"> usize</span><span style="--shiki-light:#24292E;--shiki-dark:#E1E4E8"> {</span></span>
 <span class="line"><span style="--shiki-light:#24292E;--shiki-dark:#E1E4E8">    s</span><span style="--shiki-light:#D73A49;--shiki-dark:#F97583">.</span><span style="--shiki-light:#6F42C1;--shiki-dark:#B392F0">len</span><span style="--shiki-light:#24292E;--shiki-dark:#E1E4E8">()</span></span>
 <span class="line"><span style="--shiki-light:#24292E;--shiki-dark:#E1E4E8">}</span></span></code></pre>
-</div><h2 id="可变引用" tabindex="-1">可变引用 <a class="header-anchor" href="#可变引用" aria-label="Permalink to &quot;可变引用&quot;">&ZeroWidthSpace;</a></h2>
+<div class="line-numbers-wrapper" aria-hidden="true"><span class="line-number">1</span><br><span class="line-number">2</span><br><span class="line-number">3</span><br><span class="line-number">4</span><br><span class="line-number">5</span><br><span class="line-number">6</span><br><span class="line-number">7</span><br><span class="line-number">8</span><br><span class="line-number">9</span><br><span class="line-number">10</span><br></div></div><h2 id="可变引用" tabindex="-1">可变引用 <a class="header-anchor" href="#可变引用" aria-label="Permalink to &quot;可变引用&quot;">&ZeroWidthSpace;</a></h2>
 <p>可变引用允许你修改借用的值：</p>
-<div class="language-rust vp-adaptive-theme"><button title="Copy Code" class="copy"></button><span class="lang">rust</span><pre class="shiki shiki-themes github-light github-dark vp-code" tabindex="0" v-pre=""><code><span class="line"><span style="--shiki-light:#D73A49;--shiki-dark:#F97583">fn</span><span style="--shiki-light:#6F42C1;--shiki-dark:#B392F0"> main</span><span style="--shiki-light:#24292E;--shiki-dark:#E1E4E8">() {</span></span>
+<div class="language-rust vp-adaptive-theme line-numbers-mode"><button title="Copy Code" class="copy"></button><span class="lang">rust</span><pre class="shiki shiki-themes github-light github-dark vp-code" tabindex="0" v-pre=""><code><span class="line"><span style="--shiki-light:#D73A49;--shiki-dark:#F97583">fn</span><span style="--shiki-light:#6F42C1;--shiki-dark:#B392F0"> main</span><span style="--shiki-light:#24292E;--shiki-dark:#E1E4E8">() {</span></span>
 <span class="line"><span style="--shiki-light:#D73A49;--shiki-dark:#F97583">    let</span><span style="--shiki-light:#D73A49;--shiki-dark:#F97583"> mut</span><span style="--shiki-light:#24292E;--shiki-dark:#E1E4E8"> s </span><span style="--shiki-light:#D73A49;--shiki-dark:#F97583">=</span><span style="--shiki-light:#6F42C1;--shiki-dark:#B392F0"> String</span><span style="--shiki-light:#D73A49;--shiki-dark:#F97583">::</span><span style="--shiki-light:#6F42C1;--shiki-dark:#B392F0">from</span><span style="--shiki-light:#24292E;--shiki-dark:#E1E4E8">(</span><span style="--shiki-light:#032F62;--shiki-dark:#9ECBFF">"hello"</span><span style="--shiki-light:#24292E;--shiki-dark:#E1E4E8">);</span></span>
 <span class="line"><span style="--shiki-light:#6F42C1;--shiki-dark:#B392F0">    change</span><span style="--shiki-light:#24292E;--shiki-dark:#E1E4E8">(</span><span style="--shiki-light:#D73A49;--shiki-dark:#F97583">&#x26;mut</span><span style="--shiki-light:#24292E;--shiki-dark:#E1E4E8"> s);</span></span>
 <span class="line"><span style="--shiki-light:#6F42C1;--shiki-dark:#B392F0">    println!</span><span style="--shiki-light:#24292E;--shiki-dark:#E1E4E8">(</span><span style="--shiki-light:#032F62;--shiki-dark:#9ECBFF">"{}"</span><span style="--shiki-light:#24292E;--shiki-dark:#E1E4E8">, s); </span><span style="--shiki-light:#6A737D;--shiki-dark:#6A737D">// "hello, world"</span></span>
@@ -55,17 +55,17 @@
 <span class="line"><span style="--shiki-light:#D73A49;--shiki-dark:#F97583">fn</span><span style="--shiki-light:#6F42C1;--shiki-dark:#B392F0"> change</span><span style="--shiki-light:#24292E;--shiki-dark:#E1E4E8">(some_string</span><span style="--shiki-light:#D73A49;--shiki-dark:#F97583">:</span><span style="--shiki-light:#D73A49;--shiki-dark:#F97583"> &#x26;mut</span><span style="--shiki-light:#6F42C1;--shiki-dark:#B392F0"> String</span><span style="--shiki-light:#24292E;--shiki-dark:#E1E4E8">) {</span></span>
 <span class="line"><span style="--shiki-light:#24292E;--shiki-dark:#E1E4E8">    some_string</span><span style="--shiki-light:#D73A49;--shiki-dark:#F97583">.</span><span style="--shiki-light:#6F42C1;--shiki-dark:#B392F0">push_str</span><span style="--shiki-light:#24292E;--shiki-dark:#E1E4E8">(</span><span style="--shiki-light:#032F62;--shiki-dark:#9ECBFF">", world"</span><span style="--shiki-light:#24292E;--shiki-dark:#E1E4E8">);</span></span>
 <span class="line"><span style="--shiki-light:#24292E;--shiki-dark:#E1E4E8">}</span></span></code></pre>
-</div><h3 id="可变引用的限制" tabindex="-1">可变引用的限制 <a class="header-anchor" href="#可变引用的限制" aria-label="Permalink to &quot;可变引用的限制&quot;">&ZeroWidthSpace;</a></h3>
+<div class="line-numbers-wrapper" aria-hidden="true"><span class="line-number">1</span><br><span class="line-number">2</span><br><span class="line-number">3</span><br><span class="line-number">4</span><br><span class="line-number">5</span><br><span class="line-number">6</span><br><span class="line-number">7</span><br><span class="line-number">8</span><br><span class="line-number">9</span><br></div></div><h3 id="可变引用的限制" tabindex="-1">可变引用的限制 <a class="header-anchor" href="#可变引用的限制" aria-label="Permalink to &quot;可变引用的限制&quot;">&ZeroWidthSpace;</a></h3>
 <p><strong>重要规则</strong>：在特定作用域中的特定数据只能有一个可变引用。</p>
-<div class="language-rust vp-adaptive-theme"><button title="Copy Code" class="copy"></button><span class="lang">rust</span><pre class="shiki shiki-themes github-light github-dark vp-code" tabindex="0" v-pre=""><code><span class="line"><span style="--shiki-light:#D73A49;--shiki-dark:#F97583">let</span><span style="--shiki-light:#D73A49;--shiki-dark:#F97583"> mut</span><span style="--shiki-light:#24292E;--shiki-dark:#E1E4E8"> s </span><span style="--shiki-light:#D73A49;--shiki-dark:#F97583">=</span><span style="--shiki-light:#6F42C1;--shiki-dark:#B392F0"> String</span><span style="--shiki-light:#D73A49;--shiki-dark:#F97583">::</span><span style="--shiki-light:#6F42C1;--shiki-dark:#B392F0">from</span><span style="--shiki-light:#24292E;--shiki-dark:#E1E4E8">(</span><span style="--shiki-light:#032F62;--shiki-dark:#9ECBFF">"hello"</span><span style="--shiki-light:#24292E;--shiki-dark:#E1E4E8">);</span></span>
+<div class="language-rust vp-adaptive-theme line-numbers-mode"><button title="Copy Code" class="copy"></button><span class="lang">rust</span><pre class="shiki shiki-themes github-light github-dark vp-code" tabindex="0" v-pre=""><code><span class="line"><span style="--shiki-light:#D73A49;--shiki-dark:#F97583">let</span><span style="--shiki-light:#D73A49;--shiki-dark:#F97583"> mut</span><span style="--shiki-light:#24292E;--shiki-dark:#E1E4E8"> s </span><span style="--shiki-light:#D73A49;--shiki-dark:#F97583">=</span><span style="--shiki-light:#6F42C1;--shiki-dark:#B392F0"> String</span><span style="--shiki-light:#D73A49;--shiki-dark:#F97583">::</span><span style="--shiki-light:#6F42C1;--shiki-dark:#B392F0">from</span><span style="--shiki-light:#24292E;--shiki-dark:#E1E4E8">(</span><span style="--shiki-light:#032F62;--shiki-dark:#9ECBFF">"hello"</span><span style="--shiki-light:#24292E;--shiki-dark:#E1E4E8">);</span></span>
 <span class="line"></span>
 <span class="line"><span style="--shiki-light:#D73A49;--shiki-dark:#F97583">let</span><span style="--shiki-light:#24292E;--shiki-dark:#E1E4E8"> r1 </span><span style="--shiki-light:#D73A49;--shiki-dark:#F97583">=</span><span style="--shiki-light:#D73A49;--shiki-dark:#F97583"> &#x26;mut</span><span style="--shiki-light:#24292E;--shiki-dark:#E1E4E8"> s;</span></span>
 <span class="line"><span style="--shiki-light:#D73A49;--shiki-dark:#F97583">let</span><span style="--shiki-light:#24292E;--shiki-dark:#E1E4E8"> r2 </span><span style="--shiki-light:#D73A49;--shiki-dark:#F97583">=</span><span style="--shiki-light:#D73A49;--shiki-dark:#F97583"> &#x26;mut</span><span style="--shiki-light:#24292E;--shiki-dark:#E1E4E8"> s; </span><span style="--shiki-light:#6A737D;--shiki-dark:#6A737D">// ❌ 错误！不能同时有两个可变引用</span></span>
 <span class="line"></span>
 <span class="line"><span style="--shiki-light:#6F42C1;--shiki-dark:#B392F0">println!</span><span style="--shiki-light:#24292E;--shiki-dark:#E1E4E8">(</span><span style="--shiki-light:#032F62;--shiki-dark:#9ECBFF">"{}, {}"</span><span style="--shiki-light:#24292E;--shiki-dark:#E1E4E8">, r1, r2);</span></span></code></pre>
-</div><h2 id="slice-类型" tabindex="-1">Slice 类型 <a class="header-anchor" href="#slice-类型" aria-label="Permalink to &quot;Slice 类型&quot;">&ZeroWidthSpace;</a></h2>
+<div class="line-numbers-wrapper" aria-hidden="true"><span class="line-number">1</span><br><span class="line-number">2</span><br><span class="line-number">3</span><br><span class="line-number">4</span><br><span class="line-number">5</span><br><span class="line-number">6</span><br></div></div><h2 id="slice-类型" tabindex="-1">Slice 类型 <a class="header-anchor" href="#slice-类型" aria-label="Permalink to &quot;Slice 类型&quot;">&ZeroWidthSpace;</a></h2>
 <p>Slice 允许你引用集合中一段连续的元素序列，而不用引用整个集合。</p>
-<div class="language-rust vp-adaptive-theme"><button title="Copy Code" class="copy"></button><span class="lang">rust</span><pre class="shiki shiki-themes github-light github-dark vp-code" tabindex="0" v-pre=""><code><span class="line"><span style="--shiki-light:#D73A49;--shiki-dark:#F97583">fn</span><span style="--shiki-light:#6F42C1;--shiki-dark:#B392F0"> first_word</span><span style="--shiki-light:#24292E;--shiki-dark:#E1E4E8">(s</span><span style="--shiki-light:#D73A49;--shiki-dark:#F97583">:</span><span style="--shiki-light:#D73A49;--shiki-dark:#F97583"> &#x26;</span><span style="--shiki-light:#6F42C1;--shiki-dark:#B392F0">String</span><span style="--shiki-light:#24292E;--shiki-dark:#E1E4E8">) </span><span style="--shiki-light:#D73A49;--shiki-dark:#F97583">-></span><span style="--shiki-light:#D73A49;--shiki-dark:#F97583"> &#x26;</span><span style="--shiki-light:#6F42C1;--shiki-dark:#B392F0">str</span><span style="--shiki-light:#24292E;--shiki-dark:#E1E4E8"> {</span></span>
+<div class="language-rust vp-adaptive-theme line-numbers-mode"><button title="Copy Code" class="copy"></button><span class="lang">rust</span><pre class="shiki shiki-themes github-light github-dark vp-code" tabindex="0" v-pre=""><code><span class="line"><span style="--shiki-light:#D73A49;--shiki-dark:#F97583">fn</span><span style="--shiki-light:#6F42C1;--shiki-dark:#B392F0"> first_word</span><span style="--shiki-light:#24292E;--shiki-dark:#E1E4E8">(s</span><span style="--shiki-light:#D73A49;--shiki-dark:#F97583">:</span><span style="--shiki-light:#D73A49;--shiki-dark:#F97583"> &#x26;</span><span style="--shiki-light:#6F42C1;--shiki-dark:#B392F0">String</span><span style="--shiki-light:#24292E;--shiki-dark:#E1E4E8">) </span><span style="--shiki-light:#D73A49;--shiki-dark:#F97583">-></span><span style="--shiki-light:#D73A49;--shiki-dark:#F97583"> &#x26;</span><span style="--shiki-light:#6F42C1;--shiki-dark:#B392F0">str</span><span style="--shiki-light:#24292E;--shiki-dark:#E1E4E8"> {</span></span>
 <span class="line"><span style="--shiki-light:#D73A49;--shiki-dark:#F97583">    let</span><span style="--shiki-light:#24292E;--shiki-dark:#E1E4E8"> bytes </span><span style="--shiki-light:#D73A49;--shiki-dark:#F97583">=</span><span style="--shiki-light:#24292E;--shiki-dark:#E1E4E8"> s</span><span style="--shiki-light:#D73A49;--shiki-dark:#F97583">.</span><span style="--shiki-light:#6F42C1;--shiki-dark:#B392F0">as_bytes</span><span style="--shiki-light:#24292E;--shiki-dark:#E1E4E8">();</span></span>
 <span class="line"></span>
 <span class="line"><span style="--shiki-light:#D73A49;--shiki-dark:#F97583">    for</span><span style="--shiki-light:#24292E;--shiki-dark:#E1E4E8"> (i, </span><span style="--shiki-light:#D73A49;--shiki-dark:#F97583">&#x26;</span><span style="--shiki-light:#24292E;--shiki-dark:#E1E4E8">item) </span><span style="--shiki-light:#D73A49;--shiki-dark:#F97583">in</span><span style="--shiki-light:#24292E;--shiki-dark:#E1E4E8"> bytes</span><span style="--shiki-light:#D73A49;--shiki-dark:#F97583">.</span><span style="--shiki-light:#6F42C1;--shiki-dark:#B392F0">iter</span><span style="--shiki-light:#24292E;--shiki-dark:#E1E4E8">()</span><span style="--shiki-light:#D73A49;--shiki-dark:#F97583">.</span><span style="--shiki-light:#6F42C1;--shiki-dark:#B392F0">enumerate</span><span style="--shiki-light:#24292E;--shiki-dark:#E1E4E8">() {</span></span>
@@ -84,7 +84,7 @@
 <span class="line"><span style="--shiki-light:#6A737D;--shiki-dark:#6A737D">    // s.clear();</span><span style="--shiki-light:#6A737D;--shiki-dark:#6A737D"> // ❌ 错误！s 已被不可变借用</span></span>
 <span class="line"><span style="--shiki-light:#6F42C1;--shiki-dark:#B392F0">    println!</span><span style="--shiki-light:#24292E;--shiki-dark:#E1E4E8">(</span><span style="--shiki-light:#032F62;--shiki-dark:#9ECBFF">"the first word is: {}"</span><span style="--shiki-light:#24292E;--shiki-dark:#E1E4E8">, word);</span></span>
 <span class="line"><span style="--shiki-light:#24292E;--shiki-dark:#E1E4E8">}</span></span></code></pre>
-</div><h2 id="总结" tabindex="-1">总结 <a class="header-anchor" href="#总结" aria-label="Permalink to &quot;总结&quot;">&ZeroWidthSpace;</a></h2>
+<div class="line-numbers-wrapper" aria-hidden="true"><span class="line-number">1</span><br><span class="line-number">2</span><br><span class="line-number">3</span><br><span class="line-number">4</span><br><span class="line-number">5</span><br><span class="line-number">6</span><br><span class="line-number">7</span><br><span class="line-number">8</span><br><span class="line-number">9</span><br><span class="line-number">10</span><br><span class="line-number">11</span><br><span class="line-number">12</span><br><span class="line-number">13</span><br><span class="line-number">14</span><br><span class="line-number">15</span><br><span class="line-number">16</span><br><span class="line-number">17</span><br><span class="line-number">18</span><br><span class="line-number">19</span><br></div></div><h2 id="总结" tabindex="-1">总结 <a class="header-anchor" href="#总结" aria-label="Permalink to &quot;总结&quot;">&ZeroWidthSpace;</a></h2>
 <p>所有权系统是 Rust 的核心概念，理解它对于编写高效、安全的 Rust 代码至关重要。主要要点：</p>
 <ul>
 <li>✅ 每个值都有唯一的所有者</li>
@@ -105,29 +105,29 @@
 <h2 id="引导过程" tabindex="-1">引导过程 <a class="header-anchor" href="#引导过程" aria-label="Permalink to &quot;引导过程&quot;">&ZeroWidthSpace;</a></h2>
 <p>计算机启动时，BIOS 会加载引导扇区（Boot Sector）到内存地址 <code>0x7c00</code>。</p>
 <h3 id="编写引导代码" tabindex="-1">编写引导代码 <a class="header-anchor" href="#编写引导代码" aria-label="Permalink to &quot;编写引导代码&quot;">&ZeroWidthSpace;</a></h3>
-<div class="language-assembly vp-adaptive-theme"><button title="Copy Code" class="copy"></button><span class="lang">assembly</span><pre class="shiki shiki-themes github-light github-dark vp-code" tabindex="0" v-pre=""><code><span class="line"><span>[org 0x7c00]</span></span>
-<span class="line"><span>[bits 16]</span></span>
-<span class="line"><span></span></span>
-<span class="line"><span>start:</span></span>
-<span class="line"><span>    mov si, hello</span></span>
-<span class="line"><span>    call print_string</span></span>
-<span class="line"><span>    jmp $</span></span>
-<span class="line"><span></span></span>
-<span class="line"><span>print_string:</span></span>
-<span class="line"><span>    lodsb</span></span>
-<span class="line"><span>    or al, al</span></span>
-<span class="line"><span>    jz .done</span></span>
-<span class="line"><span>    mov ah, 0x0e</span></span>
-<span class="line"><span>    int 0x10</span></span>
-<span class="line"><span>    jmp print_string</span></span>
-<span class="line"><span>.done:</span></span>
-<span class="line"><span>    ret</span></span>
-<span class="line"><span></span></span>
-<span class="line"><span>hello: db 'Hello, OS World!', 0</span></span>
-<span class="line"><span></span></span>
-<span class="line"><span>times 510-($-$$) db 0</span></span>
-<span class="line"><span>dw 0xaa55</span></span></code></pre>
-</div><h3 id="关键概念" tabindex="-1">关键概念 <a class="header-anchor" href="#关键概念" aria-label="Permalink to &quot;关键概念&quot;">&ZeroWidthSpace;</a></h3>
+<div class="language-asm vp-adaptive-theme line-numbers-mode"><button title="Copy Code" class="copy"></button><span class="lang">asm</span><pre class="shiki shiki-themes github-light github-dark vp-code" tabindex="0" v-pre=""><code><span class="line"><span style="--shiki-light:#24292E;--shiki-dark:#E1E4E8">[org </span><span style="--shiki-light:#005CC5;--shiki-dark:#79B8FF">0x7c00</span><span style="--shiki-light:#24292E;--shiki-dark:#E1E4E8">]</span></span>
+<span class="line"><span style="--shiki-light:#24292E;--shiki-dark:#E1E4E8">[bits </span><span style="--shiki-light:#005CC5;--shiki-dark:#79B8FF">16</span><span style="--shiki-light:#24292E;--shiki-dark:#E1E4E8">]</span></span>
+<span class="line"></span>
+<span class="line"><span style="--shiki-light:#6F42C1;--shiki-dark:#B392F0">start:</span></span>
+<span class="line"><span style="--shiki-light:#D73A49;--shiki-dark:#F97583">    mov</span><span style="--shiki-light:#005CC5;--shiki-dark:#79B8FF"> si</span><span style="--shiki-light:#24292E;--shiki-dark:#E1E4E8">, hello</span></span>
+<span class="line"><span style="--shiki-light:#D73A49;--shiki-dark:#F97583">    call</span><span style="--shiki-light:#24292E;--shiki-dark:#E1E4E8"> print_string</span></span>
+<span class="line"><span style="--shiki-light:#D73A49;--shiki-dark:#F97583">    jmp</span><span style="--shiki-light:#24292E;--shiki-dark:#E1E4E8"> $</span></span>
+<span class="line"></span>
+<span class="line"><span style="--shiki-light:#6F42C1;--shiki-dark:#B392F0">print_string:</span></span>
+<span class="line"><span style="--shiki-light:#D73A49;--shiki-dark:#F97583">    lodsb</span></span>
+<span class="line"><span style="--shiki-light:#D73A49;--shiki-dark:#F97583">    or</span><span style="--shiki-light:#005CC5;--shiki-dark:#79B8FF"> al</span><span style="--shiki-light:#24292E;--shiki-dark:#E1E4E8">, </span><span style="--shiki-light:#005CC5;--shiki-dark:#79B8FF">al</span></span>
+<span class="line"><span style="--shiki-light:#D73A49;--shiki-dark:#F97583">    jz</span><span style="--shiki-light:#24292E;--shiki-dark:#E1E4E8"> .done</span></span>
+<span class="line"><span style="--shiki-light:#D73A49;--shiki-dark:#F97583">    mov</span><span style="--shiki-light:#005CC5;--shiki-dark:#79B8FF"> ah</span><span style="--shiki-light:#24292E;--shiki-dark:#E1E4E8">, </span><span style="--shiki-light:#005CC5;--shiki-dark:#79B8FF">0x0e</span></span>
+<span class="line"><span style="--shiki-light:#D73A49;--shiki-dark:#F97583">    int</span><span style="--shiki-light:#005CC5;--shiki-dark:#79B8FF"> 0x10</span></span>
+<span class="line"><span style="--shiki-light:#D73A49;--shiki-dark:#F97583">    jmp</span><span style="--shiki-light:#24292E;--shiki-dark:#E1E4E8"> print_string</span></span>
+<span class="line"><span style="--shiki-light:#D73A49;--shiki-dark:#F97583">.</span><span style="--shiki-light:#6F42C1;--shiki-dark:#B392F0">done:</span></span>
+<span class="line"><span style="--shiki-light:#D73A49;--shiki-dark:#F97583">    ret</span></span>
+<span class="line"></span>
+<span class="line"><span style="--shiki-light:#6F42C1;--shiki-dark:#B392F0">hello:</span><span style="--shiki-light:#D73A49;--shiki-dark:#F97583"> db</span><span style="--shiki-light:#24292E;--shiki-dark:#E1E4E8"> 'Hello, OS World!', </span><span style="--shiki-light:#005CC5;--shiki-dark:#79B8FF">0</span></span>
+<span class="line"></span>
+<span class="line"><span style="--shiki-light:#005CC5;--shiki-dark:#79B8FF">times</span><span style="--shiki-light:#005CC5;--shiki-dark:#79B8FF"> 510</span><span style="--shiki-light:#24292E;--shiki-dark:#E1E4E8">-($-$$) </span><span style="--shiki-light:#D73A49;--shiki-dark:#F97583">db</span><span style="--shiki-light:#005CC5;--shiki-dark:#79B8FF"> 0</span></span>
+<span class="line"><span style="--shiki-light:#D73A49;--shiki-dark:#F97583">dw</span><span style="--shiki-light:#005CC5;--shiki-dark:#79B8FF"> 0xaa55</span></span></code></pre>
+<div class="line-numbers-wrapper" aria-hidden="true"><span class="line-number">1</span><br><span class="line-number">2</span><br><span class="line-number">3</span><br><span class="line-number">4</span><br><span class="line-number">5</span><br><span class="line-number">6</span><br><span class="line-number">7</span><br><span class="line-number">8</span><br><span class="line-number">9</span><br><span class="line-number">10</span><br><span class="line-number">11</span><br><span class="line-number">12</span><br><span class="line-number">13</span><br><span class="line-number">14</span><br><span class="line-number">15</span><br><span class="line-number">16</span><br><span class="line-number">17</span><br><span class="line-number">18</span><br><span class="line-number">19</span><br><span class="line-number">20</span><br><span class="line-number">21</span><br><span class="line-number">22</span><br></div></div><h3 id="关键概念" tabindex="-1">关键概念 <a class="header-anchor" href="#关键概念" aria-label="Permalink to &quot;关键概念&quot;">&ZeroWidthSpace;</a></h3>
 <ul>
 <li><code>[org 0x7c00]</code>: 告诉汇编器代码将被加载到内存地址 0x7c00</li>
 <li><code>[bits 16]</code>: 指定生成 16 位实模式代码</li>
@@ -136,53 +136,53 @@
 <h2 id="从实模式到保护模式" tabindex="-1">从实模式到保护模式 <a class="header-anchor" href="#从实模式到保护模式" aria-label="Permalink to &quot;从实模式到保护模式&quot;">&ZeroWidthSpace;</a></h2>
 <p>实模式下只能访问 1MB 内存，我们需要切换到保护模式。</p>
 <h3 id="全局描述符表-gdt" tabindex="-1">全局描述符表（GDT） <a class="header-anchor" href="#全局描述符表-gdt" aria-label="Permalink to &quot;全局描述符表（GDT）&quot;">&ZeroWidthSpace;</a></h3>
-<div class="language-assembly vp-adaptive-theme"><button title="Copy Code" class="copy"></button><span class="lang">assembly</span><pre class="shiki shiki-themes github-light github-dark vp-code" tabindex="0" v-pre=""><code><span class="line"><span>gdt_start:</span></span>
-<span class="line"><span>    dq 0x0                  ; null descriptor</span></span>
-<span class="line"><span></span></span>
-<span class="line"><span>gdt_code:</span></span>
-<span class="line"><span>    dw 0xffff               ; limit</span></span>
-<span class="line"><span>    dw 0x0                  ; base (low)</span></span>
-<span class="line"><span>    db 0x0                  ; base (middle)</span></span>
-<span class="line"><span>    db 10011010b            ; access</span></span>
-<span class="line"><span>    db 11001111b            ; granularity</span></span>
-<span class="line"><span>    db 0x0                  ; base (high)</span></span>
-<span class="line"><span></span></span>
-<span class="line"><span>gdt_data:</span></span>
-<span class="line"><span>    dw 0xffff</span></span>
-<span class="line"><span>    dw 0x0</span></span>
-<span class="line"><span>    db 0x0</span></span>
-<span class="line"><span>    db 10010010b</span></span>
-<span class="line"><span>    db 11001111b</span></span>
-<span class="line"><span>    db 0x0</span></span>
-<span class="line"><span></span></span>
-<span class="line"><span>gdt_end:</span></span>
-<span class="line"><span></span></span>
-<span class="line"><span>gdt_descriptor:</span></span>
-<span class="line"><span>    dw gdt_end - gdt_start - 1</span></span>
-<span class="line"><span>    dd gdt_start</span></span></code></pre>
-</div><h3 id="切换到保护模式" tabindex="-1">切换到保护模式 <a class="header-anchor" href="#切换到保护模式" aria-label="Permalink to &quot;切换到保护模式&quot;">&ZeroWidthSpace;</a></h3>
-<div class="language-assembly vp-adaptive-theme"><button title="Copy Code" class="copy"></button><span class="lang">assembly</span><pre class="shiki shiki-themes github-light github-dark vp-code" tabindex="0" v-pre=""><code><span class="line"><span>cli                         ; 关闭中断</span></span>
-<span class="line"><span>lgdt [gdt_descriptor]       ; 加载 GDT</span></span>
-<span class="line"><span>mov eax, cr0</span></span>
-<span class="line"><span>or eax, 0x1                 ; 设置保护模式位</span></span>
-<span class="line"><span>mov cr0, eax</span></span>
-<span class="line"><span>jmp CODE_SEG:init_pm        ; 远跳转到 32 位代码</span></span>
-<span class="line"><span></span></span>
-<span class="line"><span>[bits 32]</span></span>
-<span class="line"><span>init_pm:</span></span>
-<span class="line"><span>    mov ax, DATA_SEG</span></span>
-<span class="line"><span>    mov ds, ax</span></span>
-<span class="line"><span>    mov ss, ax</span></span>
-<span class="line"><span>    mov es, ax</span></span>
-<span class="line"><span>    mov fs, ax</span></span>
-<span class="line"><span>    mov gs, ax</span></span>
-<span class="line"><span>    </span></span>
-<span class="line"><span>    mov ebp, 0x90000</span></span>
-<span class="line"><span>    mov esp, ebp</span></span>
-<span class="line"><span>    </span></span>
-<span class="line"><span>    call kernel_main</span></span></code></pre>
-</div><h2 id="编写简单的内核" tabindex="-1">编写简单的内核 <a class="header-anchor" href="#编写简单的内核" aria-label="Permalink to &quot;编写简单的内核&quot;">&ZeroWidthSpace;</a></h2>
-<div class="language-c vp-adaptive-theme"><button title="Copy Code" class="copy"></button><span class="lang">c</span><pre class="shiki shiki-themes github-light github-dark vp-code" tabindex="0" v-pre=""><code><span class="line"><span style="--shiki-light:#6A737D;--shiki-dark:#6A737D">// kernel.c</span></span>
+<div class="language-asm vp-adaptive-theme line-numbers-mode"><button title="Copy Code" class="copy"></button><span class="lang">asm</span><pre class="shiki shiki-themes github-light github-dark vp-code" tabindex="0" v-pre=""><code><span class="line"><span style="--shiki-light:#6F42C1;--shiki-dark:#B392F0">gdt_start:</span></span>
+<span class="line"><span style="--shiki-light:#D73A49;--shiki-dark:#F97583">    dq</span><span style="--shiki-light:#005CC5;--shiki-dark:#79B8FF"> 0x0</span><span style="--shiki-light:#6A737D;--shiki-dark:#6A737D">                  ; null descriptor</span></span>
+<span class="line"></span>
+<span class="line"><span style="--shiki-light:#6F42C1;--shiki-dark:#B392F0">gdt_code:</span></span>
+<span class="line"><span style="--shiki-light:#D73A49;--shiki-dark:#F97583">    dw</span><span style="--shiki-light:#005CC5;--shiki-dark:#79B8FF"> 0xffff</span><span style="--shiki-light:#6A737D;--shiki-dark:#6A737D">               ; limit</span></span>
+<span class="line"><span style="--shiki-light:#D73A49;--shiki-dark:#F97583">    dw</span><span style="--shiki-light:#005CC5;--shiki-dark:#79B8FF"> 0x0</span><span style="--shiki-light:#6A737D;--shiki-dark:#6A737D">                  ; base (low)</span></span>
+<span class="line"><span style="--shiki-light:#D73A49;--shiki-dark:#F97583">    db</span><span style="--shiki-light:#005CC5;--shiki-dark:#79B8FF"> 0x0</span><span style="--shiki-light:#6A737D;--shiki-dark:#6A737D">                  ; base (middle)</span></span>
+<span class="line"><span style="--shiki-light:#D73A49;--shiki-dark:#F97583">    db</span><span style="--shiki-light:#005CC5;--shiki-dark:#79B8FF"> 10011010b</span><span style="--shiki-light:#6A737D;--shiki-dark:#6A737D">            ; access</span></span>
+<span class="line"><span style="--shiki-light:#D73A49;--shiki-dark:#F97583">    db</span><span style="--shiki-light:#005CC5;--shiki-dark:#79B8FF"> 11001111b</span><span style="--shiki-light:#6A737D;--shiki-dark:#6A737D">            ; granularity</span></span>
+<span class="line"><span style="--shiki-light:#D73A49;--shiki-dark:#F97583">    db</span><span style="--shiki-light:#005CC5;--shiki-dark:#79B8FF"> 0x0</span><span style="--shiki-light:#6A737D;--shiki-dark:#6A737D">                  ; base (high)</span></span>
+<span class="line"></span>
+<span class="line"><span style="--shiki-light:#6F42C1;--shiki-dark:#B392F0">gdt_data:</span></span>
+<span class="line"><span style="--shiki-light:#D73A49;--shiki-dark:#F97583">    dw</span><span style="--shiki-light:#005CC5;--shiki-dark:#79B8FF"> 0xffff</span></span>
+<span class="line"><span style="--shiki-light:#D73A49;--shiki-dark:#F97583">    dw</span><span style="--shiki-light:#005CC5;--shiki-dark:#79B8FF"> 0x0</span></span>
+<span class="line"><span style="--shiki-light:#D73A49;--shiki-dark:#F97583">    db</span><span style="--shiki-light:#005CC5;--shiki-dark:#79B8FF"> 0x0</span></span>
+<span class="line"><span style="--shiki-light:#D73A49;--shiki-dark:#F97583">    db</span><span style="--shiki-light:#005CC5;--shiki-dark:#79B8FF"> 10010010b</span></span>
+<span class="line"><span style="--shiki-light:#D73A49;--shiki-dark:#F97583">    db</span><span style="--shiki-light:#005CC5;--shiki-dark:#79B8FF"> 11001111b</span></span>
+<span class="line"><span style="--shiki-light:#D73A49;--shiki-dark:#F97583">    db</span><span style="--shiki-light:#005CC5;--shiki-dark:#79B8FF"> 0x0</span></span>
+<span class="line"></span>
+<span class="line"><span style="--shiki-light:#6F42C1;--shiki-dark:#B392F0">gdt_end:</span></span>
+<span class="line"></span>
+<span class="line"><span style="--shiki-light:#6F42C1;--shiki-dark:#B392F0">gdt_descriptor:</span></span>
+<span class="line"><span style="--shiki-light:#D73A49;--shiki-dark:#F97583">    dw</span><span style="--shiki-light:#24292E;--shiki-dark:#E1E4E8"> gdt_end - gdt_start - </span><span style="--shiki-light:#005CC5;--shiki-dark:#79B8FF">1</span></span>
+<span class="line"><span style="--shiki-light:#D73A49;--shiki-dark:#F97583">    dd</span><span style="--shiki-light:#24292E;--shiki-dark:#E1E4E8"> gdt_start</span></span></code></pre>
+<div class="line-numbers-wrapper" aria-hidden="true"><span class="line-number">1</span><br><span class="line-number">2</span><br><span class="line-number">3</span><br><span class="line-number">4</span><br><span class="line-number">5</span><br><span class="line-number">6</span><br><span class="line-number">7</span><br><span class="line-number">8</span><br><span class="line-number">9</span><br><span class="line-number">10</span><br><span class="line-number">11</span><br><span class="line-number">12</span><br><span class="line-number">13</span><br><span class="line-number">14</span><br><span class="line-number">15</span><br><span class="line-number">16</span><br><span class="line-number">17</span><br><span class="line-number">18</span><br><span class="line-number">19</span><br><span class="line-number">20</span><br><span class="line-number">21</span><br><span class="line-number">22</span><br><span class="line-number">23</span><br><span class="line-number">24</span><br></div></div><h3 id="切换到保护模式" tabindex="-1">切换到保护模式 <a class="header-anchor" href="#切换到保护模式" aria-label="Permalink to &quot;切换到保护模式&quot;">&ZeroWidthSpace;</a></h3>
+<div class="language-asm vp-adaptive-theme line-numbers-mode"><button title="Copy Code" class="copy"></button><span class="lang">asm</span><pre class="shiki shiki-themes github-light github-dark vp-code" tabindex="0" v-pre=""><code><span class="line"><span style="--shiki-light:#D73A49;--shiki-dark:#F97583">cli</span><span style="--shiki-light:#6A737D;--shiki-dark:#6A737D">                         ; 关闭中断</span></span>
+<span class="line"><span style="--shiki-light:#D73A49;--shiki-dark:#F97583">lgdt</span><span style="--shiki-light:#24292E;--shiki-dark:#E1E4E8"> [gdt_descriptor]       </span><span style="--shiki-light:#6A737D;--shiki-dark:#6A737D">; 加载 GDT</span></span>
+<span class="line"><span style="--shiki-light:#D73A49;--shiki-dark:#F97583">mov</span><span style="--shiki-light:#005CC5;--shiki-dark:#79B8FF"> eax</span><span style="--shiki-light:#24292E;--shiki-dark:#E1E4E8">, </span><span style="--shiki-light:#005CC5;--shiki-dark:#79B8FF">cr0</span></span>
+<span class="line"><span style="--shiki-light:#D73A49;--shiki-dark:#F97583">or</span><span style="--shiki-light:#005CC5;--shiki-dark:#79B8FF"> eax</span><span style="--shiki-light:#24292E;--shiki-dark:#E1E4E8">, </span><span style="--shiki-light:#005CC5;--shiki-dark:#79B8FF">0x1</span><span style="--shiki-light:#6A737D;--shiki-dark:#6A737D">                 ; 设置保护模式位</span></span>
+<span class="line"><span style="--shiki-light:#D73A49;--shiki-dark:#F97583">mov</span><span style="--shiki-light:#005CC5;--shiki-dark:#79B8FF"> cr0</span><span style="--shiki-light:#24292E;--shiki-dark:#E1E4E8">, </span><span style="--shiki-light:#005CC5;--shiki-dark:#79B8FF">eax</span></span>
+<span class="line"><span style="--shiki-light:#D73A49;--shiki-dark:#F97583">jmp</span><span style="--shiki-light:#6F42C1;--shiki-dark:#B392F0"> CODE_SEG:</span><span style="--shiki-light:#24292E;--shiki-dark:#E1E4E8">init_pm        </span><span style="--shiki-light:#6A737D;--shiki-dark:#6A737D">; 远跳转到 32 位代码</span></span>
+<span class="line"></span>
+<span class="line"><span style="--shiki-light:#24292E;--shiki-dark:#E1E4E8">[bits </span><span style="--shiki-light:#005CC5;--shiki-dark:#79B8FF">32</span><span style="--shiki-light:#24292E;--shiki-dark:#E1E4E8">]</span></span>
+<span class="line"><span style="--shiki-light:#6F42C1;--shiki-dark:#B392F0">init_pm:</span></span>
+<span class="line"><span style="--shiki-light:#D73A49;--shiki-dark:#F97583">    mov</span><span style="--shiki-light:#005CC5;--shiki-dark:#79B8FF"> ax</span><span style="--shiki-light:#24292E;--shiki-dark:#E1E4E8">, DATA_SEG</span></span>
+<span class="line"><span style="--shiki-light:#D73A49;--shiki-dark:#F97583">    mov</span><span style="--shiki-light:#005CC5;--shiki-dark:#79B8FF"> ds</span><span style="--shiki-light:#24292E;--shiki-dark:#E1E4E8">, </span><span style="--shiki-light:#005CC5;--shiki-dark:#79B8FF">ax</span></span>
+<span class="line"><span style="--shiki-light:#D73A49;--shiki-dark:#F97583">    mov</span><span style="--shiki-light:#005CC5;--shiki-dark:#79B8FF"> ss</span><span style="--shiki-light:#24292E;--shiki-dark:#E1E4E8">, </span><span style="--shiki-light:#005CC5;--shiki-dark:#79B8FF">ax</span></span>
+<span class="line"><span style="--shiki-light:#D73A49;--shiki-dark:#F97583">    mov</span><span style="--shiki-light:#005CC5;--shiki-dark:#79B8FF"> es</span><span style="--shiki-light:#24292E;--shiki-dark:#E1E4E8">, </span><span style="--shiki-light:#005CC5;--shiki-dark:#79B8FF">ax</span></span>
+<span class="line"><span style="--shiki-light:#D73A49;--shiki-dark:#F97583">    mov</span><span style="--shiki-light:#005CC5;--shiki-dark:#79B8FF"> fs</span><span style="--shiki-light:#24292E;--shiki-dark:#E1E4E8">, </span><span style="--shiki-light:#005CC5;--shiki-dark:#79B8FF">ax</span></span>
+<span class="line"><span style="--shiki-light:#D73A49;--shiki-dark:#F97583">    mov</span><span style="--shiki-light:#005CC5;--shiki-dark:#79B8FF"> gs</span><span style="--shiki-light:#24292E;--shiki-dark:#E1E4E8">, </span><span style="--shiki-light:#005CC5;--shiki-dark:#79B8FF">ax</span></span>
+<span class="line"><span style="--shiki-light:#24292E;--shiki-dark:#E1E4E8">    </span></span>
+<span class="line"><span style="--shiki-light:#D73A49;--shiki-dark:#F97583">    mov</span><span style="--shiki-light:#005CC5;--shiki-dark:#79B8FF"> ebp</span><span style="--shiki-light:#24292E;--shiki-dark:#E1E4E8">, </span><span style="--shiki-light:#005CC5;--shiki-dark:#79B8FF">0x90000</span></span>
+<span class="line"><span style="--shiki-light:#D73A49;--shiki-dark:#F97583">    mov</span><span style="--shiki-light:#005CC5;--shiki-dark:#79B8FF"> esp</span><span style="--shiki-light:#24292E;--shiki-dark:#E1E4E8">, </span><span style="--shiki-light:#005CC5;--shiki-dark:#79B8FF">ebp</span></span>
+<span class="line"><span style="--shiki-light:#24292E;--shiki-dark:#E1E4E8">    </span></span>
+<span class="line"><span style="--shiki-light:#D73A49;--shiki-dark:#F97583">    call</span><span style="--shiki-light:#24292E;--shiki-dark:#E1E4E8"> kernel_main</span></span></code></pre>
+<div class="line-numbers-wrapper" aria-hidden="true"><span class="line-number">1</span><br><span class="line-number">2</span><br><span class="line-number">3</span><br><span class="line-number">4</span><br><span class="line-number">5</span><br><span class="line-number">6</span><br><span class="line-number">7</span><br><span class="line-number">8</span><br><span class="line-number">9</span><br><span class="line-number">10</span><br><span class="line-number">11</span><br><span class="line-number">12</span><br><span class="line-number">13</span><br><span class="line-number">14</span><br><span class="line-number">15</span><br><span class="line-number">16</span><br><span class="line-number">17</span><br><span class="line-number">18</span><br><span class="line-number">19</span><br><span class="line-number">20</span><br></div></div><h2 id="编写简单的内核" tabindex="-1">编写简单的内核 <a class="header-anchor" href="#编写简单的内核" aria-label="Permalink to &quot;编写简单的内核&quot;">&ZeroWidthSpace;</a></h2>
+<div class="language-c vp-adaptive-theme line-numbers-mode"><button title="Copy Code" class="copy"></button><span class="lang">c</span><pre class="shiki shiki-themes github-light github-dark vp-code" tabindex="0" v-pre=""><code><span class="line"><span style="--shiki-light:#6A737D;--shiki-dark:#6A737D">// kernel.c</span></span>
 <span class="line"><span style="--shiki-light:#D73A49;--shiki-dark:#F97583">void</span><span style="--shiki-light:#6F42C1;--shiki-dark:#B392F0"> kernel_main</span><span style="--shiki-light:#24292E;--shiki-dark:#E1E4E8">() {</span></span>
 <span class="line"><span style="--shiki-light:#D73A49;--shiki-dark:#F97583">    char</span><span style="--shiki-light:#D73A49;--shiki-dark:#F97583"> *</span><span style="--shiki-light:#24292E;--shiki-dark:#E1E4E8">video_memory </span><span style="--shiki-light:#D73A49;--shiki-dark:#F97583">=</span><span style="--shiki-light:#24292E;--shiki-dark:#E1E4E8"> (</span><span style="--shiki-light:#D73A49;--shiki-dark:#F97583">char</span><span style="--shiki-light:#D73A49;--shiki-dark:#F97583"> *</span><span style="--shiki-light:#24292E;--shiki-dark:#E1E4E8">)</span><span style="--shiki-light:#D73A49;--shiki-dark:#F97583">0x</span><span style="--shiki-light:#005CC5;--shiki-dark:#79B8FF">b8000</span><span style="--shiki-light:#24292E;--shiki-dark:#E1E4E8">;</span></span>
 <span class="line"><span style="--shiki-light:#D73A49;--shiki-dark:#F97583">    const</span><span style="--shiki-light:#D73A49;--shiki-dark:#F97583"> char</span><span style="--shiki-light:#D73A49;--shiki-dark:#F97583"> *</span><span style="--shiki-light:#24292E;--shiki-dark:#E1E4E8">message </span><span style="--shiki-light:#D73A49;--shiki-dark:#F97583">=</span><span style="--shiki-light:#032F62;--shiki-dark:#9ECBFF"> "Hello from Kernel!"</span><span style="--shiki-light:#24292E;--shiki-dark:#E1E4E8">;</span></span>
@@ -194,9 +194,9 @@
 <span class="line"><span style="--shiki-light:#24292E;--shiki-dark:#E1E4E8">    </span></span>
 <span class="line"><span style="--shiki-light:#D73A49;--shiki-dark:#F97583">    while</span><span style="--shiki-light:#24292E;--shiki-dark:#E1E4E8"> (</span><span style="--shiki-light:#005CC5;--shiki-dark:#79B8FF">1</span><span style="--shiki-light:#24292E;--shiki-dark:#E1E4E8">);</span><span style="--shiki-light:#6A737D;--shiki-dark:#6A737D">  // 挂起</span></span>
 <span class="line"><span style="--shiki-light:#24292E;--shiki-dark:#E1E4E8">}</span></span></code></pre>
-</div><h2 id="构建与运行" tabindex="-1">构建与运行 <a class="header-anchor" href="#构建与运行" aria-label="Permalink to &quot;构建与运行&quot;">&ZeroWidthSpace;</a></h2>
+<div class="line-numbers-wrapper" aria-hidden="true"><span class="line-number">1</span><br><span class="line-number">2</span><br><span class="line-number">3</span><br><span class="line-number">4</span><br><span class="line-number">5</span><br><span class="line-number">6</span><br><span class="line-number">7</span><br><span class="line-number">8</span><br><span class="line-number">9</span><br><span class="line-number">10</span><br><span class="line-number">11</span><br><span class="line-number">12</span><br></div></div><h2 id="构建与运行" tabindex="-1">构建与运行 <a class="header-anchor" href="#构建与运行" aria-label="Permalink to &quot;构建与运行&quot;">&ZeroWidthSpace;</a></h2>
 <h3 id="makefile" tabindex="-1">Makefile <a class="header-anchor" href="#makefile" aria-label="Permalink to &quot;Makefile&quot;">&ZeroWidthSpace;</a></h3>
-<div class="language-makefile vp-adaptive-theme"><button title="Copy Code" class="copy"></button><span class="lang">makefile</span><pre class="shiki shiki-themes github-light github-dark vp-code" tabindex="0" v-pre=""><code><span class="line"><span style="--shiki-light:#6F42C1;--shiki-dark:#B392F0">boot.bin</span><span style="--shiki-light:#24292E;--shiki-dark:#E1E4E8">: boot.asm</span></span>
+<div class="language-makefile vp-adaptive-theme line-numbers-mode"><button title="Copy Code" class="copy"></button><span class="lang">makefile</span><pre class="shiki shiki-themes github-light github-dark vp-code" tabindex="0" v-pre=""><code><span class="line"><span style="--shiki-light:#6F42C1;--shiki-dark:#B392F0">boot.bin</span><span style="--shiki-light:#24292E;--shiki-dark:#E1E4E8">: boot.asm</span></span>
 <span class="line"><span style="--shiki-light:#24292E;--shiki-dark:#E1E4E8">	nasm -f bin boot.asm -o boot.bin</span></span>
 <span class="line"></span>
 <span class="line"><span style="--shiki-light:#6F42C1;--shiki-dark:#B392F0">kernel.o</span><span style="--shiki-light:#24292E;--shiki-dark:#E1E4E8">: kernel.c</span></span>
@@ -213,10 +213,10 @@
 <span class="line"></span>
 <span class="line"><span style="--shiki-light:#6F42C1;--shiki-dark:#B392F0">clean</span><span style="--shiki-light:#24292E;--shiki-dark:#E1E4E8">:</span></span>
 <span class="line"><span style="--shiki-light:#24292E;--shiki-dark:#E1E4E8">	rm -f *.bin *.o</span></span></code></pre>
-</div><h3 id="运行" tabindex="-1">运行 <a class="header-anchor" href="#运行" aria-label="Permalink to &quot;运行&quot;">&ZeroWidthSpace;</a></h3>
-<div class="language-bash vp-adaptive-theme"><button title="Copy Code" class="copy"></button><span class="lang">bash</span><pre class="shiki shiki-themes github-light github-dark vp-code" tabindex="0" v-pre=""><code><span class="line"><span style="--shiki-light:#6F42C1;--shiki-dark:#B392F0">make</span></span>
+<div class="line-numbers-wrapper" aria-hidden="true"><span class="line-number">1</span><br><span class="line-number">2</span><br><span class="line-number">3</span><br><span class="line-number">4</span><br><span class="line-number">5</span><br><span class="line-number">6</span><br><span class="line-number">7</span><br><span class="line-number">8</span><br><span class="line-number">9</span><br><span class="line-number">10</span><br><span class="line-number">11</span><br><span class="line-number">12</span><br><span class="line-number">13</span><br><span class="line-number">14</span><br><span class="line-number">15</span><br><span class="line-number">16</span><br><span class="line-number">17</span><br></div></div><h3 id="运行" tabindex="-1">运行 <a class="header-anchor" href="#运行" aria-label="Permalink to &quot;运行&quot;">&ZeroWidthSpace;</a></h3>
+<div class="language-bash vp-adaptive-theme line-numbers-mode"><button title="Copy Code" class="copy"></button><span class="lang">bash</span><pre class="shiki shiki-themes github-light github-dark vp-code" tabindex="0" v-pre=""><code><span class="line"><span style="--shiki-light:#6F42C1;--shiki-dark:#B392F0">make</span></span>
 <span class="line"><span style="--shiki-light:#6F42C1;--shiki-dark:#B392F0">make</span><span style="--shiki-light:#032F62;--shiki-dark:#9ECBFF"> run</span></span></code></pre>
-</div><h2 id="下一步" tabindex="-1">下一步 <a class="header-anchor" href="#下一步" aria-label="Permalink to &quot;下一步&quot;">&ZeroWidthSpace;</a></h2>
+<div class="line-numbers-wrapper" aria-hidden="true"><span class="line-number">1</span><br><span class="line-number">2</span><br></div></div><h2 id="下一步" tabindex="-1">下一步 <a class="header-anchor" href="#下一步" aria-label="Permalink to &quot;下一步&quot;">&ZeroWidthSpace;</a></h2>
 <p>现在你有了一个最简单的操作系统内核！接下来可以：</p>
 <ul>
 <li>🔧 实现中断处理（IDT）</li>
@@ -236,29 +236,29 @@
 <h2 id="引导过程" tabindex="-1">引导过程 <a class="header-anchor" href="#引导过程" aria-label="Permalink to &quot;引导过程&quot;">&ZeroWidthSpace;</a></h2>
 <p>计算机启动时，BIOS 会加载引导扇区（Boot Sector）到内存地址 <code>0x7c00</code>。</p>
 <h3 id="编写引导代码" tabindex="-1">编写引导代码 <a class="header-anchor" href="#编写引导代码" aria-label="Permalink to &quot;编写引导代码&quot;">&ZeroWidthSpace;</a></h3>
-<div class="language-assembly vp-adaptive-theme"><button title="Copy Code" class="copy"></button><span class="lang">assembly</span><pre class="shiki shiki-themes github-light github-dark vp-code" tabindex="0" v-pre=""><code><span class="line"><span>[org 0x7c00]</span></span>
-<span class="line"><span>[bits 16]</span></span>
-<span class="line"><span></span></span>
-<span class="line"><span>start:</span></span>
-<span class="line"><span>    mov si, hello</span></span>
-<span class="line"><span>    call print_string</span></span>
-<span class="line"><span>    jmp $</span></span>
-<span class="line"><span></span></span>
-<span class="line"><span>print_string:</span></span>
-<span class="line"><span>    lodsb</span></span>
-<span class="line"><span>    or al, al</span></span>
-<span class="line"><span>    jz .done</span></span>
-<span class="line"><span>    mov ah, 0x0e</span></span>
-<span class="line"><span>    int 0x10</span></span>
-<span class="line"><span>    jmp print_string</span></span>
-<span class="line"><span>.done:</span></span>
-<span class="line"><span>    ret</span></span>
-<span class="line"><span></span></span>
-<span class="line"><span>hello: db 'Hello, OS World!', 0</span></span>
-<span class="line"><span></span></span>
-<span class="line"><span>times 510-($-$$) db 0</span></span>
-<span class="line"><span>dw 0xaa55</span></span></code></pre>
-</div><h3 id="关键概念" tabindex="-1">关键概念 <a class="header-anchor" href="#关键概念" aria-label="Permalink to &quot;关键概念&quot;">&ZeroWidthSpace;</a></h3>
+<div class="language-asm vp-adaptive-theme line-numbers-mode"><button title="Copy Code" class="copy"></button><span class="lang">asm</span><pre class="shiki shiki-themes github-light github-dark vp-code" tabindex="0" v-pre=""><code><span class="line"><span style="--shiki-light:#24292E;--shiki-dark:#E1E4E8">[org </span><span style="--shiki-light:#005CC5;--shiki-dark:#79B8FF">0x7c00</span><span style="--shiki-light:#24292E;--shiki-dark:#E1E4E8">]</span></span>
+<span class="line"><span style="--shiki-light:#24292E;--shiki-dark:#E1E4E8">[bits </span><span style="--shiki-light:#005CC5;--shiki-dark:#79B8FF">16</span><span style="--shiki-light:#24292E;--shiki-dark:#E1E4E8">]</span></span>
+<span class="line"></span>
+<span class="line"><span style="--shiki-light:#6F42C1;--shiki-dark:#B392F0">start:</span></span>
+<span class="line"><span style="--shiki-light:#D73A49;--shiki-dark:#F97583">    mov</span><span style="--shiki-light:#005CC5;--shiki-dark:#79B8FF"> si</span><span style="--shiki-light:#24292E;--shiki-dark:#E1E4E8">, hello</span></span>
+<span class="line"><span style="--shiki-light:#D73A49;--shiki-dark:#F97583">    call</span><span style="--shiki-light:#24292E;--shiki-dark:#E1E4E8"> print_string</span></span>
+<span class="line"><span style="--shiki-light:#D73A49;--shiki-dark:#F97583">    jmp</span><span style="--shiki-light:#24292E;--shiki-dark:#E1E4E8"> $</span></span>
+<span class="line"></span>
+<span class="line"><span style="--shiki-light:#6F42C1;--shiki-dark:#B392F0">print_string:</span></span>
+<span class="line"><span style="--shiki-light:#D73A49;--shiki-dark:#F97583">    lodsb</span></span>
+<span class="line"><span style="--shiki-light:#D73A49;--shiki-dark:#F97583">    or</span><span style="--shiki-light:#005CC5;--shiki-dark:#79B8FF"> al</span><span style="--shiki-light:#24292E;--shiki-dark:#E1E4E8">, </span><span style="--shiki-light:#005CC5;--shiki-dark:#79B8FF">al</span></span>
+<span class="line"><span style="--shiki-light:#D73A49;--shiki-dark:#F97583">    jz</span><span style="--shiki-light:#24292E;--shiki-dark:#E1E4E8"> .done</span></span>
+<span class="line"><span style="--shiki-light:#D73A49;--shiki-dark:#F97583">    mov</span><span style="--shiki-light:#005CC5;--shiki-dark:#79B8FF"> ah</span><span style="--shiki-light:#24292E;--shiki-dark:#E1E4E8">, </span><span style="--shiki-light:#005CC5;--shiki-dark:#79B8FF">0x0e</span></span>
+<span class="line"><span style="--shiki-light:#D73A49;--shiki-dark:#F97583">    int</span><span style="--shiki-light:#005CC5;--shiki-dark:#79B8FF"> 0x10</span></span>
+<span class="line"><span style="--shiki-light:#D73A49;--shiki-dark:#F97583">    jmp</span><span style="--shiki-light:#24292E;--shiki-dark:#E1E4E8"> print_string</span></span>
+<span class="line"><span style="--shiki-light:#D73A49;--shiki-dark:#F97583">.</span><span style="--shiki-light:#6F42C1;--shiki-dark:#B392F0">done:</span></span>
+<span class="line"><span style="--shiki-light:#D73A49;--shiki-dark:#F97583">    ret</span></span>
+<span class="line"></span>
+<span class="line"><span style="--shiki-light:#6F42C1;--shiki-dark:#B392F0">hello:</span><span style="--shiki-light:#D73A49;--shiki-dark:#F97583"> db</span><span style="--shiki-light:#24292E;--shiki-dark:#E1E4E8"> 'Hello, OS World!', </span><span style="--shiki-light:#005CC5;--shiki-dark:#79B8FF">0</span></span>
+<span class="line"></span>
+<span class="line"><span style="--shiki-light:#005CC5;--shiki-dark:#79B8FF">times</span><span style="--shiki-light:#005CC5;--shiki-dark:#79B8FF"> 510</span><span style="--shiki-light:#24292E;--shiki-dark:#E1E4E8">-($-$$) </span><span style="--shiki-light:#D73A49;--shiki-dark:#F97583">db</span><span style="--shiki-light:#005CC5;--shiki-dark:#79B8FF"> 0</span></span>
+<span class="line"><span style="--shiki-light:#D73A49;--shiki-dark:#F97583">dw</span><span style="--shiki-light:#005CC5;--shiki-dark:#79B8FF"> 0xaa55</span></span></code></pre>
+<div class="line-numbers-wrapper" aria-hidden="true"><span class="line-number">1</span><br><span class="line-number">2</span><br><span class="line-number">3</span><br><span class="line-number">4</span><br><span class="line-number">5</span><br><span class="line-number">6</span><br><span class="line-number">7</span><br><span class="line-number">8</span><br><span class="line-number">9</span><br><span class="line-number">10</span><br><span class="line-number">11</span><br><span class="line-number">12</span><br><span class="line-number">13</span><br><span class="line-number">14</span><br><span class="line-number">15</span><br><span class="line-number">16</span><br><span class="line-number">17</span><br><span class="line-number">18</span><br><span class="line-number">19</span><br><span class="line-number">20</span><br><span class="line-number">21</span><br><span class="line-number">22</span><br></div></div><h3 id="关键概念" tabindex="-1">关键概念 <a class="header-anchor" href="#关键概念" aria-label="Permalink to &quot;关键概念&quot;">&ZeroWidthSpace;</a></h3>
 <ul>
 <li><code>[org 0x7c00]</code>: 告诉汇编器代码将被加载到内存地址 0x7c00</li>
 <li><code>[bits 16]</code>: 指定生成 16 位实模式代码</li>
@@ -267,53 +267,53 @@
 <h2 id="从实模式到保护模式" tabindex="-1">从实模式到保护模式 <a class="header-anchor" href="#从实模式到保护模式" aria-label="Permalink to &quot;从实模式到保护模式&quot;">&ZeroWidthSpace;</a></h2>
 <p>实模式下只能访问 1MB 内存，我们需要切换到保护模式。</p>
 <h3 id="全局描述符表-gdt" tabindex="-1">全局描述符表（GDT） <a class="header-anchor" href="#全局描述符表-gdt" aria-label="Permalink to &quot;全局描述符表（GDT）&quot;">&ZeroWidthSpace;</a></h3>
-<div class="language-assembly vp-adaptive-theme"><button title="Copy Code" class="copy"></button><span class="lang">assembly</span><pre class="shiki shiki-themes github-light github-dark vp-code" tabindex="0" v-pre=""><code><span class="line"><span>gdt_start:</span></span>
-<span class="line"><span>    dq 0x0                  ; null descriptor</span></span>
-<span class="line"><span></span></span>
-<span class="line"><span>gdt_code:</span></span>
-<span class="line"><span>    dw 0xffff               ; limit</span></span>
-<span class="line"><span>    dw 0x0                  ; base (low)</span></span>
-<span class="line"><span>    db 0x0                  ; base (middle)</span></span>
-<span class="line"><span>    db 10011010b            ; access</span></span>
-<span class="line"><span>    db 11001111b            ; granularity</span></span>
-<span class="line"><span>    db 0x0                  ; base (high)</span></span>
-<span class="line"><span></span></span>
-<span class="line"><span>gdt_data:</span></span>
-<span class="line"><span>    dw 0xffff</span></span>
-<span class="line"><span>    dw 0x0</span></span>
-<span class="line"><span>    db 0x0</span></span>
-<span class="line"><span>    db 10010010b</span></span>
-<span class="line"><span>    db 11001111b</span></span>
-<span class="line"><span>    db 0x0</span></span>
-<span class="line"><span></span></span>
-<span class="line"><span>gdt_end:</span></span>
-<span class="line"><span></span></span>
-<span class="line"><span>gdt_descriptor:</span></span>
-<span class="line"><span>    dw gdt_end - gdt_start - 1</span></span>
-<span class="line"><span>    dd gdt_start</span></span></code></pre>
-</div><h3 id="切换到保护模式" tabindex="-1">切换到保护模式 <a class="header-anchor" href="#切换到保护模式" aria-label="Permalink to &quot;切换到保护模式&quot;">&ZeroWidthSpace;</a></h3>
-<div class="language-assembly vp-adaptive-theme"><button title="Copy Code" class="copy"></button><span class="lang">assembly</span><pre class="shiki shiki-themes github-light github-dark vp-code" tabindex="0" v-pre=""><code><span class="line"><span>cli                         ; 关闭中断</span></span>
-<span class="line"><span>lgdt [gdt_descriptor]       ; 加载 GDT</span></span>
-<span class="line"><span>mov eax, cr0</span></span>
-<span class="line"><span>or eax, 0x1                 ; 设置保护模式位</span></span>
-<span class="line"><span>mov cr0, eax</span></span>
-<span class="line"><span>jmp CODE_SEG:init_pm        ; 远跳转到 32 位代码</span></span>
-<span class="line"><span></span></span>
-<span class="line"><span>[bits 32]</span></span>
-<span class="line"><span>init_pm:</span></span>
-<span class="line"><span>    mov ax, DATA_SEG</span></span>
-<span class="line"><span>    mov ds, ax</span></span>
-<span class="line"><span>    mov ss, ax</span></span>
-<span class="line"><span>    mov es, ax</span></span>
-<span class="line"><span>    mov fs, ax</span></span>
-<span class="line"><span>    mov gs, ax</span></span>
-<span class="line"><span>    </span></span>
-<span class="line"><span>    mov ebp, 0x90000</span></span>
-<span class="line"><span>    mov esp, ebp</span></span>
-<span class="line"><span>    </span></span>
-<span class="line"><span>    call kernel_main</span></span></code></pre>
-</div><h2 id="编写简单的内核" tabindex="-1">编写简单的内核 <a class="header-anchor" href="#编写简单的内核" aria-label="Permalink to &quot;编写简单的内核&quot;">&ZeroWidthSpace;</a></h2>
-<div class="language-c vp-adaptive-theme"><button title="Copy Code" class="copy"></button><span class="lang">c</span><pre class="shiki shiki-themes github-light github-dark vp-code" tabindex="0" v-pre=""><code><span class="line"><span style="--shiki-light:#6A737D;--shiki-dark:#6A737D">// kernel.c</span></span>
+<div class="language-asm vp-adaptive-theme line-numbers-mode"><button title="Copy Code" class="copy"></button><span class="lang">asm</span><pre class="shiki shiki-themes github-light github-dark vp-code" tabindex="0" v-pre=""><code><span class="line"><span style="--shiki-light:#6F42C1;--shiki-dark:#B392F0">gdt_start:</span></span>
+<span class="line"><span style="--shiki-light:#D73A49;--shiki-dark:#F97583">    dq</span><span style="--shiki-light:#005CC5;--shiki-dark:#79B8FF"> 0x0</span><span style="--shiki-light:#6A737D;--shiki-dark:#6A737D">                  ; null descriptor</span></span>
+<span class="line"></span>
+<span class="line"><span style="--shiki-light:#6F42C1;--shiki-dark:#B392F0">gdt_code:</span></span>
+<span class="line"><span style="--shiki-light:#D73A49;--shiki-dark:#F97583">    dw</span><span style="--shiki-light:#005CC5;--shiki-dark:#79B8FF"> 0xffff</span><span style="--shiki-light:#6A737D;--shiki-dark:#6A737D">               ; limit</span></span>
+<span class="line"><span style="--shiki-light:#D73A49;--shiki-dark:#F97583">    dw</span><span style="--shiki-light:#005CC5;--shiki-dark:#79B8FF"> 0x0</span><span style="--shiki-light:#6A737D;--shiki-dark:#6A737D">                  ; base (low)</span></span>
+<span class="line"><span style="--shiki-light:#D73A49;--shiki-dark:#F97583">    db</span><span style="--shiki-light:#005CC5;--shiki-dark:#79B8FF"> 0x0</span><span style="--shiki-light:#6A737D;--shiki-dark:#6A737D">                  ; base (middle)</span></span>
+<span class="line"><span style="--shiki-light:#D73A49;--shiki-dark:#F97583">    db</span><span style="--shiki-light:#005CC5;--shiki-dark:#79B8FF"> 10011010b</span><span style="--shiki-light:#6A737D;--shiki-dark:#6A737D">            ; access</span></span>
+<span class="line"><span style="--shiki-light:#D73A49;--shiki-dark:#F97583">    db</span><span style="--shiki-light:#005CC5;--shiki-dark:#79B8FF"> 11001111b</span><span style="--shiki-light:#6A737D;--shiki-dark:#6A737D">            ; granularity</span></span>
+<span class="line"><span style="--shiki-light:#D73A49;--shiki-dark:#F97583">    db</span><span style="--shiki-light:#005CC5;--shiki-dark:#79B8FF"> 0x0</span><span style="--shiki-light:#6A737D;--shiki-dark:#6A737D">                  ; base (high)</span></span>
+<span class="line"></span>
+<span class="line"><span style="--shiki-light:#6F42C1;--shiki-dark:#B392F0">gdt_data:</span></span>
+<span class="line"><span style="--shiki-light:#D73A49;--shiki-dark:#F97583">    dw</span><span style="--shiki-light:#005CC5;--shiki-dark:#79B8FF"> 0xffff</span></span>
+<span class="line"><span style="--shiki-light:#D73A49;--shiki-dark:#F97583">    dw</span><span style="--shiki-light:#005CC5;--shiki-dark:#79B8FF"> 0x0</span></span>
+<span class="line"><span style="--shiki-light:#D73A49;--shiki-dark:#F97583">    db</span><span style="--shiki-light:#005CC5;--shiki-dark:#79B8FF"> 0x0</span></span>
+<span class="line"><span style="--shiki-light:#D73A49;--shiki-dark:#F97583">    db</span><span style="--shiki-light:#005CC5;--shiki-dark:#79B8FF"> 10010010b</span></span>
+<span class="line"><span style="--shiki-light:#D73A49;--shiki-dark:#F97583">    db</span><span style="--shiki-light:#005CC5;--shiki-dark:#79B8FF"> 11001111b</span></span>
+<span class="line"><span style="--shiki-light:#D73A49;--shiki-dark:#F97583">    db</span><span style="--shiki-light:#005CC5;--shiki-dark:#79B8FF"> 0x0</span></span>
+<span class="line"></span>
+<span class="line"><span style="--shiki-light:#6F42C1;--shiki-dark:#B392F0">gdt_end:</span></span>
+<span class="line"></span>
+<span class="line"><span style="--shiki-light:#6F42C1;--shiki-dark:#B392F0">gdt_descriptor:</span></span>
+<span class="line"><span style="--shiki-light:#D73A49;--shiki-dark:#F97583">    dw</span><span style="--shiki-light:#24292E;--shiki-dark:#E1E4E8"> gdt_end - gdt_start - </span><span style="--shiki-light:#005CC5;--shiki-dark:#79B8FF">1</span></span>
+<span class="line"><span style="--shiki-light:#D73A49;--shiki-dark:#F97583">    dd</span><span style="--shiki-light:#24292E;--shiki-dark:#E1E4E8"> gdt_start</span></span></code></pre>
+<div class="line-numbers-wrapper" aria-hidden="true"><span class="line-number">1</span><br><span class="line-number">2</span><br><span class="line-number">3</span><br><span class="line-number">4</span><br><span class="line-number">5</span><br><span class="line-number">6</span><br><span class="line-number">7</span><br><span class="line-number">8</span><br><span class="line-number">9</span><br><span class="line-number">10</span><br><span class="line-number">11</span><br><span class="line-number">12</span><br><span class="line-number">13</span><br><span class="line-number">14</span><br><span class="line-number">15</span><br><span class="line-number">16</span><br><span class="line-number">17</span><br><span class="line-number">18</span><br><span class="line-number">19</span><br><span class="line-number">20</span><br><span class="line-number">21</span><br><span class="line-number">22</span><br><span class="line-number">23</span><br><span class="line-number">24</span><br></div></div><h3 id="切换到保护模式" tabindex="-1">切换到保护模式 <a class="header-anchor" href="#切换到保护模式" aria-label="Permalink to &quot;切换到保护模式&quot;">&ZeroWidthSpace;</a></h3>
+<div class="language-asm vp-adaptive-theme line-numbers-mode"><button title="Copy Code" class="copy"></button><span class="lang">asm</span><pre class="shiki shiki-themes github-light github-dark vp-code" tabindex="0" v-pre=""><code><span class="line"><span style="--shiki-light:#D73A49;--shiki-dark:#F97583">cli</span><span style="--shiki-light:#6A737D;--shiki-dark:#6A737D">                         ; 关闭中断</span></span>
+<span class="line"><span style="--shiki-light:#D73A49;--shiki-dark:#F97583">lgdt</span><span style="--shiki-light:#24292E;--shiki-dark:#E1E4E8"> [gdt_descriptor]       </span><span style="--shiki-light:#6A737D;--shiki-dark:#6A737D">; 加载 GDT</span></span>
+<span class="line"><span style="--shiki-light:#D73A49;--shiki-dark:#F97583">mov</span><span style="--shiki-light:#005CC5;--shiki-dark:#79B8FF"> eax</span><span style="--shiki-light:#24292E;--shiki-dark:#E1E4E8">, </span><span style="--shiki-light:#005CC5;--shiki-dark:#79B8FF">cr0</span></span>
+<span class="line"><span style="--shiki-light:#D73A49;--shiki-dark:#F97583">or</span><span style="--shiki-light:#005CC5;--shiki-dark:#79B8FF"> eax</span><span style="--shiki-light:#24292E;--shiki-dark:#E1E4E8">, </span><span style="--shiki-light:#005CC5;--shiki-dark:#79B8FF">0x1</span><span style="--shiki-light:#6A737D;--shiki-dark:#6A737D">                 ; 设置保护模式位</span></span>
+<span class="line"><span style="--shiki-light:#D73A49;--shiki-dark:#F97583">mov</span><span style="--shiki-light:#005CC5;--shiki-dark:#79B8FF"> cr0</span><span style="--shiki-light:#24292E;--shiki-dark:#E1E4E8">, </span><span style="--shiki-light:#005CC5;--shiki-dark:#79B8FF">eax</span></span>
+<span class="line"><span style="--shiki-light:#D73A49;--shiki-dark:#F97583">jmp</span><span style="--shiki-light:#6F42C1;--shiki-dark:#B392F0"> CODE_SEG:</span><span style="--shiki-light:#24292E;--shiki-dark:#E1E4E8">init_pm        </span><span style="--shiki-light:#6A737D;--shiki-dark:#6A737D">; 远跳转到 32 位代码</span></span>
+<span class="line"></span>
+<span class="line"><span style="--shiki-light:#24292E;--shiki-dark:#E1E4E8">[bits </span><span style="--shiki-light:#005CC5;--shiki-dark:#79B8FF">32</span><span style="--shiki-light:#24292E;--shiki-dark:#E1E4E8">]</span></span>
+<span class="line"><span style="--shiki-light:#6F42C1;--shiki-dark:#B392F0">init_pm:</span></span>
+<span class="line"><span style="--shiki-light:#D73A49;--shiki-dark:#F97583">    mov</span><span style="--shiki-light:#005CC5;--shiki-dark:#79B8FF"> ax</span><span style="--shiki-light:#24292E;--shiki-dark:#E1E4E8">, DATA_SEG</span></span>
+<span class="line"><span style="--shiki-light:#D73A49;--shiki-dark:#F97583">    mov</span><span style="--shiki-light:#005CC5;--shiki-dark:#79B8FF"> ds</span><span style="--shiki-light:#24292E;--shiki-dark:#E1E4E8">, </span><span style="--shiki-light:#005CC5;--shiki-dark:#79B8FF">ax</span></span>
+<span class="line"><span style="--shiki-light:#D73A49;--shiki-dark:#F97583">    mov</span><span style="--shiki-light:#005CC5;--shiki-dark:#79B8FF"> ss</span><span style="--shiki-light:#24292E;--shiki-dark:#E1E4E8">, </span><span style="--shiki-light:#005CC5;--shiki-dark:#79B8FF">ax</span></span>
+<span class="line"><span style="--shiki-light:#D73A49;--shiki-dark:#F97583">    mov</span><span style="--shiki-light:#005CC5;--shiki-dark:#79B8FF"> es</span><span style="--shiki-light:#24292E;--shiki-dark:#E1E4E8">, </span><span style="--shiki-light:#005CC5;--shiki-dark:#79B8FF">ax</span></span>
+<span class="line"><span style="--shiki-light:#D73A49;--shiki-dark:#F97583">    mov</span><span style="--shiki-light:#005CC5;--shiki-dark:#79B8FF"> fs</span><span style="--shiki-light:#24292E;--shiki-dark:#E1E4E8">, </span><span style="--shiki-light:#005CC5;--shiki-dark:#79B8FF">ax</span></span>
+<span class="line"><span style="--shiki-light:#D73A49;--shiki-dark:#F97583">    mov</span><span style="--shiki-light:#005CC5;--shiki-dark:#79B8FF"> gs</span><span style="--shiki-light:#24292E;--shiki-dark:#E1E4E8">, </span><span style="--shiki-light:#005CC5;--shiki-dark:#79B8FF">ax</span></span>
+<span class="line"><span style="--shiki-light:#24292E;--shiki-dark:#E1E4E8">    </span></span>
+<span class="line"><span style="--shiki-light:#D73A49;--shiki-dark:#F97583">    mov</span><span style="--shiki-light:#005CC5;--shiki-dark:#79B8FF"> ebp</span><span style="--shiki-light:#24292E;--shiki-dark:#E1E4E8">, </span><span style="--shiki-light:#005CC5;--shiki-dark:#79B8FF">0x90000</span></span>
+<span class="line"><span style="--shiki-light:#D73A49;--shiki-dark:#F97583">    mov</span><span style="--shiki-light:#005CC5;--shiki-dark:#79B8FF"> esp</span><span style="--shiki-light:#24292E;--shiki-dark:#E1E4E8">, </span><span style="--shiki-light:#005CC5;--shiki-dark:#79B8FF">ebp</span></span>
+<span class="line"><span style="--shiki-light:#24292E;--shiki-dark:#E1E4E8">    </span></span>
+<span class="line"><span style="--shiki-light:#D73A49;--shiki-dark:#F97583">    call</span><span style="--shiki-light:#24292E;--shiki-dark:#E1E4E8"> kernel_main</span></span></code></pre>
+<div class="line-numbers-wrapper" aria-hidden="true"><span class="line-number">1</span><br><span class="line-number">2</span><br><span class="line-number">3</span><br><span class="line-number">4</span><br><span class="line-number">5</span><br><span class="line-number">6</span><br><span class="line-number">7</span><br><span class="line-number">8</span><br><span class="line-number">9</span><br><span class="line-number">10</span><br><span class="line-number">11</span><br><span class="line-number">12</span><br><span class="line-number">13</span><br><span class="line-number">14</span><br><span class="line-number">15</span><br><span class="line-number">16</span><br><span class="line-number">17</span><br><span class="line-number">18</span><br><span class="line-number">19</span><br><span class="line-number">20</span><br></div></div><h2 id="编写简单的内核" tabindex="-1">编写简单的内核 <a class="header-anchor" href="#编写简单的内核" aria-label="Permalink to &quot;编写简单的内核&quot;">&ZeroWidthSpace;</a></h2>
+<div class="language-c vp-adaptive-theme line-numbers-mode"><button title="Copy Code" class="copy"></button><span class="lang">c</span><pre class="shiki shiki-themes github-light github-dark vp-code" tabindex="0" v-pre=""><code><span class="line"><span style="--shiki-light:#6A737D;--shiki-dark:#6A737D">// kernel.c</span></span>
 <span class="line"><span style="--shiki-light:#D73A49;--shiki-dark:#F97583">void</span><span style="--shiki-light:#6F42C1;--shiki-dark:#B392F0"> kernel_main</span><span style="--shiki-light:#24292E;--shiki-dark:#E1E4E8">() {</span></span>
 <span class="line"><span style="--shiki-light:#D73A49;--shiki-dark:#F97583">    char</span><span style="--shiki-light:#D73A49;--shiki-dark:#F97583"> *</span><span style="--shiki-light:#24292E;--shiki-dark:#E1E4E8">video_memory </span><span style="--shiki-light:#D73A49;--shiki-dark:#F97583">=</span><span style="--shiki-light:#24292E;--shiki-dark:#E1E4E8"> (</span><span style="--shiki-light:#D73A49;--shiki-dark:#F97583">char</span><span style="--shiki-light:#D73A49;--shiki-dark:#F97583"> *</span><span style="--shiki-light:#24292E;--shiki-dark:#E1E4E8">)</span><span style="--shiki-light:#D73A49;--shiki-dark:#F97583">0x</span><span style="--shiki-light:#005CC5;--shiki-dark:#79B8FF">b8000</span><span style="--shiki-light:#24292E;--shiki-dark:#E1E4E8">;</span></span>
 <span class="line"><span style="--shiki-light:#D73A49;--shiki-dark:#F97583">    const</span><span style="--shiki-light:#D73A49;--shiki-dark:#F97583"> char</span><span style="--shiki-light:#D73A49;--shiki-dark:#F97583"> *</span><span style="--shiki-light:#24292E;--shiki-dark:#E1E4E8">message </span><span style="--shiki-light:#D73A49;--shiki-dark:#F97583">=</span><span style="--shiki-light:#032F62;--shiki-dark:#9ECBFF"> "Hello from Kernel!"</span><span style="--shiki-light:#24292E;--shiki-dark:#E1E4E8">;</span></span>
@@ -325,9 +325,9 @@
 <span class="line"><span style="--shiki-light:#24292E;--shiki-dark:#E1E4E8">    </span></span>
 <span class="line"><span style="--shiki-light:#D73A49;--shiki-dark:#F97583">    while</span><span style="--shiki-light:#24292E;--shiki-dark:#E1E4E8"> (</span><span style="--shiki-light:#005CC5;--shiki-dark:#79B8FF">1</span><span style="--shiki-light:#24292E;--shiki-dark:#E1E4E8">);</span><span style="--shiki-light:#6A737D;--shiki-dark:#6A737D">  // 挂起</span></span>
 <span class="line"><span style="--shiki-light:#24292E;--shiki-dark:#E1E4E8">}</span></span></code></pre>
-</div><h2 id="构建与运行" tabindex="-1">构建与运行 <a class="header-anchor" href="#构建与运行" aria-label="Permalink to &quot;构建与运行&quot;">&ZeroWidthSpace;</a></h2>
+<div class="line-numbers-wrapper" aria-hidden="true"><span class="line-number">1</span><br><span class="line-number">2</span><br><span class="line-number">3</span><br><span class="line-number">4</span><br><span class="line-number">5</span><br><span class="line-number">6</span><br><span class="line-number">7</span><br><span class="line-number">8</span><br><span class="line-number">9</span><br><span class="line-number">10</span><br><span class="line-number">11</span><br><span class="line-number">12</span><br></div></div><h2 id="构建与运行" tabindex="-1">构建与运行 <a class="header-anchor" href="#构建与运行" aria-label="Permalink to &quot;构建与运行&quot;">&ZeroWidthSpace;</a></h2>
 <h3 id="makefile" tabindex="-1">Makefile <a class="header-anchor" href="#makefile" aria-label="Permalink to &quot;Makefile&quot;">&ZeroWidthSpace;</a></h3>
-<div class="language-makefile vp-adaptive-theme"><button title="Copy Code" class="copy"></button><span class="lang">makefile</span><pre class="shiki shiki-themes github-light github-dark vp-code" tabindex="0" v-pre=""><code><span class="line"><span style="--shiki-light:#6F42C1;--shiki-dark:#B392F0">boot.bin</span><span style="--shiki-light:#24292E;--shiki-dark:#E1E4E8">: boot.asm</span></span>
+<div class="language-makefile vp-adaptive-theme line-numbers-mode"><button title="Copy Code" class="copy"></button><span class="lang">makefile</span><pre class="shiki shiki-themes github-light github-dark vp-code" tabindex="0" v-pre=""><code><span class="line"><span style="--shiki-light:#6F42C1;--shiki-dark:#B392F0">boot.bin</span><span style="--shiki-light:#24292E;--shiki-dark:#E1E4E8">: boot.asm</span></span>
 <span class="line"><span style="--shiki-light:#24292E;--shiki-dark:#E1E4E8">	nasm -f bin boot.asm -o boot.bin</span></span>
 <span class="line"></span>
 <span class="line"><span style="--shiki-light:#6F42C1;--shiki-dark:#B392F0">kernel.o</span><span style="--shiki-light:#24292E;--shiki-dark:#E1E4E8">: kernel.c</span></span>
@@ -344,10 +344,10 @@
 <span class="line"></span>
 <span class="line"><span style="--shiki-light:#6F42C1;--shiki-dark:#B392F0">clean</span><span style="--shiki-light:#24292E;--shiki-dark:#E1E4E8">:</span></span>
 <span class="line"><span style="--shiki-light:#24292E;--shiki-dark:#E1E4E8">	rm -f *.bin *.o</span></span></code></pre>
-</div><h3 id="运行" tabindex="-1">运行 <a class="header-anchor" href="#运行" aria-label="Permalink to &quot;运行&quot;">&ZeroWidthSpace;</a></h3>
-<div class="language-bash vp-adaptive-theme"><button title="Copy Code" class="copy"></button><span class="lang">bash</span><pre class="shiki shiki-themes github-light github-dark vp-code" tabindex="0" v-pre=""><code><span class="line"><span style="--shiki-light:#6F42C1;--shiki-dark:#B392F0">make</span></span>
+<div class="line-numbers-wrapper" aria-hidden="true"><span class="line-number">1</span><br><span class="line-number">2</span><br><span class="line-number">3</span><br><span class="line-number">4</span><br><span class="line-number">5</span><br><span class="line-number">6</span><br><span class="line-number">7</span><br><span class="line-number">8</span><br><span class="line-number">9</span><br><span class="line-number">10</span><br><span class="line-number">11</span><br><span class="line-number">12</span><br><span class="line-number">13</span><br><span class="line-number">14</span><br><span class="line-number">15</span><br><span class="line-number">16</span><br><span class="line-number">17</span><br></div></div><h3 id="运行" tabindex="-1">运行 <a class="header-anchor" href="#运行" aria-label="Permalink to &quot;运行&quot;">&ZeroWidthSpace;</a></h3>
+<div class="language-bash vp-adaptive-theme line-numbers-mode"><button title="Copy Code" class="copy"></button><span class="lang">bash</span><pre class="shiki shiki-themes github-light github-dark vp-code" tabindex="0" v-pre=""><code><span class="line"><span style="--shiki-light:#6F42C1;--shiki-dark:#B392F0">make</span></span>
 <span class="line"><span style="--shiki-light:#6F42C1;--shiki-dark:#B392F0">make</span><span style="--shiki-light:#032F62;--shiki-dark:#9ECBFF"> run</span></span></code></pre>
-</div><h2 id="下一步" tabindex="-1">下一步 <a class="header-anchor" href="#下一步" aria-label="Permalink to &quot;下一步&quot;">&ZeroWidthSpace;</a></h2>
+<div class="line-numbers-wrapper" aria-hidden="true"><span class="line-number">1</span><br><span class="line-number">2</span><br></div></div><h2 id="下一步" tabindex="-1">下一步 <a class="header-anchor" href="#下一步" aria-label="Permalink to &quot;下一步&quot;">&ZeroWidthSpace;</a></h2>
 <p>现在你有了一个最简单的操作系统内核！接下来可以：</p>
 <ul>
 <li>🔧 实现中断处理（IDT）</li>
@@ -376,7 +376,7 @@
 <p>GitHub Actions 是 GitHub 提供的持续集成和持续部署(CI/CD)平台，允许你自动化构建、测试和部署流程。</p>
 <h2 id="配置工作流" tabindex="-1">配置工作流 <a class="header-anchor" href="#配置工作流" aria-label="Permalink to &quot;配置工作流&quot;">&ZeroWidthSpace;</a></h2>
 <p>在项目根目录创建 <code>.github/workflows/deploy.yml</code>：</p>
-<div class="language-yaml vp-adaptive-theme"><button title="Copy Code" class="copy"></button><span class="lang">yaml</span><pre class="shiki shiki-themes github-light github-dark vp-code" tabindex="0" v-pre=""><code><span class="line"><span style="--shiki-light:#22863A;--shiki-dark:#85E89D">name</span><span style="--shiki-light:#24292E;--shiki-dark:#E1E4E8">: </span><span style="--shiki-light:#032F62;--shiki-dark:#9ECBFF">Deploy to GitHub Pages</span></span>
+<div class="language-yaml vp-adaptive-theme line-numbers-mode"><button title="Copy Code" class="copy"></button><span class="lang">yaml</span><pre class="shiki shiki-themes github-light github-dark vp-code" tabindex="0" v-pre=""><code><span class="line"><span style="--shiki-light:#22863A;--shiki-dark:#85E89D">name</span><span style="--shiki-light:#24292E;--shiki-dark:#E1E4E8">: </span><span style="--shiki-light:#032F62;--shiki-dark:#9ECBFF">Deploy to GitHub Pages</span></span>
 <span class="line"></span>
 <span class="line"><span style="--shiki-light:#005CC5;--shiki-dark:#79B8FF">on</span><span style="--shiki-light:#24292E;--shiki-dark:#E1E4E8">:</span></span>
 <span class="line"><span style="--shiki-light:#22863A;--shiki-dark:#85E89D">  push</span><span style="--shiki-light:#24292E;--shiki-dark:#E1E4E8">:</span></span>
@@ -422,29 +422,29 @@
 <span class="line"><span style="--shiki-light:#24292E;--shiki-dark:#E1E4E8">      - </span><span style="--shiki-light:#22863A;--shiki-dark:#85E89D">name</span><span style="--shiki-light:#24292E;--shiki-dark:#E1E4E8">: </span><span style="--shiki-light:#032F62;--shiki-dark:#9ECBFF">Deploy to GitHub Pages</span></span>
 <span class="line"><span style="--shiki-light:#22863A;--shiki-dark:#85E89D">        id</span><span style="--shiki-light:#24292E;--shiki-dark:#E1E4E8">: </span><span style="--shiki-light:#032F62;--shiki-dark:#9ECBFF">deployment</span></span>
 <span class="line"><span style="--shiki-light:#22863A;--shiki-dark:#85E89D">        uses</span><span style="--shiki-light:#24292E;--shiki-dark:#E1E4E8">: </span><span style="--shiki-light:#032F62;--shiki-dark:#9ECBFF">actions/deploy-pages@v4</span></span></code></pre>
-</div><h2 id="关键配置说明" tabindex="-1">关键配置说明 <a class="header-anchor" href="#关键配置说明" aria-label="Permalink to &quot;关键配置说明&quot;">&ZeroWidthSpace;</a></h2>
+<div class="line-numbers-wrapper" aria-hidden="true"><span class="line-number">1</span><br><span class="line-number">2</span><br><span class="line-number">3</span><br><span class="line-number">4</span><br><span class="line-number">5</span><br><span class="line-number">6</span><br><span class="line-number">7</span><br><span class="line-number">8</span><br><span class="line-number">9</span><br><span class="line-number">10</span><br><span class="line-number">11</span><br><span class="line-number">12</span><br><span class="line-number">13</span><br><span class="line-number">14</span><br><span class="line-number">15</span><br><span class="line-number">16</span><br><span class="line-number">17</span><br><span class="line-number">18</span><br><span class="line-number">19</span><br><span class="line-number">20</span><br><span class="line-number">21</span><br><span class="line-number">22</span><br><span class="line-number">23</span><br><span class="line-number">24</span><br><span class="line-number">25</span><br><span class="line-number">26</span><br><span class="line-number">27</span><br><span class="line-number">28</span><br><span class="line-number">29</span><br><span class="line-number">30</span><br><span class="line-number">31</span><br><span class="line-number">32</span><br><span class="line-number">33</span><br><span class="line-number">34</span><br><span class="line-number">35</span><br><span class="line-number">36</span><br><span class="line-number">37</span><br><span class="line-number">38</span><br><span class="line-number">39</span><br><span class="line-number">40</span><br><span class="line-number">41</span><br><span class="line-number">42</span><br><span class="line-number">43</span><br><span class="line-number">44</span><br><span class="line-number">45</span><br><span class="line-number">46</span><br></div></div><h2 id="关键配置说明" tabindex="-1">关键配置说明 <a class="header-anchor" href="#关键配置说明" aria-label="Permalink to &quot;关键配置说明&quot;">&ZeroWidthSpace;</a></h2>
 <h3 id="触发器" tabindex="-1">触发器 <a class="header-anchor" href="#触发器" aria-label="Permalink to &quot;触发器&quot;">&ZeroWidthSpace;</a></h3>
-<div class="language-yaml vp-adaptive-theme"><button title="Copy Code" class="copy"></button><span class="lang">yaml</span><pre class="shiki shiki-themes github-light github-dark vp-code" tabindex="0" v-pre=""><code><span class="line"><span style="--shiki-light:#005CC5;--shiki-dark:#79B8FF">on</span><span style="--shiki-light:#24292E;--shiki-dark:#E1E4E8">:</span></span>
+<div class="language-yaml vp-adaptive-theme line-numbers-mode"><button title="Copy Code" class="copy"></button><span class="lang">yaml</span><pre class="shiki shiki-themes github-light github-dark vp-code" tabindex="0" v-pre=""><code><span class="line"><span style="--shiki-light:#005CC5;--shiki-dark:#79B8FF">on</span><span style="--shiki-light:#24292E;--shiki-dark:#E1E4E8">:</span></span>
 <span class="line"><span style="--shiki-light:#22863A;--shiki-dark:#85E89D">  push</span><span style="--shiki-light:#24292E;--shiki-dark:#E1E4E8">:</span></span>
 <span class="line"><span style="--shiki-light:#22863A;--shiki-dark:#85E89D">    branches</span><span style="--shiki-light:#24292E;--shiki-dark:#E1E4E8">: [</span><span style="--shiki-light:#032F62;--shiki-dark:#9ECBFF">main</span><span style="--shiki-light:#24292E;--shiki-dark:#E1E4E8">]</span></span>
 <span class="line"><span style="--shiki-light:#22863A;--shiki-dark:#85E89D">  workflow_dispatch</span><span style="--shiki-light:#24292E;--shiki-dark:#E1E4E8">:</span></span></code></pre>
-</div><ul>
+<div class="line-numbers-wrapper" aria-hidden="true"><span class="line-number">1</span><br><span class="line-number">2</span><br><span class="line-number">3</span><br><span class="line-number">4</span><br></div></div><ul>
 <li><code>push</code>: 当代码推送到 main 分支时触发</li>
 <li><code>workflow_dispatch</code>: 允许手动触发工作流</li>
 </ul>
 <h3 id="权限设置" tabindex="-1">权限设置 <a class="header-anchor" href="#权限设置" aria-label="Permalink to &quot;权限设置&quot;">&ZeroWidthSpace;</a></h3>
-<div class="language-yaml vp-adaptive-theme"><button title="Copy Code" class="copy"></button><span class="lang">yaml</span><pre class="shiki shiki-themes github-light github-dark vp-code" tabindex="0" v-pre=""><code><span class="line"><span style="--shiki-light:#22863A;--shiki-dark:#85E89D">permissions</span><span style="--shiki-light:#24292E;--shiki-dark:#E1E4E8">:</span></span>
+<div class="language-yaml vp-adaptive-theme line-numbers-mode"><button title="Copy Code" class="copy"></button><span class="lang">yaml</span><pre class="shiki shiki-themes github-light github-dark vp-code" tabindex="0" v-pre=""><code><span class="line"><span style="--shiki-light:#22863A;--shiki-dark:#85E89D">permissions</span><span style="--shiki-light:#24292E;--shiki-dark:#E1E4E8">:</span></span>
 <span class="line"><span style="--shiki-light:#22863A;--shiki-dark:#85E89D">  contents</span><span style="--shiki-light:#24292E;--shiki-dark:#E1E4E8">: </span><span style="--shiki-light:#032F62;--shiki-dark:#9ECBFF">read</span></span>
 <span class="line"><span style="--shiki-light:#22863A;--shiki-dark:#85E89D">  pages</span><span style="--shiki-light:#24292E;--shiki-dark:#E1E4E8">: </span><span style="--shiki-light:#032F62;--shiki-dark:#9ECBFF">write</span></span>
 <span class="line"><span style="--shiki-light:#22863A;--shiki-dark:#85E89D">  id-token</span><span style="--shiki-light:#24292E;--shiki-dark:#E1E4E8">: </span><span style="--shiki-light:#032F62;--shiki-dark:#9ECBFF">write</span></span></code></pre>
-</div><p>这些权限确保工作流可以读取代码、写入 Pages 和生成身份令牌。</p>
+<div class="line-numbers-wrapper" aria-hidden="true"><span class="line-number">1</span><br><span class="line-number">2</span><br><span class="line-number">3</span><br><span class="line-number">4</span><br></div></div><p>这些权限确保工作流可以读取代码、写入 Pages 和生成身份令牌。</p>
 <h3 id="缓存依赖" tabindex="-1">缓存依赖 <a class="header-anchor" href="#缓存依赖" aria-label="Permalink to &quot;缓存依赖&quot;">&ZeroWidthSpace;</a></h3>
-<div class="language-yaml vp-adaptive-theme"><button title="Copy Code" class="copy"></button><span class="lang">yaml</span><pre class="shiki shiki-themes github-light github-dark vp-code" tabindex="0" v-pre=""><code><span class="line"><span style="--shiki-light:#24292E;--shiki-dark:#E1E4E8">- </span><span style="--shiki-light:#22863A;--shiki-dark:#85E89D">name</span><span style="--shiki-light:#24292E;--shiki-dark:#E1E4E8">: </span><span style="--shiki-light:#032F62;--shiki-dark:#9ECBFF">Setup Node</span></span>
+<div class="language-yaml vp-adaptive-theme line-numbers-mode"><button title="Copy Code" class="copy"></button><span class="lang">yaml</span><pre class="shiki shiki-themes github-light github-dark vp-code" tabindex="0" v-pre=""><code><span class="line"><span style="--shiki-light:#24292E;--shiki-dark:#E1E4E8">- </span><span style="--shiki-light:#22863A;--shiki-dark:#85E89D">name</span><span style="--shiki-light:#24292E;--shiki-dark:#E1E4E8">: </span><span style="--shiki-light:#032F62;--shiki-dark:#9ECBFF">Setup Node</span></span>
 <span class="line"><span style="--shiki-light:#22863A;--shiki-dark:#85E89D">  uses</span><span style="--shiki-light:#24292E;--shiki-dark:#E1E4E8">: </span><span style="--shiki-light:#032F62;--shiki-dark:#9ECBFF">actions/setup-node@v4</span></span>
 <span class="line"><span style="--shiki-light:#22863A;--shiki-dark:#85E89D">  with</span><span style="--shiki-light:#24292E;--shiki-dark:#E1E4E8">:</span></span>
 <span class="line"><span style="--shiki-light:#22863A;--shiki-dark:#85E89D">    node-version</span><span style="--shiki-light:#24292E;--shiki-dark:#E1E4E8">: </span><span style="--shiki-light:#005CC5;--shiki-dark:#79B8FF">20</span></span>
 <span class="line"><span style="--shiki-light:#22863A;--shiki-dark:#85E89D">    cache</span><span style="--shiki-light:#24292E;--shiki-dark:#E1E4E8">: </span><span style="--shiki-light:#032F62;--shiki-dark:#9ECBFF">'npm'</span></span></code></pre>
-</div><p>使用 npm 缓存可以显著加快构建速度。</p>
+<div class="line-numbers-wrapper" aria-hidden="true"><span class="line-number">1</span><br><span class="line-number">2</span><br><span class="line-number">3</span><br><span class="line-number">4</span><br><span class="line-number">5</span><br></div></div><p>使用 npm 缓存可以显著加快构建速度。</p>
 <h2 id="仓库设置" tabindex="-1">仓库设置 <a class="header-anchor" href="#仓库设置" aria-label="Permalink to &quot;仓库设置&quot;">&ZeroWidthSpace;</a></h2>
 <p>在 GitHub 仓库中配置：</p>
 <ol>
@@ -463,9 +463,9 @@
 <h2 id="常见问题" tabindex="-1">常见问题 <a class="header-anchor" href="#常见问题" aria-label="Permalink to &quot;常见问题&quot;">&ZeroWidthSpace;</a></h2>
 <h3 id="构建失败" tabindex="-1">构建失败 <a class="header-anchor" href="#构建失败" aria-label="Permalink to &quot;构建失败&quot;">&ZeroWidthSpace;</a></h3>
 <p>检查日志中的错误信息：</p>
-<div class="language-bash vp-adaptive-theme"><button title="Copy Code" class="copy"></button><span class="lang">bash</span><pre class="shiki shiki-themes github-light github-dark vp-code" tabindex="0" v-pre=""><code><span class="line"><span style="--shiki-light:#6A737D;--shiki-dark:#6A737D"># 本地测试构建</span></span>
+<div class="language-bash vp-adaptive-theme line-numbers-mode"><button title="Copy Code" class="copy"></button><span class="lang">bash</span><pre class="shiki shiki-themes github-light github-dark vp-code" tabindex="0" v-pre=""><code><span class="line"><span style="--shiki-light:#6A737D;--shiki-dark:#6A737D"># 本地测试构建</span></span>
 <span class="line"><span style="--shiki-light:#6F42C1;--shiki-dark:#B392F0">npm</span><span style="--shiki-light:#032F62;--shiki-dark:#9ECBFF"> run</span><span style="--shiki-light:#032F62;--shiki-dark:#9ECBFF"> build</span></span></code></pre>
-</div><h3 id="权限错误" tabindex="-1">权限错误 <a class="header-anchor" href="#权限错误" aria-label="Permalink to &quot;权限错误&quot;">&ZeroWidthSpace;</a></h3>
+<div class="line-numbers-wrapper" aria-hidden="true"><span class="line-number">1</span><br><span class="line-number">2</span><br></div></div><h3 id="权限错误" tabindex="-1">权限错误 <a class="header-anchor" href="#权限错误" aria-label="Permalink to &quot;权限错误&quot;">&ZeroWidthSpace;</a></h3>
 <p>确保仓库 Settings → Actions → General 中启用了：</p>
 <ul>
 <li>✅ Read and write permissions</li>
@@ -473,22 +473,22 @@
 </ul>
 <h3 id="_404-错误" tabindex="-1">404 错误 <a class="header-anchor" href="#_404-错误" aria-label="Permalink to &quot;404 错误&quot;">&ZeroWidthSpace;</a></h3>
 <p>检查 VitePress 配置中的 <code>base</code> 路径：</p>
-<div class="language-ts vp-adaptive-theme"><button title="Copy Code" class="copy"></button><span class="lang">ts</span><pre class="shiki shiki-themes github-light github-dark vp-code" tabindex="0" v-pre=""><code><span class="line"><span style="--shiki-light:#D73A49;--shiki-dark:#F97583">export</span><span style="--shiki-light:#D73A49;--shiki-dark:#F97583"> default</span><span style="--shiki-light:#6F42C1;--shiki-dark:#B392F0"> defineConfig</span><span style="--shiki-light:#24292E;--shiki-dark:#E1E4E8">({</span></span>
+<div class="language-ts vp-adaptive-theme line-numbers-mode"><button title="Copy Code" class="copy"></button><span class="lang">ts</span><pre class="shiki shiki-themes github-light github-dark vp-code" tabindex="0" v-pre=""><code><span class="line"><span style="--shiki-light:#D73A49;--shiki-dark:#F97583">export</span><span style="--shiki-light:#D73A49;--shiki-dark:#F97583"> default</span><span style="--shiki-light:#6F42C1;--shiki-dark:#B392F0"> defineConfig</span><span style="--shiki-light:#24292E;--shiki-dark:#E1E4E8">({</span></span>
 <span class="line"><span style="--shiki-light:#24292E;--shiki-dark:#E1E4E8">  base: </span><span style="--shiki-light:#032F62;--shiki-dark:#9ECBFF">'/your-repo-name/'</span><span style="--shiki-light:#24292E;--shiki-dark:#E1E4E8">,</span></span>
 <span class="line"><span style="--shiki-light:#6A737D;--shiki-dark:#6A737D">  // ...</span></span>
 <span class="line"><span style="--shiki-light:#24292E;--shiki-dark:#E1E4E8">})</span></span></code></pre>
-</div><h2 id="最佳实践" tabindex="-1">最佳实践 <a class="header-anchor" href="#最佳实践" aria-label="Permalink to &quot;最佳实践&quot;">&ZeroWidthSpace;</a></h2>
+<div class="line-numbers-wrapper" aria-hidden="true"><span class="line-number">1</span><br><span class="line-number">2</span><br><span class="line-number">3</span><br><span class="line-number">4</span><br></div></div><h2 id="最佳实践" tabindex="-1">最佳实践 <a class="header-anchor" href="#最佳实践" aria-label="Permalink to &quot;最佳实践&quot;">&ZeroWidthSpace;</a></h2>
 <h3 id="_1-本地预览" tabindex="-1">1. 本地预览 <a class="header-anchor" href="#_1-本地预览" aria-label="Permalink to &quot;1. 本地预览&quot;">&ZeroWidthSpace;</a></h3>
 <p>在推送前本地构建验证：</p>
-<div class="language-bash vp-adaptive-theme"><button title="Copy Code" class="copy"></button><span class="lang">bash</span><pre class="shiki shiki-themes github-light github-dark vp-code" tabindex="0" v-pre=""><code><span class="line"><span style="--shiki-light:#6F42C1;--shiki-dark:#B392F0">npm</span><span style="--shiki-light:#032F62;--shiki-dark:#9ECBFF"> run</span><span style="--shiki-light:#032F62;--shiki-dark:#9ECBFF"> build</span></span>
+<div class="language-bash vp-adaptive-theme line-numbers-mode"><button title="Copy Code" class="copy"></button><span class="lang">bash</span><pre class="shiki shiki-themes github-light github-dark vp-code" tabindex="0" v-pre=""><code><span class="line"><span style="--shiki-light:#6F42C1;--shiki-dark:#B392F0">npm</span><span style="--shiki-light:#032F62;--shiki-dark:#9ECBFF"> run</span><span style="--shiki-light:#032F62;--shiki-dark:#9ECBFF"> build</span></span>
 <span class="line"><span style="--shiki-light:#6F42C1;--shiki-dark:#B392F0">npm</span><span style="--shiki-light:#032F62;--shiki-dark:#9ECBFF"> run</span><span style="--shiki-light:#032F62;--shiki-dark:#9ECBFF"> preview</span></span></code></pre>
-</div><h3 id="_2-环境变量" tabindex="-1">2. 环境变量 <a class="header-anchor" href="#_2-环境变量" aria-label="Permalink to &quot;2. 环境变量&quot;">&ZeroWidthSpace;</a></h3>
+<div class="line-numbers-wrapper" aria-hidden="true"><span class="line-number">1</span><br><span class="line-number">2</span><br></div></div><h3 id="_2-环境变量" tabindex="-1">2. 环境变量 <a class="header-anchor" href="#_2-环境变量" aria-label="Permalink to &quot;2. 环境变量&quot;">&ZeroWidthSpace;</a></h3>
 <p>使用 GitHub Secrets 存储敏感信息：</p>
-<div class="language-yaml vp-adaptive-theme"><button title="Copy Code" class="copy"></button><span class="lang">yaml</span><pre class="shiki shiki-themes github-light github-dark vp-code" tabindex="0" v-pre=""><code><span class="line"><span style="--shiki-light:#22863A;--shiki-dark:#85E89D">env</span><span style="--shiki-light:#24292E;--shiki-dark:#E1E4E8">:</span></span>
+<div class="language-yaml vp-adaptive-theme line-numbers-mode"><button title="Copy Code" class="copy"></button><span class="lang">yaml</span><pre class="shiki shiki-themes github-light github-dark vp-code" tabindex="0" v-pre=""><code><span class="line"><span style="--shiki-light:#22863A;--shiki-dark:#85E89D">env</span><span style="--shiki-light:#24292E;--shiki-dark:#E1E4E8">:</span></span>
 <span class="line"><span style="--shiki-light:#22863A;--shiki-dark:#85E89D">  API_KEY</span><span style="--shiki-light:#24292E;--shiki-dark:#E1E4E8">: </span><span style="--shiki-light:#032F62;--shiki-dark:#9ECBFF">${{ secrets.API_KEY }}</span></span></code></pre>
-</div><h3 id="_3-条件部署" tabindex="-1">3. 条件部署 <a class="header-anchor" href="#_3-条件部署" aria-label="Permalink to &quot;3. 条件部署&quot;">&ZeroWidthSpace;</a></h3>
+<div class="line-numbers-wrapper" aria-hidden="true"><span class="line-number">1</span><br><span class="line-number">2</span><br></div></div><h3 id="_3-条件部署" tabindex="-1">3. 条件部署 <a class="header-anchor" href="#_3-条件部署" aria-label="Permalink to &quot;3. 条件部署&quot;">&ZeroWidthSpace;</a></h3>
 <p>仅在测试通过后部署：</p>
-<div class="language-yaml vp-adaptive-theme"><button title="Copy Code" class="copy"></button><span class="lang">yaml</span><pre class="shiki shiki-themes github-light github-dark vp-code" tabindex="0" v-pre=""><code><span class="line"><span style="--shiki-light:#22863A;--shiki-dark:#85E89D">jobs</span><span style="--shiki-light:#24292E;--shiki-dark:#E1E4E8">:</span></span>
+<div class="language-yaml vp-adaptive-theme line-numbers-mode"><button title="Copy Code" class="copy"></button><span class="lang">yaml</span><pre class="shiki shiki-themes github-light github-dark vp-code" tabindex="0" v-pre=""><code><span class="line"><span style="--shiki-light:#22863A;--shiki-dark:#85E89D">jobs</span><span style="--shiki-light:#24292E;--shiki-dark:#E1E4E8">:</span></span>
 <span class="line"><span style="--shiki-light:#22863A;--shiki-dark:#85E89D">  test</span><span style="--shiki-light:#24292E;--shiki-dark:#E1E4E8">:</span></span>
 <span class="line"><span style="--shiki-light:#22863A;--shiki-dark:#85E89D">    runs-on</span><span style="--shiki-light:#24292E;--shiki-dark:#E1E4E8">: </span><span style="--shiki-light:#032F62;--shiki-dark:#9ECBFF">ubuntu-latest</span></span>
 <span class="line"><span style="--shiki-light:#22863A;--shiki-dark:#85E89D">    steps</span><span style="--shiki-light:#24292E;--shiki-dark:#E1E4E8">:</span></span>
@@ -497,10 +497,10 @@
 <span class="line"><span style="--shiki-light:#22863A;--shiki-dark:#85E89D">  deploy</span><span style="--shiki-light:#24292E;--shiki-dark:#E1E4E8">:</span></span>
 <span class="line"><span style="--shiki-light:#22863A;--shiki-dark:#85E89D">    needs</span><span style="--shiki-light:#24292E;--shiki-dark:#E1E4E8">: </span><span style="--shiki-light:#032F62;--shiki-dark:#9ECBFF">test</span><span style="--shiki-light:#6A737D;--shiki-dark:#6A737D">  # 依赖测试作业</span></span>
 <span class="line"><span style="--shiki-light:#6A737D;--shiki-dark:#6A737D">    # ...</span></span></code></pre>
-</div><h2 id="进阶配置" tabindex="-1">进阶配置 <a class="header-anchor" href="#进阶配置" aria-label="Permalink to &quot;进阶配置&quot;">&ZeroWidthSpace;</a></h2>
+<div class="line-numbers-wrapper" aria-hidden="true"><span class="line-number">1</span><br><span class="line-number">2</span><br><span class="line-number">3</span><br><span class="line-number">4</span><br><span class="line-number">5</span><br><span class="line-number">6</span><br><span class="line-number">7</span><br><span class="line-number">8</span><br><span class="line-number">9</span><br></div></div><h2 id="进阶配置" tabindex="-1">进阶配置 <a class="header-anchor" href="#进阶配置" aria-label="Permalink to &quot;进阶配置&quot;">&ZeroWidthSpace;</a></h2>
 <h3 id="矩阵构建" tabindex="-1">矩阵构建 <a class="header-anchor" href="#矩阵构建" aria-label="Permalink to &quot;矩阵构建&quot;">&ZeroWidthSpace;</a></h3>
 <p>在多个环境中测试：</p>
-<div class="language-yaml vp-adaptive-theme"><button title="Copy Code" class="copy"></button><span class="lang">yaml</span><pre class="shiki shiki-themes github-light github-dark vp-code" tabindex="0" v-pre=""><code><span class="line"><span style="--shiki-light:#22863A;--shiki-dark:#85E89D">strategy</span><span style="--shiki-light:#24292E;--shiki-dark:#E1E4E8">:</span></span>
+<div class="language-yaml vp-adaptive-theme line-numbers-mode"><button title="Copy Code" class="copy"></button><span class="lang">yaml</span><pre class="shiki shiki-themes github-light github-dark vp-code" tabindex="0" v-pre=""><code><span class="line"><span style="--shiki-light:#22863A;--shiki-dark:#85E89D">strategy</span><span style="--shiki-light:#24292E;--shiki-dark:#E1E4E8">:</span></span>
 <span class="line"><span style="--shiki-light:#22863A;--shiki-dark:#85E89D">  matrix</span><span style="--shiki-light:#24292E;--shiki-dark:#E1E4E8">:</span></span>
 <span class="line"><span style="--shiki-light:#22863A;--shiki-dark:#85E89D">    node-version</span><span style="--shiki-light:#24292E;--shiki-dark:#E1E4E8">: [</span><span style="--shiki-light:#005CC5;--shiki-dark:#79B8FF">18</span><span style="--shiki-light:#24292E;--shiki-dark:#E1E4E8">, </span><span style="--shiki-light:#005CC5;--shiki-dark:#79B8FF">20</span><span style="--shiki-light:#24292E;--shiki-dark:#E1E4E8">, </span><span style="--shiki-light:#005CC5;--shiki-dark:#79B8FF">22</span><span style="--shiki-light:#24292E;--shiki-dark:#E1E4E8">]</span></span>
 <span class="line"></span>
@@ -508,12 +508,12 @@
 <span class="line"><span style="--shiki-light:#24292E;--shiki-dark:#E1E4E8">  - </span><span style="--shiki-light:#22863A;--shiki-dark:#85E89D">uses</span><span style="--shiki-light:#24292E;--shiki-dark:#E1E4E8">: </span><span style="--shiki-light:#032F62;--shiki-dark:#9ECBFF">actions/setup-node@v4</span></span>
 <span class="line"><span style="--shiki-light:#22863A;--shiki-dark:#85E89D">    with</span><span style="--shiki-light:#24292E;--shiki-dark:#E1E4E8">:</span></span>
 <span class="line"><span style="--shiki-light:#22863A;--shiki-dark:#85E89D">      node-version</span><span style="--shiki-light:#24292E;--shiki-dark:#E1E4E8">: </span><span style="--shiki-light:#032F62;--shiki-dark:#9ECBFF">${{ matrix.node-version }}</span></span></code></pre>
-</div><h3 id="定时任务" tabindex="-1">定时任务 <a class="header-anchor" href="#定时任务" aria-label="Permalink to &quot;定时任务&quot;">&ZeroWidthSpace;</a></h3>
+<div class="line-numbers-wrapper" aria-hidden="true"><span class="line-number">1</span><br><span class="line-number">2</span><br><span class="line-number">3</span><br><span class="line-number">4</span><br><span class="line-number">5</span><br><span class="line-number">6</span><br><span class="line-number">7</span><br><span class="line-number">8</span><br></div></div><h3 id="定时任务" tabindex="-1">定时任务 <a class="header-anchor" href="#定时任务" aria-label="Permalink to &quot;定时任务&quot;">&ZeroWidthSpace;</a></h3>
 <p>定期运行构建：</p>
-<div class="language-yaml vp-adaptive-theme"><button title="Copy Code" class="copy"></button><span class="lang">yaml</span><pre class="shiki shiki-themes github-light github-dark vp-code" tabindex="0" v-pre=""><code><span class="line"><span style="--shiki-light:#005CC5;--shiki-dark:#79B8FF">on</span><span style="--shiki-light:#24292E;--shiki-dark:#E1E4E8">:</span></span>
+<div class="language-yaml vp-adaptive-theme line-numbers-mode"><button title="Copy Code" class="copy"></button><span class="lang">yaml</span><pre class="shiki shiki-themes github-light github-dark vp-code" tabindex="0" v-pre=""><code><span class="line"><span style="--shiki-light:#005CC5;--shiki-dark:#79B8FF">on</span><span style="--shiki-light:#24292E;--shiki-dark:#E1E4E8">:</span></span>
 <span class="line"><span style="--shiki-light:#22863A;--shiki-dark:#85E89D">  schedule</span><span style="--shiki-light:#24292E;--shiki-dark:#E1E4E8">:</span></span>
 <span class="line"><span style="--shiki-light:#24292E;--shiki-dark:#E1E4E8">    - </span><span style="--shiki-light:#22863A;--shiki-dark:#85E89D">cron</span><span style="--shiki-light:#24292E;--shiki-dark:#E1E4E8">: </span><span style="--shiki-light:#032F62;--shiki-dark:#9ECBFF">'0 0 * * 0'</span><span style="--shiki-light:#6A737D;--shiki-dark:#6A737D">  # 每周日午夜</span></span></code></pre>
-</div><h2 id="总结" tabindex="-1">总结 <a class="header-anchor" href="#总结" aria-label="Permalink to &quot;总结&quot;">&ZeroWidthSpace;</a></h2>
+<div class="line-numbers-wrapper" aria-hidden="true"><span class="line-number">1</span><br><span class="line-number">2</span><br><span class="line-number">3</span><br></div></div><h2 id="总结" tabindex="-1">总结 <a class="header-anchor" href="#总结" aria-label="Permalink to &quot;总结&quot;">&ZeroWidthSpace;</a></h2>
 <p>GitHub Actions 让部署变得简单而自动化：</p>
 <ul>
 <li>✅ 推送代码即可自动部署</li>
@@ -646,125 +646,125 @@
 </table>
 <h3 id="关键寄存器说明" tabindex="-1">关键寄存器说明 <a class="header-anchor" href="#关键寄存器说明" aria-label="Permalink to &quot;关键寄存器说明&quot;">&ZeroWidthSpace;</a></h3>
 <p><strong>零寄存器（x0/zero）</strong></p>
-<div class="language-assembly vp-adaptive-theme"><button title="Copy Code" class="copy"></button><span class="lang">assembly</span><pre class="shiki shiki-themes github-light github-dark vp-code" tabindex="0" v-pre=""><code><span class="line"><span>addi x5, x0, 10     # x5 = 0 + 10 = 10</span></span>
-<span class="line"><span>add x6, x0, x0      # x6 = 0（清零操作）</span></span></code></pre>
-</div><p><strong>返回地址（x1/ra）</strong></p>
-<div class="language-assembly vp-adaptive-theme"><button title="Copy Code" class="copy"></button><span class="lang">assembly</span><pre class="shiki shiki-themes github-light github-dark vp-code" tabindex="0" v-pre=""><code><span class="line"><span>jal ra, function    # 调用函数，返回地址保存到 ra</span></span>
-<span class="line"><span>jalr x0, ra, 0      # 返回（等价于 ret）</span></span></code></pre>
-</div><p><strong>栈指针（x2/sp）</strong></p>
-<div class="language-assembly vp-adaptive-theme"><button title="Copy Code" class="copy"></button><span class="lang">assembly</span><pre class="shiki shiki-themes github-light github-dark vp-code" tabindex="0" v-pre=""><code><span class="line"><span>addi sp, sp, -16    # 分配栈空间</span></span>
-<span class="line"><span>sw ra, 12(sp)       # 保存返回地址</span></span></code></pre>
-</div><h2 id="基本指令" tabindex="-1">基本指令 <a class="header-anchor" href="#基本指令" aria-label="Permalink to &quot;基本指令&quot;">&ZeroWidthSpace;</a></h2>
+<div class="language-asm vp-adaptive-theme line-numbers-mode"><button title="Copy Code" class="copy"></button><span class="lang">asm</span><pre class="shiki shiki-themes github-light github-dark vp-code" tabindex="0" v-pre=""><code><span class="line"><span style="--shiki-light:#24292E;--shiki-dark:#E1E4E8">addi x5, x0, </span><span style="--shiki-light:#005CC5;--shiki-dark:#79B8FF">10</span><span style="--shiki-light:#6A737D;--shiki-dark:#6A737D">     # x5 = 0 + 10 = 10</span></span>
+<span class="line"><span style="--shiki-light:#D73A49;--shiki-dark:#F97583">add</span><span style="--shiki-light:#24292E;--shiki-dark:#E1E4E8"> x6, x0, x0     </span><span style="--shiki-light:#6A737D;--shiki-dark:#6A737D"> # x6 = 0（清零操作）</span></span></code></pre>
+<div class="line-numbers-wrapper" aria-hidden="true"><span class="line-number">1</span><br><span class="line-number">2</span><br></div></div><p><strong>返回地址（x1/ra）</strong></p>
+<div class="language-asm vp-adaptive-theme line-numbers-mode"><button title="Copy Code" class="copy"></button><span class="lang">asm</span><pre class="shiki shiki-themes github-light github-dark vp-code" tabindex="0" v-pre=""><code><span class="line"><span style="--shiki-light:#24292E;--shiki-dark:#E1E4E8">jal ra, function   </span><span style="--shiki-light:#6A737D;--shiki-dark:#6A737D"> # 调用函数，返回地址保存到 ra</span></span>
+<span class="line"><span style="--shiki-light:#24292E;--shiki-dark:#E1E4E8">jalr x0, ra, </span><span style="--shiki-light:#005CC5;--shiki-dark:#79B8FF">0</span><span style="--shiki-light:#6A737D;--shiki-dark:#6A737D">      # 返回（等价于 ret）</span></span></code></pre>
+<div class="line-numbers-wrapper" aria-hidden="true"><span class="line-number">1</span><br><span class="line-number">2</span><br></div></div><p><strong>栈指针（x2/sp）</strong></p>
+<div class="language-asm vp-adaptive-theme line-numbers-mode"><button title="Copy Code" class="copy"></button><span class="lang">asm</span><pre class="shiki shiki-themes github-light github-dark vp-code" tabindex="0" v-pre=""><code><span class="line"><span style="--shiki-light:#24292E;--shiki-dark:#E1E4E8">addi </span><span style="--shiki-light:#005CC5;--shiki-dark:#79B8FF">sp</span><span style="--shiki-light:#24292E;--shiki-dark:#E1E4E8">, </span><span style="--shiki-light:#005CC5;--shiki-dark:#79B8FF">sp</span><span style="--shiki-light:#24292E;--shiki-dark:#E1E4E8">, -</span><span style="--shiki-light:#005CC5;--shiki-dark:#79B8FF">16</span><span style="--shiki-light:#6A737D;--shiki-dark:#6A737D">    # 分配栈空间</span></span>
+<span class="line"><span style="--shiki-light:#24292E;--shiki-dark:#E1E4E8">sw ra, </span><span style="--shiki-light:#005CC5;--shiki-dark:#79B8FF">12</span><span style="--shiki-light:#24292E;--shiki-dark:#E1E4E8">(</span><span style="--shiki-light:#005CC5;--shiki-dark:#79B8FF">sp</span><span style="--shiki-light:#24292E;--shiki-dark:#E1E4E8">)      </span><span style="--shiki-light:#6A737D;--shiki-dark:#6A737D"> # 保存返回地址</span></span></code></pre>
+<div class="line-numbers-wrapper" aria-hidden="true"><span class="line-number">1</span><br><span class="line-number">2</span><br></div></div><h2 id="基本指令" tabindex="-1">基本指令 <a class="header-anchor" href="#基本指令" aria-label="Permalink to &quot;基本指令&quot;">&ZeroWidthSpace;</a></h2>
 <h3 id="算术指令" tabindex="-1">算术指令 <a class="header-anchor" href="#算术指令" aria-label="Permalink to &quot;算术指令&quot;">&ZeroWidthSpace;</a></h3>
-<div class="language-assembly vp-adaptive-theme"><button title="Copy Code" class="copy"></button><span class="lang">assembly</span><pre class="shiki shiki-themes github-light github-dark vp-code" tabindex="0" v-pre=""><code><span class="line"><span># 立即数加法</span></span>
-<span class="line"><span>addi x5, x6, 100    # x5 = x6 + 100</span></span>
-<span class="line"><span></span></span>
-<span class="line"><span># 寄存器加法</span></span>
-<span class="line"><span>add x5, x6, x7      # x5 = x6 + x7</span></span>
-<span class="line"><span></span></span>
-<span class="line"><span># 减法</span></span>
-<span class="line"><span>sub x5, x6, x7      # x5 = x6 - x7</span></span>
-<span class="line"><span></span></span>
-<span class="line"><span># 乘法（需要 M 扩展）</span></span>
-<span class="line"><span>mul x5, x6, x7      # x5 = x6 * x7</span></span></code></pre>
-</div><h3 id="逻辑指令" tabindex="-1">逻辑指令 <a class="header-anchor" href="#逻辑指令" aria-label="Permalink to &quot;逻辑指令&quot;">&ZeroWidthSpace;</a></h3>
-<div class="language-assembly vp-adaptive-theme"><button title="Copy Code" class="copy"></button><span class="lang">assembly</span><pre class="shiki shiki-themes github-light github-dark vp-code" tabindex="0" v-pre=""><code><span class="line"><span># 与操作</span></span>
-<span class="line"><span>and x5, x6, x7      # x5 = x6 &#x26; x7</span></span>
-<span class="line"><span>andi x5, x6, 0xFF   # x5 = x6 &#x26; 0xFF</span></span>
-<span class="line"><span></span></span>
-<span class="line"><span># 或操作</span></span>
-<span class="line"><span>or x5, x6, x7       # x5 = x6 | x7</span></span>
-<span class="line"><span></span></span>
-<span class="line"><span># 异或</span></span>
-<span class="line"><span>xor x5, x6, x7      # x5 = x6 ^ x7</span></span>
-<span class="line"><span></span></span>
-<span class="line"><span># 移位</span></span>
-<span class="line"><span>slli x5, x6, 3      # x5 = x6 &#x3C;&#x3C; 3（逻辑左移）</span></span>
-<span class="line"><span>srli x5, x6, 2      # x5 = x6 >> 2（逻辑右移）</span></span></code></pre>
-</div><h3 id="内存访问" tabindex="-1">内存访问 <a class="header-anchor" href="#内存访问" aria-label="Permalink to &quot;内存访问&quot;">&ZeroWidthSpace;</a></h3>
-<div class="language-assembly vp-adaptive-theme"><button title="Copy Code" class="copy"></button><span class="lang">assembly</span><pre class="shiki shiki-themes github-light github-dark vp-code" tabindex="0" v-pre=""><code><span class="line"><span># 加载字（load word）</span></span>
-<span class="line"><span>lw x5, 0(x6)        # x5 = Memory[x6 + 0]</span></span>
-<span class="line"><span></span></span>
-<span class="line"><span># 存储字（store word）</span></span>
-<span class="line"><span>sw x5, 4(x6)        # Memory[x6 + 4] = x5</span></span>
-<span class="line"><span></span></span>
-<span class="line"><span># 加载字节</span></span>
-<span class="line"><span>lb x5, 0(x6)        # 加载字节（符号扩展）</span></span>
-<span class="line"><span>lbu x5, 0(x6)       # 加载字节（零扩展）</span></span></code></pre>
-</div><h3 id="控制流" tabindex="-1">控制流 <a class="header-anchor" href="#控制流" aria-label="Permalink to &quot;控制流&quot;">&ZeroWidthSpace;</a></h3>
-<div class="language-assembly vp-adaptive-theme"><button title="Copy Code" class="copy"></button><span class="lang">assembly</span><pre class="shiki shiki-themes github-light github-dark vp-code" tabindex="0" v-pre=""><code><span class="line"><span># 无条件跳转</span></span>
-<span class="line"><span>j label             # 跳转到 label</span></span>
-<span class="line"><span>jal ra, function    # 跳转并链接（函数调用）</span></span>
-<span class="line"><span></span></span>
-<span class="line"><span># 条件分支</span></span>
-<span class="line"><span>beq x5, x6, label   # 如果 x5 == x6 则跳转</span></span>
-<span class="line"><span>bne x5, x6, label   # 如果 x5 != x6 则跳转</span></span>
-<span class="line"><span>blt x5, x6, label   # 如果 x5 &#x3C; x6 则跳转（有符号）</span></span>
-<span class="line"><span>bge x5, x6, label   # 如果 x5 >= x6 则跳转（有符号）</span></span></code></pre>
-</div><h2 id="实战示例" tabindex="-1">实战示例 <a class="header-anchor" href="#实战示例" aria-label="Permalink to &quot;实战示例&quot;">&ZeroWidthSpace;</a></h2>
+<div class="language-asm vp-adaptive-theme line-numbers-mode"><button title="Copy Code" class="copy"></button><span class="lang">asm</span><pre class="shiki shiki-themes github-light github-dark vp-code" tabindex="0" v-pre=""><code><span class="line"><span style="--shiki-light:#6A737D;--shiki-dark:#6A737D"># 立即数加法</span></span>
+<span class="line"><span style="--shiki-light:#24292E;--shiki-dark:#E1E4E8">addi x5, x6, </span><span style="--shiki-light:#005CC5;--shiki-dark:#79B8FF">100</span><span style="--shiki-light:#6A737D;--shiki-dark:#6A737D">    # x5 = x6 + 100</span></span>
+<span class="line"></span>
+<span class="line"><span style="--shiki-light:#6A737D;--shiki-dark:#6A737D"># 寄存器加法</span></span>
+<span class="line"><span style="--shiki-light:#D73A49;--shiki-dark:#F97583">add</span><span style="--shiki-light:#24292E;--shiki-dark:#E1E4E8"> x5, x6, x7     </span><span style="--shiki-light:#6A737D;--shiki-dark:#6A737D"> # x5 = x6 + x7</span></span>
+<span class="line"></span>
+<span class="line"><span style="--shiki-light:#6A737D;--shiki-dark:#6A737D"># 减法</span></span>
+<span class="line"><span style="--shiki-light:#D73A49;--shiki-dark:#F97583">sub</span><span style="--shiki-light:#24292E;--shiki-dark:#E1E4E8"> x5, x6, x7     </span><span style="--shiki-light:#6A737D;--shiki-dark:#6A737D"> # x5 = x6 - x7</span></span>
+<span class="line"></span>
+<span class="line"><span style="--shiki-light:#6A737D;--shiki-dark:#6A737D"># 乘法（需要 M 扩展）</span></span>
+<span class="line"><span style="--shiki-light:#D73A49;--shiki-dark:#F97583">mul</span><span style="--shiki-light:#24292E;--shiki-dark:#E1E4E8"> x5, x6, x7     </span><span style="--shiki-light:#6A737D;--shiki-dark:#6A737D"> # x5 = x6 * x7</span></span></code></pre>
+<div class="line-numbers-wrapper" aria-hidden="true"><span class="line-number">1</span><br><span class="line-number">2</span><br><span class="line-number">3</span><br><span class="line-number">4</span><br><span class="line-number">5</span><br><span class="line-number">6</span><br><span class="line-number">7</span><br><span class="line-number">8</span><br><span class="line-number">9</span><br><span class="line-number">10</span><br><span class="line-number">11</span><br></div></div><h3 id="逻辑指令" tabindex="-1">逻辑指令 <a class="header-anchor" href="#逻辑指令" aria-label="Permalink to &quot;逻辑指令&quot;">&ZeroWidthSpace;</a></h3>
+<div class="language-asm vp-adaptive-theme line-numbers-mode"><button title="Copy Code" class="copy"></button><span class="lang">asm</span><pre class="shiki shiki-themes github-light github-dark vp-code" tabindex="0" v-pre=""><code><span class="line"><span style="--shiki-light:#6A737D;--shiki-dark:#6A737D"># 与操作</span></span>
+<span class="line"><span style="--shiki-light:#D73A49;--shiki-dark:#F97583">and</span><span style="--shiki-light:#24292E;--shiki-dark:#E1E4E8"> x5, x6, x7     </span><span style="--shiki-light:#6A737D;--shiki-dark:#6A737D"> # x5 = x6 &#x26; x7</span></span>
+<span class="line"><span style="--shiki-light:#24292E;--shiki-dark:#E1E4E8">andi x5, x6, </span><span style="--shiki-light:#005CC5;--shiki-dark:#79B8FF">0xFF</span><span style="--shiki-light:#6A737D;--shiki-dark:#6A737D">   # x5 = x6 &#x26; 0xFF</span></span>
+<span class="line"></span>
+<span class="line"><span style="--shiki-light:#6A737D;--shiki-dark:#6A737D"># 或操作</span></span>
+<span class="line"><span style="--shiki-light:#D73A49;--shiki-dark:#F97583">or</span><span style="--shiki-light:#24292E;--shiki-dark:#E1E4E8"> x5, x6, x7      </span><span style="--shiki-light:#6A737D;--shiki-dark:#6A737D"> # x5 = x6 | x7</span></span>
+<span class="line"></span>
+<span class="line"><span style="--shiki-light:#6A737D;--shiki-dark:#6A737D"># 异或</span></span>
+<span class="line"><span style="--shiki-light:#D73A49;--shiki-dark:#F97583">xor</span><span style="--shiki-light:#24292E;--shiki-dark:#E1E4E8"> x5, x6, x7     </span><span style="--shiki-light:#6A737D;--shiki-dark:#6A737D"> # x5 = x6 ^ x7</span></span>
+<span class="line"></span>
+<span class="line"><span style="--shiki-light:#6A737D;--shiki-dark:#6A737D"># 移位</span></span>
+<span class="line"><span style="--shiki-light:#24292E;--shiki-dark:#E1E4E8">slli x5, x6, </span><span style="--shiki-light:#005CC5;--shiki-dark:#79B8FF">3</span><span style="--shiki-light:#6A737D;--shiki-dark:#6A737D">      # x5 = x6 &#x3C;&#x3C; 3（逻辑左移）</span></span>
+<span class="line"><span style="--shiki-light:#24292E;--shiki-dark:#E1E4E8">srli x5, x6, </span><span style="--shiki-light:#005CC5;--shiki-dark:#79B8FF">2</span><span style="--shiki-light:#6A737D;--shiki-dark:#6A737D">      # x5 = x6 >> 2（逻辑右移）</span></span></code></pre>
+<div class="line-numbers-wrapper" aria-hidden="true"><span class="line-number">1</span><br><span class="line-number">2</span><br><span class="line-number">3</span><br><span class="line-number">4</span><br><span class="line-number">5</span><br><span class="line-number">6</span><br><span class="line-number">7</span><br><span class="line-number">8</span><br><span class="line-number">9</span><br><span class="line-number">10</span><br><span class="line-number">11</span><br><span class="line-number">12</span><br><span class="line-number">13</span><br></div></div><h3 id="内存访问" tabindex="-1">内存访问 <a class="header-anchor" href="#内存访问" aria-label="Permalink to &quot;内存访问&quot;">&ZeroWidthSpace;</a></h3>
+<div class="language-asm vp-adaptive-theme line-numbers-mode"><button title="Copy Code" class="copy"></button><span class="lang">asm</span><pre class="shiki shiki-themes github-light github-dark vp-code" tabindex="0" v-pre=""><code><span class="line"><span style="--shiki-light:#6A737D;--shiki-dark:#6A737D"># 加载字（load word）</span></span>
+<span class="line"><span style="--shiki-light:#24292E;--shiki-dark:#E1E4E8">lw x5, </span><span style="--shiki-light:#005CC5;--shiki-dark:#79B8FF">0</span><span style="--shiki-light:#24292E;--shiki-dark:#E1E4E8">(x6)       </span><span style="--shiki-light:#6A737D;--shiki-dark:#6A737D"> # x5 = Memory[x6 + 0]</span></span>
+<span class="line"></span>
+<span class="line"><span style="--shiki-light:#6A737D;--shiki-dark:#6A737D"># 存储字（store word）</span></span>
+<span class="line"><span style="--shiki-light:#24292E;--shiki-dark:#E1E4E8">sw x5, </span><span style="--shiki-light:#005CC5;--shiki-dark:#79B8FF">4</span><span style="--shiki-light:#24292E;--shiki-dark:#E1E4E8">(x6)       </span><span style="--shiki-light:#6A737D;--shiki-dark:#6A737D"> # Memory[x6 + 4] = x5</span></span>
+<span class="line"></span>
+<span class="line"><span style="--shiki-light:#6A737D;--shiki-dark:#6A737D"># 加载字节</span></span>
+<span class="line"><span style="--shiki-light:#24292E;--shiki-dark:#E1E4E8">lb x5, </span><span style="--shiki-light:#005CC5;--shiki-dark:#79B8FF">0</span><span style="--shiki-light:#24292E;--shiki-dark:#E1E4E8">(x6)       </span><span style="--shiki-light:#6A737D;--shiki-dark:#6A737D"> # 加载字节（符号扩展）</span></span>
+<span class="line"><span style="--shiki-light:#24292E;--shiki-dark:#E1E4E8">lbu x5, </span><span style="--shiki-light:#005CC5;--shiki-dark:#79B8FF">0</span><span style="--shiki-light:#24292E;--shiki-dark:#E1E4E8">(x6)      </span><span style="--shiki-light:#6A737D;--shiki-dark:#6A737D"> # 加载字节（零扩展）</span></span></code></pre>
+<div class="line-numbers-wrapper" aria-hidden="true"><span class="line-number">1</span><br><span class="line-number">2</span><br><span class="line-number">3</span><br><span class="line-number">4</span><br><span class="line-number">5</span><br><span class="line-number">6</span><br><span class="line-number">7</span><br><span class="line-number">8</span><br><span class="line-number">9</span><br></div></div><h3 id="控制流" tabindex="-1">控制流 <a class="header-anchor" href="#控制流" aria-label="Permalink to &quot;控制流&quot;">&ZeroWidthSpace;</a></h3>
+<div class="language-asm vp-adaptive-theme line-numbers-mode"><button title="Copy Code" class="copy"></button><span class="lang">asm</span><pre class="shiki shiki-themes github-light github-dark vp-code" tabindex="0" v-pre=""><code><span class="line"><span style="--shiki-light:#6A737D;--shiki-dark:#6A737D"># 无条件跳转</span></span>
+<span class="line"><span style="--shiki-light:#24292E;--shiki-dark:#E1E4E8">j label            </span><span style="--shiki-light:#6A737D;--shiki-dark:#6A737D"> # 跳转到 label</span></span>
+<span class="line"><span style="--shiki-light:#24292E;--shiki-dark:#E1E4E8">jal ra, function   </span><span style="--shiki-light:#6A737D;--shiki-dark:#6A737D"> # 跳转并链接（函数调用）</span></span>
+<span class="line"></span>
+<span class="line"><span style="--shiki-light:#6A737D;--shiki-dark:#6A737D"># 条件分支</span></span>
+<span class="line"><span style="--shiki-light:#24292E;--shiki-dark:#E1E4E8">beq x5, x6, label  </span><span style="--shiki-light:#6A737D;--shiki-dark:#6A737D"> # 如果 x5 == x6 则跳转</span></span>
+<span class="line"><span style="--shiki-light:#24292E;--shiki-dark:#E1E4E8">bne x5, x6, label  </span><span style="--shiki-light:#6A737D;--shiki-dark:#6A737D"> # 如果 x5 != x6 则跳转</span></span>
+<span class="line"><span style="--shiki-light:#24292E;--shiki-dark:#E1E4E8">blt x5, x6, label  </span><span style="--shiki-light:#6A737D;--shiki-dark:#6A737D"> # 如果 x5 &#x3C; x6 则跳转（有符号）</span></span>
+<span class="line"><span style="--shiki-light:#24292E;--shiki-dark:#E1E4E8">bge x5, x6, label  </span><span style="--shiki-light:#6A737D;--shiki-dark:#6A737D"> # 如果 x5 >= x6 则跳转（有符号）</span></span></code></pre>
+<div class="line-numbers-wrapper" aria-hidden="true"><span class="line-number">1</span><br><span class="line-number">2</span><br><span class="line-number">3</span><br><span class="line-number">4</span><br><span class="line-number">5</span><br><span class="line-number">6</span><br><span class="line-number">7</span><br><span class="line-number">8</span><br><span class="line-number">9</span><br></div></div><h2 id="实战示例" tabindex="-1">实战示例 <a class="header-anchor" href="#实战示例" aria-label="Permalink to &quot;实战示例&quot;">&ZeroWidthSpace;</a></h2>
 <h3 id="求和函数" tabindex="-1">求和函数 <a class="header-anchor" href="#求和函数" aria-label="Permalink to &quot;求和函数&quot;">&ZeroWidthSpace;</a></h3>
-<div class="language-assembly vp-adaptive-theme"><button title="Copy Code" class="copy"></button><span class="lang">assembly</span><pre class="shiki shiki-themes github-light github-dark vp-code" tabindex="0" v-pre=""><code><span class="line"><span># int sum(int a, int b) { return a + b; }</span></span>
-<span class="line"><span>sum:</span></span>
-<span class="line"><span>    add a0, a0, a1  # a0 = a0 + a1</span></span>
-<span class="line"><span>    ret             # 返回</span></span>
-<span class="line"><span></span></span>
-<span class="line"><span># 调用</span></span>
-<span class="line"><span>li a0, 5            # a0 = 5</span></span>
-<span class="line"><span>li a1, 3            # a1 = 3</span></span>
-<span class="line"><span>jal ra, sum         # 调用 sum，结果在 a0 中</span></span></code></pre>
-</div><h3 id="数组求和" tabindex="-1">数组求和 <a class="header-anchor" href="#数组求和" aria-label="Permalink to &quot;数组求和&quot;">&ZeroWidthSpace;</a></h3>
-<div class="language-assembly vp-adaptive-theme"><button title="Copy Code" class="copy"></button><span class="lang">assembly</span><pre class="shiki shiki-themes github-light github-dark vp-code" tabindex="0" v-pre=""><code><span class="line"><span># int array_sum(int *arr, int len)</span></span>
-<span class="line"><span>array_sum:</span></span>
-<span class="line"><span>    li t0, 0            # sum = 0</span></span>
-<span class="line"><span>    li t1, 0            # i = 0</span></span>
-<span class="line"><span>loop:</span></span>
-<span class="line"><span>    bge t1, a1, done    # if i >= len, goto done</span></span>
-<span class="line"><span>    </span></span>
-<span class="line"><span>    lw t2, 0(a0)        # t2 = arr[i]</span></span>
-<span class="line"><span>    add t0, t0, t2      # sum += t2</span></span>
-<span class="line"><span>    </span></span>
-<span class="line"><span>    addi a0, a0, 4      # arr++</span></span>
-<span class="line"><span>    addi t1, t1, 1      # i++</span></span>
-<span class="line"><span>    j loop</span></span>
-<span class="line"><span>    </span></span>
-<span class="line"><span>done:</span></span>
-<span class="line"><span>    mv a0, t0           # return sum</span></span>
-<span class="line"><span>    ret</span></span></code></pre>
-</div><h3 id="斐波那契数列" tabindex="-1">斐波那契数列 <a class="header-anchor" href="#斐波那契数列" aria-label="Permalink to &quot;斐波那契数列&quot;">&ZeroWidthSpace;</a></h3>
-<div class="language-assembly vp-adaptive-theme"><button title="Copy Code" class="copy"></button><span class="lang">assembly</span><pre class="shiki shiki-themes github-light github-dark vp-code" tabindex="0" v-pre=""><code><span class="line"><span># int fib(int n)</span></span>
-<span class="line"><span>fib:</span></span>
-<span class="line"><span>    # 保存寄存器</span></span>
-<span class="line"><span>    addi sp, sp, -16</span></span>
-<span class="line"><span>    sw ra, 12(sp)</span></span>
-<span class="line"><span>    sw s0, 8(sp)</span></span>
-<span class="line"><span>    </span></span>
-<span class="line"><span>    # base case: n &#x3C; 2</span></span>
-<span class="line"><span>    li t0, 2</span></span>
-<span class="line"><span>    blt a0, t0, base_case</span></span>
-<span class="line"><span>    </span></span>
-<span class="line"><span>    # 递归: fib(n-1)</span></span>
-<span class="line"><span>    addi s0, a0, 0      # 保存 n</span></span>
-<span class="line"><span>    addi a0, a0, -1</span></span>
-<span class="line"><span>    jal ra, fib</span></span>
-<span class="line"><span>    addi s1, a0, 0      # 保存 fib(n-1)</span></span>
-<span class="line"><span>    </span></span>
-<span class="line"><span>    # 递归: fib(n-2)</span></span>
-<span class="line"><span>    addi a0, s0, -2</span></span>
-<span class="line"><span>    jal ra, fib</span></span>
-<span class="line"><span>    </span></span>
-<span class="line"><span>    # 返回 fib(n-1) + fib(n-2)</span></span>
-<span class="line"><span>    add a0, a0, s1</span></span>
-<span class="line"><span>    j restore</span></span>
-<span class="line"><span>    </span></span>
-<span class="line"><span>base_case:</span></span>
-<span class="line"><span>    # return n</span></span>
-<span class="line"><span>    </span></span>
-<span class="line"><span>restore:</span></span>
-<span class="line"><span>    lw ra, 12(sp)</span></span>
-<span class="line"><span>    lw s0, 8(sp)</span></span>
-<span class="line"><span>    addi sp, sp, 16</span></span>
-<span class="line"><span>    ret</span></span></code></pre>
-</div><h2 id="risc-v-扩展" tabindex="-1">RISC-V 扩展 <a class="header-anchor" href="#risc-v-扩展" aria-label="Permalink to &quot;RISC-V 扩展&quot;">&ZeroWidthSpace;</a></h2>
+<div class="language-asm vp-adaptive-theme line-numbers-mode"><button title="Copy Code" class="copy"></button><span class="lang">asm</span><pre class="shiki shiki-themes github-light github-dark vp-code" tabindex="0" v-pre=""><code><span class="line"><span style="--shiki-light:#6A737D;--shiki-dark:#6A737D"># int sum(int a, int b) { return a + b; }</span></span>
+<span class="line"><span style="--shiki-light:#6F42C1;--shiki-dark:#B392F0">sum:</span></span>
+<span class="line"><span style="--shiki-light:#D73A49;--shiki-dark:#F97583">    add</span><span style="--shiki-light:#24292E;--shiki-dark:#E1E4E8"> a0, a0, a1 </span><span style="--shiki-light:#6A737D;--shiki-dark:#6A737D"> # a0 = a0 + a1</span></span>
+<span class="line"><span style="--shiki-light:#D73A49;--shiki-dark:#F97583">    ret</span><span style="--shiki-light:#6A737D;--shiki-dark:#6A737D">             # 返回</span></span>
+<span class="line"></span>
+<span class="line"><span style="--shiki-light:#6A737D;--shiki-dark:#6A737D"># 调用</span></span>
+<span class="line"><span style="--shiki-light:#24292E;--shiki-dark:#E1E4E8">li a0, </span><span style="--shiki-light:#005CC5;--shiki-dark:#79B8FF">5</span><span style="--shiki-light:#6A737D;--shiki-dark:#6A737D">            # a0 = 5</span></span>
+<span class="line"><span style="--shiki-light:#24292E;--shiki-dark:#E1E4E8">li a1, </span><span style="--shiki-light:#005CC5;--shiki-dark:#79B8FF">3</span><span style="--shiki-light:#6A737D;--shiki-dark:#6A737D">            # a1 = 3</span></span>
+<span class="line"><span style="--shiki-light:#24292E;--shiki-dark:#E1E4E8">jal ra, sum        </span><span style="--shiki-light:#6A737D;--shiki-dark:#6A737D"> # 调用 sum，结果在 a0 中</span></span></code></pre>
+<div class="line-numbers-wrapper" aria-hidden="true"><span class="line-number">1</span><br><span class="line-number">2</span><br><span class="line-number">3</span><br><span class="line-number">4</span><br><span class="line-number">5</span><br><span class="line-number">6</span><br><span class="line-number">7</span><br><span class="line-number">8</span><br><span class="line-number">9</span><br></div></div><h3 id="数组求和" tabindex="-1">数组求和 <a class="header-anchor" href="#数组求和" aria-label="Permalink to &quot;数组求和&quot;">&ZeroWidthSpace;</a></h3>
+<div class="language-asm vp-adaptive-theme line-numbers-mode"><button title="Copy Code" class="copy"></button><span class="lang">asm</span><pre class="shiki shiki-themes github-light github-dark vp-code" tabindex="0" v-pre=""><code><span class="line"><span style="--shiki-light:#6A737D;--shiki-dark:#6A737D"># int array_sum(int *arr, int len)</span></span>
+<span class="line"><span style="--shiki-light:#6F42C1;--shiki-dark:#B392F0">array_sum:</span></span>
+<span class="line"><span style="--shiki-light:#24292E;--shiki-dark:#E1E4E8">    li t0, </span><span style="--shiki-light:#005CC5;--shiki-dark:#79B8FF">0</span><span style="--shiki-light:#6A737D;--shiki-dark:#6A737D">            # sum = 0</span></span>
+<span class="line"><span style="--shiki-light:#24292E;--shiki-dark:#E1E4E8">    li t1, </span><span style="--shiki-light:#005CC5;--shiki-dark:#79B8FF">0</span><span style="--shiki-light:#6A737D;--shiki-dark:#6A737D">            # i = 0</span></span>
+<span class="line"><span style="--shiki-light:#D73A49;--shiki-dark:#F97583">loop</span><span style="--shiki-light:#24292E;--shiki-dark:#E1E4E8">:</span></span>
+<span class="line"><span style="--shiki-light:#24292E;--shiki-dark:#E1E4E8">    bge t1, a1, done   </span><span style="--shiki-light:#6A737D;--shiki-dark:#6A737D"> # if i >= len, goto done</span></span>
+<span class="line"><span style="--shiki-light:#24292E;--shiki-dark:#E1E4E8">    </span></span>
+<span class="line"><span style="--shiki-light:#24292E;--shiki-dark:#E1E4E8">    lw t2, </span><span style="--shiki-light:#005CC5;--shiki-dark:#79B8FF">0</span><span style="--shiki-light:#24292E;--shiki-dark:#E1E4E8">(a0)       </span><span style="--shiki-light:#6A737D;--shiki-dark:#6A737D"> # t2 = arr[i]</span></span>
+<span class="line"><span style="--shiki-light:#D73A49;--shiki-dark:#F97583">    add</span><span style="--shiki-light:#24292E;--shiki-dark:#E1E4E8"> t0, t0, t2     </span><span style="--shiki-light:#6A737D;--shiki-dark:#6A737D"> # sum += t2</span></span>
+<span class="line"><span style="--shiki-light:#24292E;--shiki-dark:#E1E4E8">    </span></span>
+<span class="line"><span style="--shiki-light:#24292E;--shiki-dark:#E1E4E8">    addi a0, a0, </span><span style="--shiki-light:#005CC5;--shiki-dark:#79B8FF">4</span><span style="--shiki-light:#6A737D;--shiki-dark:#6A737D">      # arr++</span></span>
+<span class="line"><span style="--shiki-light:#24292E;--shiki-dark:#E1E4E8">    addi t1, t1, </span><span style="--shiki-light:#005CC5;--shiki-dark:#79B8FF">1</span><span style="--shiki-light:#6A737D;--shiki-dark:#6A737D">      # i++</span></span>
+<span class="line"><span style="--shiki-light:#24292E;--shiki-dark:#E1E4E8">    j </span><span style="--shiki-light:#D73A49;--shiki-dark:#F97583">loop</span></span>
+<span class="line"><span style="--shiki-light:#24292E;--shiki-dark:#E1E4E8">    </span></span>
+<span class="line"><span style="--shiki-light:#6F42C1;--shiki-dark:#B392F0">done:</span></span>
+<span class="line"><span style="--shiki-light:#24292E;--shiki-dark:#E1E4E8">    mv a0, t0          </span><span style="--shiki-light:#6A737D;--shiki-dark:#6A737D"> # return sum</span></span>
+<span class="line"><span style="--shiki-light:#D73A49;--shiki-dark:#F97583">    ret</span></span></code></pre>
+<div class="line-numbers-wrapper" aria-hidden="true"><span class="line-number">1</span><br><span class="line-number">2</span><br><span class="line-number">3</span><br><span class="line-number">4</span><br><span class="line-number">5</span><br><span class="line-number">6</span><br><span class="line-number">7</span><br><span class="line-number">8</span><br><span class="line-number">9</span><br><span class="line-number">10</span><br><span class="line-number">11</span><br><span class="line-number">12</span><br><span class="line-number">13</span><br><span class="line-number">14</span><br><span class="line-number">15</span><br><span class="line-number">16</span><br><span class="line-number">17</span><br></div></div><h3 id="斐波那契数列" tabindex="-1">斐波那契数列 <a class="header-anchor" href="#斐波那契数列" aria-label="Permalink to &quot;斐波那契数列&quot;">&ZeroWidthSpace;</a></h3>
+<div class="language-asm vp-adaptive-theme line-numbers-mode"><button title="Copy Code" class="copy"></button><span class="lang">asm</span><pre class="shiki shiki-themes github-light github-dark vp-code" tabindex="0" v-pre=""><code><span class="line"><span style="--shiki-light:#6A737D;--shiki-dark:#6A737D"># int fib(int n)</span></span>
+<span class="line"><span style="--shiki-light:#6F42C1;--shiki-dark:#B392F0">fib:</span></span>
+<span class="line"><span style="--shiki-light:#6A737D;--shiki-dark:#6A737D">    # 保存寄存器</span></span>
+<span class="line"><span style="--shiki-light:#24292E;--shiki-dark:#E1E4E8">    addi </span><span style="--shiki-light:#005CC5;--shiki-dark:#79B8FF">sp</span><span style="--shiki-light:#24292E;--shiki-dark:#E1E4E8">, </span><span style="--shiki-light:#005CC5;--shiki-dark:#79B8FF">sp</span><span style="--shiki-light:#24292E;--shiki-dark:#E1E4E8">, -</span><span style="--shiki-light:#005CC5;--shiki-dark:#79B8FF">16</span></span>
+<span class="line"><span style="--shiki-light:#24292E;--shiki-dark:#E1E4E8">    sw ra, </span><span style="--shiki-light:#005CC5;--shiki-dark:#79B8FF">12</span><span style="--shiki-light:#24292E;--shiki-dark:#E1E4E8">(</span><span style="--shiki-light:#005CC5;--shiki-dark:#79B8FF">sp</span><span style="--shiki-light:#24292E;--shiki-dark:#E1E4E8">)</span></span>
+<span class="line"><span style="--shiki-light:#24292E;--shiki-dark:#E1E4E8">    sw s0, </span><span style="--shiki-light:#005CC5;--shiki-dark:#79B8FF">8</span><span style="--shiki-light:#24292E;--shiki-dark:#E1E4E8">(</span><span style="--shiki-light:#005CC5;--shiki-dark:#79B8FF">sp</span><span style="--shiki-light:#24292E;--shiki-dark:#E1E4E8">)</span></span>
+<span class="line"><span style="--shiki-light:#24292E;--shiki-dark:#E1E4E8">    </span></span>
+<span class="line"><span style="--shiki-light:#6A737D;--shiki-dark:#6A737D">    # base case: n &#x3C; 2</span></span>
+<span class="line"><span style="--shiki-light:#24292E;--shiki-dark:#E1E4E8">    li t0, </span><span style="--shiki-light:#005CC5;--shiki-dark:#79B8FF">2</span></span>
+<span class="line"><span style="--shiki-light:#24292E;--shiki-dark:#E1E4E8">    blt a0, t0, base_case</span></span>
+<span class="line"><span style="--shiki-light:#24292E;--shiki-dark:#E1E4E8">    </span></span>
+<span class="line"><span style="--shiki-light:#6A737D;--shiki-dark:#6A737D">    # 递归: fib(n-1)</span></span>
+<span class="line"><span style="--shiki-light:#24292E;--shiki-dark:#E1E4E8">    addi s0, a0, </span><span style="--shiki-light:#005CC5;--shiki-dark:#79B8FF">0</span><span style="--shiki-light:#6A737D;--shiki-dark:#6A737D">      # 保存 n</span></span>
+<span class="line"><span style="--shiki-light:#24292E;--shiki-dark:#E1E4E8">    addi a0, a0, -</span><span style="--shiki-light:#005CC5;--shiki-dark:#79B8FF">1</span></span>
+<span class="line"><span style="--shiki-light:#24292E;--shiki-dark:#E1E4E8">    jal ra, fib</span></span>
+<span class="line"><span style="--shiki-light:#24292E;--shiki-dark:#E1E4E8">    addi s1, a0, </span><span style="--shiki-light:#005CC5;--shiki-dark:#79B8FF">0</span><span style="--shiki-light:#6A737D;--shiki-dark:#6A737D">      # 保存 fib(n-1)</span></span>
+<span class="line"><span style="--shiki-light:#24292E;--shiki-dark:#E1E4E8">    </span></span>
+<span class="line"><span style="--shiki-light:#6A737D;--shiki-dark:#6A737D">    # 递归: fib(n-2)</span></span>
+<span class="line"><span style="--shiki-light:#24292E;--shiki-dark:#E1E4E8">    addi a0, s0, -</span><span style="--shiki-light:#005CC5;--shiki-dark:#79B8FF">2</span></span>
+<span class="line"><span style="--shiki-light:#24292E;--shiki-dark:#E1E4E8">    jal ra, fib</span></span>
+<span class="line"><span style="--shiki-light:#24292E;--shiki-dark:#E1E4E8">    </span></span>
+<span class="line"><span style="--shiki-light:#6A737D;--shiki-dark:#6A737D">    # 返回 fib(n-1) + fib(n-2)</span></span>
+<span class="line"><span style="--shiki-light:#D73A49;--shiki-dark:#F97583">    add</span><span style="--shiki-light:#24292E;--shiki-dark:#E1E4E8"> a0, a0, s1</span></span>
+<span class="line"><span style="--shiki-light:#24292E;--shiki-dark:#E1E4E8">    j restore</span></span>
+<span class="line"><span style="--shiki-light:#24292E;--shiki-dark:#E1E4E8">    </span></span>
+<span class="line"><span style="--shiki-light:#6F42C1;--shiki-dark:#B392F0">base_case:</span></span>
+<span class="line"><span style="--shiki-light:#6A737D;--shiki-dark:#6A737D">    # return n</span></span>
+<span class="line"><span style="--shiki-light:#24292E;--shiki-dark:#E1E4E8">    </span></span>
+<span class="line"><span style="--shiki-light:#6F42C1;--shiki-dark:#B392F0">restore:</span></span>
+<span class="line"><span style="--shiki-light:#24292E;--shiki-dark:#E1E4E8">    lw ra, </span><span style="--shiki-light:#005CC5;--shiki-dark:#79B8FF">12</span><span style="--shiki-light:#24292E;--shiki-dark:#E1E4E8">(</span><span style="--shiki-light:#005CC5;--shiki-dark:#79B8FF">sp</span><span style="--shiki-light:#24292E;--shiki-dark:#E1E4E8">)</span></span>
+<span class="line"><span style="--shiki-light:#24292E;--shiki-dark:#E1E4E8">    lw s0, </span><span style="--shiki-light:#005CC5;--shiki-dark:#79B8FF">8</span><span style="--shiki-light:#24292E;--shiki-dark:#E1E4E8">(</span><span style="--shiki-light:#005CC5;--shiki-dark:#79B8FF">sp</span><span style="--shiki-light:#24292E;--shiki-dark:#E1E4E8">)</span></span>
+<span class="line"><span style="--shiki-light:#24292E;--shiki-dark:#E1E4E8">    addi </span><span style="--shiki-light:#005CC5;--shiki-dark:#79B8FF">sp</span><span style="--shiki-light:#24292E;--shiki-dark:#E1E4E8">, </span><span style="--shiki-light:#005CC5;--shiki-dark:#79B8FF">sp</span><span style="--shiki-light:#24292E;--shiki-dark:#E1E4E8">, </span><span style="--shiki-light:#005CC5;--shiki-dark:#79B8FF">16</span></span>
+<span class="line"><span style="--shiki-light:#D73A49;--shiki-dark:#F97583">    ret</span></span></code></pre>
+<div class="line-numbers-wrapper" aria-hidden="true"><span class="line-number">1</span><br><span class="line-number">2</span><br><span class="line-number">3</span><br><span class="line-number">4</span><br><span class="line-number">5</span><br><span class="line-number">6</span><br><span class="line-number">7</span><br><span class="line-number">8</span><br><span class="line-number">9</span><br><span class="line-number">10</span><br><span class="line-number">11</span><br><span class="line-number">12</span><br><span class="line-number">13</span><br><span class="line-number">14</span><br><span class="line-number">15</span><br><span class="line-number">16</span><br><span class="line-number">17</span><br><span class="line-number">18</span><br><span class="line-number">19</span><br><span class="line-number">20</span><br><span class="line-number">21</span><br><span class="line-number">22</span><br><span class="line-number">23</span><br><span class="line-number">24</span><br><span class="line-number">25</span><br><span class="line-number">26</span><br><span class="line-number">27</span><br><span class="line-number">28</span><br><span class="line-number">29</span><br><span class="line-number">30</span><br><span class="line-number">31</span><br><span class="line-number">32</span><br><span class="line-number">33</span><br></div></div><h2 id="risc-v-扩展" tabindex="-1">RISC-V 扩展 <a class="header-anchor" href="#risc-v-扩展" aria-label="Permalink to &quot;RISC-V 扩展&quot;">&ZeroWidthSpace;</a></h2>
 <h3 id="标准扩展" tabindex="-1">标准扩展 <a class="header-anchor" href="#标准扩展" aria-label="Permalink to &quot;标准扩展&quot;">&ZeroWidthSpace;</a></h3>
 <ul>
 <li><strong>I</strong> - 基础整数指令集（必需）</li>

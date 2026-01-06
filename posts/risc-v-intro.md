@@ -47,19 +47,19 @@ RISC-V 有 32 个通用寄存器（RV32/RV64）：
 ### 关键寄存器说明
 
 **零寄存器（x0/zero）**
-```assembly
+```asm
 addi x5, x0, 10     # x5 = 0 + 10 = 10
 add x6, x0, x0      # x6 = 0（清零操作）
 ```
 
 **返回地址（x1/ra）**
-```assembly
+```asm
 jal ra, function    # 调用函数，返回地址保存到 ra
 jalr x0, ra, 0      # 返回（等价于 ret）
 ```
 
 **栈指针（x2/sp）**
-```assembly
+```asm
 addi sp, sp, -16    # 分配栈空间
 sw ra, 12(sp)       # 保存返回地址
 ```
@@ -68,7 +68,7 @@ sw ra, 12(sp)       # 保存返回地址
 
 ### 算术指令
 
-```assembly
+```asm
 # 立即数加法
 addi x5, x6, 100    # x5 = x6 + 100
 
@@ -84,7 +84,7 @@ mul x5, x6, x7      # x5 = x6 * x7
 
 ### 逻辑指令
 
-```assembly
+```asm
 # 与操作
 and x5, x6, x7      # x5 = x6 & x7
 andi x5, x6, 0xFF   # x5 = x6 & 0xFF
@@ -102,7 +102,7 @@ srli x5, x6, 2      # x5 = x6 >> 2（逻辑右移）
 
 ### 内存访问
 
-```assembly
+```asm
 # 加载字（load word）
 lw x5, 0(x6)        # x5 = Memory[x6 + 0]
 
@@ -116,7 +116,7 @@ lbu x5, 0(x6)       # 加载字节（零扩展）
 
 ### 控制流
 
-```assembly
+```asm
 # 无条件跳转
 j label             # 跳转到 label
 jal ra, function    # 跳转并链接（函数调用）
@@ -132,7 +132,7 @@ bge x5, x6, label   # 如果 x5 >= x6 则跳转（有符号）
 
 ### 求和函数
 
-```assembly
+```asm
 # int sum(int a, int b) { return a + b; }
 sum:
     add a0, a0, a1  # a0 = a0 + a1
@@ -146,7 +146,7 @@ jal ra, sum         # 调用 sum，结果在 a0 中
 
 ### 数组求和
 
-```assembly
+```asm
 # int array_sum(int *arr, int len)
 array_sum:
     li t0, 0            # sum = 0
@@ -168,7 +168,7 @@ done:
 
 ### 斐波那契数列
 
-```assembly
+```asm
 # int fib(int n)
 fib:
     # 保存寄存器

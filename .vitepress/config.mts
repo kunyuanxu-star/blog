@@ -23,6 +23,12 @@ export default defineConfig({
       provider: 'local'
     },
 
+    // 文章目录导航
+    outline: {
+      level: [2, 3], // 显示 h2 和 h3 标题
+      label: '目录' // 侧边栏标题
+    },
+
     // 自定义配置：个人信息
     userBio: {
       name: 'Kunyuan Xu',
@@ -39,10 +45,41 @@ export default defineConfig({
     ['meta', { name: 'theme-color', content: '#6366f1' }],
     ['meta', { property: 'og:type', content: 'website' }],
     ['meta', { property: 'og:site_name', content: 'Kunyuan Xu Blog' }],
+    // Google Analytics
+    // 更换为你的 GA 追踪 ID: https://analytics.google.com/
+    ['script', { async: '', src: 'https://www.googletagmanager.com/gtag/js?id=G-XXXXXXXXXX' }],
+    ['script', {}, `window.dataLayer = window.dataLayer || [];
+      function gtag(){dataLayer.push(arguments);}
+      gtag('js', new Date());
+      gtag('config', 'G-XXXXXXXXXX');`]
   ],
 
   sitemap: {
     hostname: 'https://kunyuanxu-star.github.io/blog/'
+  },
+
+  markdown: {
+    lineNumbers: true, // 显示代码行号
+    theme: {
+      light: 'github-light',
+      dark: 'github-dark'
+    },
+    // 启用代码块的复制按钮（VitePress 内置功能）
+    codeTransformers: [],
+    // 添加 Assembly 语法高亮支持
+    // 在 Markdown 中使用：```asm 或 ```assembly
+    languages: [
+      'rust',
+      'c',
+      'cpp',
+      'javascript',
+      'typescript',
+      'python',
+      'bash',
+      'json',
+      'yaml',
+      'asm' // Assembly (x86/x64/ARM/RISC-V 通用)
+    ]
   },
 
   lastUpdated: true,

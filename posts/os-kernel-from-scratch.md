@@ -18,7 +18,7 @@ image: https://images.unsplash.com/photo-1518432031352-d6fc5c10da5a?auto=format&
 
 ### 编写引导代码
 
-```assembly
+```asm
 [org 0x7c00]
 [bits 16]
 
@@ -55,7 +55,7 @@ dw 0xaa55
 
 ### 全局描述符表（GDT）
 
-```assembly
+```asm
 gdt_start:
     dq 0x0                  ; null descriptor
 
@@ -84,7 +84,7 @@ gdt_descriptor:
 
 ### 切换到保护模式
 
-```assembly
+```asm
 cli                         ; 关闭中断
 lgdt [gdt_descriptor]       ; 加载 GDT
 mov eax, cr0
