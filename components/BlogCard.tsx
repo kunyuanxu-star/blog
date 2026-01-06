@@ -1,7 +1,6 @@
 'use client';
 
-import Link from 'next/link';
-import { Clock, Tag, ChevronRight } from 'lucide-react';
+import { Clock, Tag } from 'lucide-react';
 import type { BlogPost } from '@/lib/blog';
 
 interface BlogCardProps {
@@ -46,11 +45,9 @@ export default function BlogCard({ post, darkMode }: BlogCardProps) {
               </div>
             </div>
 
-            <Link href={`/blog/${post.slug}`}>
-              <h2 className="text-xl md:text-2xl font-bold mb-3 group-hover:text-indigo-500 transition-colors cursor-pointer">
-                {post.title}
-              </h2>
-            </Link>
+            <h2 className="text-xl md:text-2xl font-bold mb-3 group-hover:text-indigo-500 transition-colors">
+              {post.title}
+            </h2>
 
             <p className={`mb-4 line-clamp-2 ${darkMode ? 'text-slate-400' : 'text-gray-600'}`}>
               {post.excerpt}
@@ -70,20 +67,15 @@ export default function BlogCard({ post, darkMode }: BlogCardProps) {
                 </span>
               ))}
             </div>
-            <Link
-              href={`/blog/${post.slug}`}
-              className={`flex items-center text-sm font-medium transition-colors ${
+            <span
+              className={`flex items-center text-sm font-medium ${
                 darkMode
-                  ? 'text-indigo-400 hover:text-indigo-300'
-                  : 'text-indigo-600 hover:text-indigo-700'
+                  ? 'text-indigo-400'
+                  : 'text-indigo-600'
               }`}
             >
-              Read Article{' '}
-              <ChevronRight
-                size={16}
-                className="ml-1 group-hover:translate-x-1 transition-transform"
-              />
-            </Link>
+              Article Preview
+            </span>
           </div>
         </div>
       </div>
