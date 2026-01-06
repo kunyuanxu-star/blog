@@ -20,16 +20,19 @@ export { data }
 
 export default createContentLoader('posts/*.md', {
   excerpt: true,
+  includeSrc: true, // 开启源文件内容加载，用于准确计算阅读时间
   transform(raw): Post[] {
     return raw
-      .map(({ url, frontmatter, excerpt }) => ({
+      .map(({ url, frontmatter, excerpt, src }) => ({
         title: frontmatter.title || 'Untitled',
         url,
         excerpt: excerpt || frontmatter.excerpt || '',
         date: formatDate(frontmatter.date),
         category: frontmatter.category || 'Uncategorized',
         tags: frontmatter.tags || [],
-        readTime: frontmatter.readTime || calculateReadTime(excerpt || ''),
+        // 使用全文 (src) 计算阅读时间，而不是摘要 (excerpt)
+        // 如果 frontmatter 中已指定 readTime，则优先使用
+        readTime: frontmatter.readTime || calculateReadTime(src || excerpt || ''),
         image: frontmatter.image
       }))
       .sort((a, b) => b.date.time - a.date.time)
