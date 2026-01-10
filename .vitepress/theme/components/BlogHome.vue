@@ -81,7 +81,7 @@
         </div>
 
         <!-- Blog Posts -->
-        <div class="grid gap-8">
+        <div ref="postsListRef" class="grid gap-8">
           <article
             v-for="post in paginatedPosts"
             :key="post.slug"
@@ -236,6 +236,7 @@ const selectedTag = ref<string | null>(null)
 // 分页配置
 const currentPage = ref(1)
 const pageSize = 10
+const postsListRef = ref<HTMLElement | null>(null)
 
 // 使用自动加载的文章数据
 const blogPosts = computed<Post[]>(() => posts)
@@ -287,8 +288,11 @@ const handleTagClick = (tag: string) => {
 const goToPage = (page: number) => {
   if (page >= 1 && page <= totalPages.value) {
     currentPage.value = page
-    // 滚动到顶部
-    window.scrollTo({ top: 0, behavior: 'smooth' })
+    // 滚动到列表顶部，预留 100px 的 header 高度
+    if (postsListRef.value) {
+      const top = postsListRef.value.getBoundingClientRect().top + window.scrollY - 100
+      window.scrollTo({ top, behavior: 'smooth' })
+    }
   }
 }
 </script>

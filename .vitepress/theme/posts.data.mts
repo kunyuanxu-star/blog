@@ -13,6 +13,11 @@ export interface Post {
   tags: string[]
   readTime: string
   image?: string
+  series?: {
+    name: string
+    order: number
+  }
+  draft?: boolean
 }
 
 declare const data: Post[]
@@ -33,8 +38,15 @@ export default createContentLoader('posts/*.md', {
         // 使用全文 (src) 计算阅读时间，而不是摘要 (excerpt)
         // 如果 frontmatter 中已指定 readTime，则优先使用
         readTime: frontmatter.readTime || calculateReadTime(src || excerpt || ''),
-        image: frontmatter.image
+        image: frontmatter.image,
+        series: frontmatter.series ? {
+          name: frontmatter.series.name || frontmatter.series,
+          order: frontmatter.series.order || 1
+        } : undefined,
+        draft: frontmatter.draft || false
       }))
+      // 过滤草稿（生产环境）
+      .filter(post => !post.draft || process.env.NODE_ENV === 'development')
       .sort((a, b) => b.date.time - a.date.time)
   }
 })
