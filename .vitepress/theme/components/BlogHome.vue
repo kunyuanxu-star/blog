@@ -83,7 +83,7 @@
         <!-- Blog Posts -->
         <div class="grid gap-8">
           <article
-            v-for="post in filteredPosts"
+            v-for="post in paginatedPosts"
             :key="post.slug"
             class="group rounded-2xl overflow-hidden border transition-all duration-300 hover:shadow-xl bg-white dark:bg-slate-800 border-gray-200 dark:border-slate-700 hover:border-indigo-200 dark:hover:border-slate-600 shadow-sm"
           >
@@ -160,6 +160,59 @@
             </svg>
             <p class="text-lg text-gray-400 dark:text-slate-500">No posts found matching your search.</p>
           </div>
+
+          <!-- 分页导航 -->
+          <nav v-if="totalPages > 1" class="mt-12 flex justify-center items-center gap-2">
+            <button
+              @click="goToPage(currentPage - 1)"
+              :disabled="currentPage === 1"
+              :class="[
+                'p-2 rounded-lg transition-all',
+                currentPage === 1
+                  ? 'text-gray-300 dark:text-slate-600 cursor-not-allowed'
+                  : 'text-indigo-600 dark:text-indigo-400 hover:bg-indigo-50 dark:hover:bg-slate-700'
+              ]"
+              aria-label="Previous page"
+            >
+              <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 19l-7-7 7-7"/>
+              </svg>
+            </button>
+
+            <div class="flex gap-2">
+              <button
+                v-for="page in totalPages"
+                :key="page"
+                @click="goToPage(page)"
+                :class="[
+                  'px-4 py-2 rounded-lg font-medium transition-all',
+                  currentPage === page
+                    ? 'bg-indigo-600 dark:bg-indigo-500 text-white'
+                    : 'bg-white dark:bg-slate-800 text-gray-700 dark:text-slate-300 hover:bg-indigo-50 dark:hover:bg-slate-700 border border-gray-200 dark:border-slate-700'
+                ]"
+                :aria-label="`Go to page ${page}`"
+                :aria-current="currentPage === page ? 'page' : undefined"
+              >
+                {{ page }}
+              </button>
+            </div>
+
+            <button
+              @click="goToPage(currentPage + 1)"
+              :disabled="currentPage === totalPages"
+              :class="[
+                'p-2 rounded-lg transition-all',
+                currentPage === totalPages
+                  ? 'text-gray-300 dark:text-slate-600 cursor-not-allowed'
+                  : 'text-indigo-600 dark:text-indigo-400 hover:bg-indigo-50 dark:hover:bg-slate-700'
+              ]"
+              aria-label="Next page"
+            >
+              <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7"/>
+              </svg>
+            </button>
+          </nav>
         </div>
       </main>
     </div>
@@ -167,7 +220,7 @@
 </template>
 
 <script setup lang="ts">
-import { ref, computed } from 'vue'
+import { ref, computed, watch } from 'vue'
 import { useData } from 'vitepress'
 import { data as posts } from '../posts.data.mts'
 import type { Post } from '../posts.data.mts'
@@ -179,6 +232,10 @@ const techStack = computed(() => userBio.value.techStack || [])
 const searchTerm = ref('')
 const selectedCategory = ref('All')
 const selectedTag = ref<string | null>(null)
+
+// 分页配置
+const currentPage = ref(1)
+const pageSize = 10
 
 // 使用自动加载的文章数据
 const blogPosts = computed<Post[]>(() => posts)
@@ -198,6 +255,22 @@ const filteredPosts = computed(() => {
   })
 })
 
+// 分页后的文章列表
+const paginatedPosts = computed(() => {
+  const start = (currentPage.value - 1) * pageSize
+  return filteredPosts.value.slice(start, start + pageSize)
+})
+
+// 总页数
+const totalPages = computed(() => {
+  return Math.ceil(filteredPosts.value.length / pageSize)
+})
+
+// 当筛选条件改变时，重置到第一页
+watch([searchTerm, selectedCategory, selectedTag], () => {
+  currentPage.value = 1
+})
+
 // 标签点击处理
 const handleTagClick = (tag: string) => {
   if (selectedTag.value === tag) {
@@ -207,6 +280,15 @@ const handleTagClick = (tag: string) => {
     selectedTag.value = tag
     // 点击标签时重置分类为 All
     selectedCategory.value = 'All'
+  }
+}
+
+// 分页导航
+const goToPage = (page: number) => {
+  if (page >= 1 && page <= totalPages.value) {
+    currentPage.value = page
+    // 滚动到顶部
+    window.scrollTo({ top: 0, behavior: 'smooth' })
   }
 }
 </script>
