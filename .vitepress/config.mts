@@ -45,6 +45,18 @@ export default defineConfig({
     ['meta', { name: 'theme-color', content: '#6366f1' }],
     ['meta', { property: 'og:type', content: 'website' }],
     ['meta', { property: 'og:site_name', content: 'Kunyuan Xu Blog' }],
+    ['meta', { property: 'og:title', content: 'Kunyuan Xu Blog' }],
+    ['meta', { property: 'og:description', content: 'System Software Developer. Enthusiast of Rust & OS Kernels.' }],
+    ['meta', { property: 'og:image', content: 'https://kunyuanxu-star.github.io/blog/og-image.png' }],
+    ['meta', { name: 'twitter:card', content: 'summary_large_image' }],
+    ['meta', { name: 'twitter:title', content: 'Kunyuan Xu Blog' }],
+    ['meta', { name: 'twitter:description', content: 'System Software Developer. Enthusiast of Rust & OS Kernels.' }],
+    ['meta', { name: 'twitter:image', content: 'https://kunyuanxu-star.github.io/blog/og-image.png' }],
+    // Umami Analytics (隐私友好的开源统计)
+    // 1. 在 https://umami.is 注册账号并创建 website
+    // 2. 替换 YOUR_UMAMI_WEBSITE_ID 为你的 Website ID
+    ['script', { async: true, src: 'https://cloud.umami.is/script.js', defer: true }],
+    ['data-website-id', { content: 'YOUR_UMAMI_WEBSITE_ID' }],
   ],
 
   sitemap: {
